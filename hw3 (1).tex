@@ -4,16 +4,17 @@
 % Boston, MA 02115
 
 % Do not manipulate any of the settings
-\documentclass[twoside]{article}
+\documentclass[12pt,twoside]{article}
 
 \usepackage{epsfig}
 \usepackage{natbib}
 \usepackage{units}
 \usepackage{amssymb}
 \usepackage{amsmath}
-\usepackage{babel}
 
-
+\usepackage[margin=1in]{geometry} 
+\usepackage{setspace} 
+\setstretch{1}
 \setlength{\oddsidemargin}{0 in}
 \setlength{\evensidemargin}{0 in}
 \setlength{\topmargin}{-0.6 in}
@@ -74,7 +75,7 @@ Our project, however, is distinct from the others in a few regards. The first, i
 
 We will be generating our own data for this experiment as our project will rely heavily on simulations where agents invoke a set of actions and socialize across our network. As they spread information, there attributes will be updated. For example, as a fake-news agent spreads misinformation and it tricks an agent into believing it its trust-level will increase which will affect the next iteration as it now has more influence in the network.
 
-In order to carry out this experiment, we plan to create a social network using a graph structure where we will have various agents representing real-news, fake-news, fact-checkers and regular agents. Real-news agents are responsible for sharing factual based information. Fake-news will do the opposite, spreading fake information. Fact-checkers will verify both real and fake news that gets sent across the network, and regular agents will be a consumer of all types of news. These agents will be the nodes in our graph, where edges represent a social relationship. With this type of envirionment, we can construct graph networks that allow us to change how many of each type of agent we want introduced to the network to see how a differing size of agents may change the outcome. Agents will "communicate" with each other by passing news around where each agent will have to decide to trust or not trust the source.
+In order to carry out this experiment, we plan to create a social network using a graph structure where we will have various agents representing real-news, fake-news, fact-checkers and regular agents. Real-news agents are responsible for sharing factual based information. Fake-news will do the opposite, spreading fake information. Fact-checkers will verify both real and fake news that gets sent across the network, and regular agents will be a consumer of all types of news. These agents will be the nodes in our graph, where edges represent a social relationship. With this type of envirionment, we can construct graph networks that allow us to change how many of each type of agent we want introduced to the network to see how a differing size of agents may change the outcome. Agents will "communicate" with each other by passing news around where each agent will have to decide to trust or not trust the source. Agents will be limited to a set number of interactions they can have per iteration per news source.
 
 Agents will be of type 'real-news, fake-news, fact-checker, regular' that define what their mission is. Agents will be rewarded or penalized based on the amount of influence they create across the network based on our objective function. real-news and fake-news agents are responsible for spreading their news where they will be rewarded for the amount of influence they invoke. Fact-checkers will have the responsibility to check the legimitacy behind the news being spread. A fact-checker will be rewarded for correctly identifying fake-news sources and will be penalized for incorrectly labeling real-news as fake. Fake-news agents will be penalized when fact-checkers catch them.
 
@@ -147,10 +148,18 @@ Kevin will work to implmement the Q-Learning algorithm and run the simulations. 
 
 Both team-members will collaborate towards helping debug code when necessary and provide additional necessary support. No one person will handle running all simulations, as we are unsure how computationally heavy it may be. Both team-members will provide equal contribution towards making sure the overall model for the simulation is working correctly. 
 
+\textbf{Section G}
 
+\sloppy
+1. M. Abdar, F. Pourpanah, S. Hussain, D. Rezazadegan, L. Liu, M. Ghavamzadeh, P. Fieguth, X. Cao, A. Khosravi, U. R. Acharya, V. Makarenkov, and S. Nahavandi, "A review of uncertainty quantification in deep learning: Techniques, applications and challenges," Information Sciences, vol. 546, pp. 555-588, 2021. Available: https://doi.org/10.1016/j.ins.2019.12.005
 
+\sloppy
+2. A. Dosovitskiy, L. Beyer, A. Kolesnikov, X. Zhai, T. Unterthiner, M. Dehghani, M. Minderer, G. Heigold, S. Gelly, J. Uszkoreit, and N. Houlsby, "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale," arXiv preprint arXiv:2010.03050, 2020. [Online]. Available: https://arxiv.org/abs/2010.03050
 
+\sloppy
+3. Q. Zhang, W. Zhou, S. Wang, Q. Shen, F. Xu, and J. Sun, "Reinforcement-Learning-Based Dynamic Opinion Maximization in Social Networks," IEEE Transactions on Information Forensics and Security, vol. 17, pp. 290-303, 2022. [Online]. Available: https://ieeexplore.ieee.org/document/9676712
 
-
+\sloppy
+4. K. Dagenais and I. David, "Opinion-Guided Reinforcement Learning," arXiv preprint arXiv:2405.17287, 2024. [Online]. Available: https://arxiv.org/abs/2405.17287
 
 \end{document}
