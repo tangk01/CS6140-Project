@@ -109,7 +109,7 @@ We will run an iteration across some $\delta$t time, initially 1 year, and track
 \]
 
 \textbf{fact-checker objective function}
-\[R_{\text{fact}}(s, a)^{\delta t} \leftarrow \text{num. of mislabeled articles}
+\[R_{\text{fact}}(s, a)^{\delta t} \leftarrow \text{-(num. of mislabeled articles)}
 \]
 
 Each agent will need to act independently to update its Q-value based on its interactions with other agents. Each agent will also need to hold a set of actions it can take which we can define for each agent. The agent will choose what action to perform based on the epsilon greedy exploration algorithm. 
@@ -140,6 +140,13 @@ $\epsilon$
 We expect that the fake-news agents to try to learn strategies to act in its favor to spread as much misinformation as possible, and possibly try to avoid being detected by the fact-checkers. We suspect they will try to target agents that have low skepticism. We also epect echo-chambers to form amongst the network where misinformation is being shared continously. We expect the real-news agents to act similarly, where their main goal is to maximize the amount of real information they spread. We expect the real-news agents to focus on areas where fact-checkers are more dominant. We expect fact-checkers to invoke an optimal strategy for uncovering fake-news. We are hoping that fact-checkers are able to effectively differentiate between real and fake news such that it is able to correctly label them. If we run into any issues where failure may occur, we plan to reduce the number of actions that each agent can take, and possible reduce the nubmer of types of agents we use. We will also look into how to optimally reward our agents so that they behave how we have expected them to.
 
 \textbf{Section F}
+
+Chase will work on creating the graph network and set up the infrastructure for each of the agents along with the set of actions they can take and the probabilities of them. Chase will setup the agent attributes such as trust levels, belief models, and setup the initial state of the simulation based on each agent. Chase will work with libraries like NetworkX (or similar) to find unique ways to visualize the data. This is important because our entire simulation is dependent on having a graph network where the agents are able to communicate with one another to pass the data around. Chase will work to make sure the network is setup efficiently, and that agents are setup to correctly store, and transfer data to one another.
+
+Kevin will work to implmement the Q-Learning algorithm and run the simulations. Kevin will be responsible for implementing the update rules for each of the different agents so that their reward/penalty system works efficiently. Kevin will track training performance to make sure the agents are continously learning throughout simulation iterations. This is important because our agents need a sound-proof model so that they train effectively. 
+
+Both team-members will collaborate towards helping debug code when necessary and provide additional necessary support. No one person will handle running all simulations, as we are unsure how computationally heavy it may be. Both team-members will provide equal contribution towards making sure the overall model for the simulation is working correctly. 
+
 
 
 
