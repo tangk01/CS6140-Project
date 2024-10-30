@@ -77,9 +77,9 @@ We will be generating our own data for this experiment as our project will rely 
 
 In order to carry out this experiment, we plan to create a social network using a graph structure where we will have various agents representing real-information, fake-information, fact-checkers and regular information-consuming agents. Real-information agents are responsible for sharing factual based information. Fake-information agents will do the opposite, spreading misinformation. Fact-checkers will verify both real and fake news that gets sent across the network, and regular information-consuming agents will be a consumer of all types of news presented to it. These agents will be the nodes in our graph, where edges represent a social relationship amongst them. With this type of envirionment, we can construct graph networks that allow us to change how many of each type of agent we want introduced to the network to see how a differing size of agents may change the outcome. Agents will "communicate" with each other by passing news around where each agent will have to decide to trust or not trust the source. Agents will be limited to a set number of interactions they can have per iteration per news source.
 
-Agents will be of type 'real-information, fake-information, fact-checker, regular information-consumer' that define what their mission is. Each agent will have its own mission to optimize its Q-values. Agents will be rewarded or penalized based on the amount of influence they create across the network based on our objective function. real-information and fake-information agents are responsible for spreading their news where they will be rewarded for the amount of influence they invoke. Fact-checkers will have the responsibility to check the legimitacy behind the news being spread. A fact-checker will be rewarded for correctly identifying fake-information sources and will be penalized for incorrectly labeling real-information as fake. Fake-information agents will be penalized when fact-checkers catch them. The accruacy of the news being sent around will be rated on a scale of 0-100\%, based on truthfullness. For example, a real-news agent will always send a news article above 50\%, while a fake-news agent will always send news below 50\%.
+Agents will be of type 'real-information, fake-information, fact-checker, regular information-consumer' that define what their mission is. Each agent will have its own mission to optimize its Q-values, other than the information-consumers who are utilized solely to spread information across the network. Agents will be rewarded or penalized based on the amount of influence they create across the network based on our objective function. Real-information and fake-information agents are responsible for spreading their news where they will be rewarded for the amount of influence they invoke. Fact-checkers will have the responsibility to check the legimitacy behind the news being spread. A fact-checker will be rewarded for correctly identifying fake-information sources and will be penalized for incorrectly labeling real-information as fake. Fake-information agents will be penalized when fact-checkers catch them. The accruacy of the news being sent around will be rated on a scale of 0-100\%, based on truthfullness. For example, a real-news agent will always send a news article above 50\%, while a fake-news agent will always send news below 50\%.
 
-when information is spread, the recieving agent will store the information passed to them, the agent that sent it, and the source it originated from. They will also store the overall trust level in that information source. Each agent will store its reward and penalty amount to help train them which will be dependent on either the number of agents influenced, or number of information sources correctly debunked in the case of the fact-checker.
+When information is spread, the recieving agent will store the information passed to them, the agent that sent it, and the source it originated from. They will also store the overall trust level in that information source. Each agent will store its reward and penalty amount to help train them which will be dependent on either the number of agents influenced, or number of information sources correctly debunked in the case of the fact-checker.
 
 In order to evaluate how our agents are performing, we will invoke Q-Learning to help train them properly based on a reward/penalty system. Real-information and fake-information agents will be rewarded based on the number of other agents who recieve their information as well as the total number of agents they convince at the end of each iteration. Additionally, once an agent recieves some news, that agent can then choose to continue passing it to other agents or not. This demonstrates the amount of influence and credibility they are imposing across the network. Penalties will be awarded to the misinformation agent if a fact-checker correctly identifies misinformation being sent across the network that originated from them. The general public agents do not have any reward/penalty, they will only be used to recieve and send information across the network. The update rule for Q-Learning that we will implement is as follows:
 
@@ -119,20 +119,20 @@ Each agent will need to act independently to update its Q-value based on its int
 \textbf{agent actions:}
 
 Misinformation agent:\\
-1. spread misinformation\\
-2. do nothing
+1. Spread misinformation\\
+2. Do nothing
 
 Real-information agent:\\
-1. spread truthful information\\
-2. do nothing
+1. Spread truthful information\\
+2. Do nothing
 
 Fact-checking agent:\\
-1. investigate the message/agent and label it real/fake\\
-2. ignore the message (do nothing)
+1. Investigate the message/agent and label it real/fake\\
+2. Ignore the message (do nothing)
 
 Regular information-consuming agent:\\
-1. believe and share a message\\
-2. do not believe message/do not share
+1. Believe and share a message\\
+2. Do not believe message/do not share
 
 We can use the epsilon-greedy strategy to balance exploration to exploitation. Meaning, we will assign some probability 
 $\epsilon$
