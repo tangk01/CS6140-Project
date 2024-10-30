@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.8)  29 OCT 2024 20:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.8)  29 OCT 2024 21:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/Users/chasecoogan/Documents/final/hw3 (1)"
-(/Users/chasecoogan/Documents/final/hw3 (1).tex
+**"/Users/chasecoogan/Documents/final/hw3 (1) (1)"
+(/Users/chasecoogan/Documents/final/hw3 (1) (1).tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22> (/usr/local/texlive/2023/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
@@ -159,8 +159,8 @@ Package: setspace 2022/12/04 v6.7b set line spacing
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count275
 \l__pdf_internal_box=\box53
-) (./hw3 (1).aux)
-\openout1 = `"hw3 (1).aux"'.
+) (./hw3 (1) (1).aux)
+\openout1 = `"hw3 (1) (1).aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
 LaTeX Font Info:    ... okay on input line 48.
@@ -256,17 +256,17 @@ Underfull \hbox (badness 1107) in paragraph at lines 155--156
 \OT1/cmr/m/n/12 P. Fieguth, X. Cao, A. Khos-ravi, U. R. Acharya, V. Makarenkov, and S. Na-ha-
  []
 
-[6] (./hw3 (1).aux) ) 
+[6] (./hw3 (1) (1).aux) ) 
 Here is how much of TeX's memory you used:
  3686 strings out of 476025
- 55340 string characters out of 5790018
+ 55388 string characters out of 5790018
  1858388 words of memory out of 5000000
  24107 multiletter control sequences out of 15000+600000
  518237 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,10n,76p,1450b,153s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,10n,76p,1454b,153s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on "hw3 (1).pdf" (6 pages, 145662 bytes).
+Output written on "hw3 (1) (1).pdf" (6 pages, 145704 bytes).
 PDF statistics:
  78 PDF objects out of 1000 (max. 8388607)
  47 compressed objects within 1 object stream
