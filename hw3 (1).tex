@@ -83,6 +83,7 @@ when information is spread, the recieving agent will store the information passe
 
 In order to evaluate how our agents are performing, we will invoke Q-Learning to help train them properly based on a reward/penalty system. Real-information and fake-information agents will be rewarded based on the number of other agents who recieve their information as well as the total number of agents they convince at the end of each iteration. Additionally, once an agent recieves some news, that agent can then choose to continue passing it to other agents or not. This demonstrates the amount of influence and credibility they are imposing across the network. Penalties will be awarded to the misinformation agent if a fact-checker correctly identifies misinformation being sent across the network that originated from them. The general public agents do not have any reward/penalty, they will only be used to recieve and send information across the network. The update rule for Q-Learning that we will implement is as follows:
 
+\pagebreak
 \textbf{general objective function}
 \[Q_{i}(s, a) \leftarrow Q_{i}(s, a) + \gamma \cdot \alpha  \left[R(s`, a`) + max \{Q_{i}(s`, a`)\}\right]\]
 
