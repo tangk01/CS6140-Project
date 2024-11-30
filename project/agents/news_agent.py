@@ -35,7 +35,6 @@ class NewsAgent(AbstractAgent):
         self.discount = discount  # Discount factor
         self.epsilon = epsilon  # Exploration rate
         self.epsilonDecay = epsilonDecay
-        print(np.zeros(env.action_space.shape))
 
     def select_action(self, state):
         """Select an action using epsilon-greedy policy."""
