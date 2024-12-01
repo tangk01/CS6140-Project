@@ -4,6 +4,8 @@ from gymnasium import spaces
 import matplotlib.pyplot as plt
 import networkx as nx
 import math
+from agents.news_agent import NewsAgent
+from agents.fact_checker_agent import FactCheckerAgent
 
 class SocialNetworkEnv(gym.Env):
     def __init__(self, numConsumer=10):
@@ -11,27 +13,14 @@ class SocialNetworkEnv(gym.Env):
         self.graph = nx.DiGraph()
         self.numConsumers = numConsumer
 
-        # Add consumers, and 1 fake info agent. Connect each consumer node to at most 2 others.
-        # Connect fake info to all consumers.
         self.build_consumer_network(numConsumer)
-        self.add_fake_info_node(numConsumer)
+        self.build_action_space()
+        self.build_obersvation_space()
 
-        print("Graph Edges and Their Attributes:")
-        for src, dst, attributes in self.graph.edges(data=True):
-            print(f"Edge from {src} to {dst}: {attributes}")
+        self.network_size = self.numConsumers
 
-        # Action Space is a binary array indicating whether the agent sends information
-        self.action_space = spaces.Box(
-            low=0, high=1, shape=(numConsumer,), dtype=np.int32
-        )
-        print(f"spaces: {self.action_space}")
-        self.observation_space = spaces.Dict(
-            {
-                "trustLevels": spaces.Box(
-                    low=0, high=1, shape=(numConsumer,), dtype=np.float32
-                ),
-            }
-        )
+    def __str__(self):
+        return f"graph: {self.graph} num consumers: {self.numConsumers} total nw size: {self.network_size} action space: {self.action_space}"
 
     def build_consumer_network(self, numConsumer):
         '''
@@ -42,7 +31,7 @@ class SocialNetworkEnv(gym.Env):
         Returns None
         '''
         for i in range(numConsumer):
-            self.graph.add_node(i, type="consumer", trustLevel=0.0, storedInfo=[], reward=0, penalty=0)
+            self.graph.add_node(i, agentType="consumer", trustLevel=0.0, storedInfo=[], reward=0, penalty=0)
 
         for _ in range(numConsumer * 2):
             src = np.random.randint(0, numConsumer)
@@ -50,20 +39,59 @@ class SocialNetworkEnv(gym.Env):
             if src != dst:
                 self.graph.add_edge(src, dst, weight=1.0)
 
-    def add_fake_info_node(self, numConsumer):
+    def add_news_agents_to_network(self, agentType: NewsAgent):
         '''
         Adds a fake information agent to the network and connects it to all other consumer nodes.
 
         Params:
             numConsumers -- number of consumers it will connect edges to.
         '''
-        self.graph.add_node(
-            numConsumer, type="fake-information", qVal=0.0, reward=0, penalty=0)
-
+        new_node_id = self.numConsumers
+        self.numConsumers += 1
+        
+        self.graph.add_node(new_node_id, agentType=agentType.get_type())
+        self.network_size += 1
+        
         for node in self.graph.nodes:
-            if node != numConsumer:
-                self.graph.add_edge(numConsumer, node)
+                if node != new_node_id:
+                    current_type = self.graph.nodes[node].get("agentType", "consumer")
+                    if agentType.get_type() == "fake-information" and current_type != "real-information":
+                        self.graph.add_edge(new_node_id, node)
+                    elif agentType.get_type() == "real-information" and current_type != "fake-information":
+                        self.graph.add_edge(new_node_id, node)
 
+    def build_action_space(self):
+        '''
+        Creates an action space for each agent to be used within training
+
+        (1): send info
+        (0): dont send info
+
+        builds an action space of shape = self.numConsumers
+        randomly assigns 0/1 to each
+        '''
+        self.action_space = spaces.Box(low=0, high=1, shape=(self.numConsumers,), dtype=np.int32)
+        return self.action_space
+
+    def draw_sample_from_action_space(self):
+        '''
+        creates the sample space the agent will act upon. 
+
+        i.e; if numConsumer = 4 this will return a vector [0, 1, 1, 0] for example
+        where 0 != send, and 1 = send info
+        '''
+        action = self.action_space.sample()
+        return action
+
+    def build_obersvation_space(self):
+        self.observation_space = spaces.Dict(
+            {
+                "trustLevels": spaces.Box(
+                    low=0, high=1, shape=(self.numConsumers,), dtype=np.float32
+                ),
+            }
+        )
+        return self.observation_space
 
     # Reset Env
     def reset(self, seed=None, options=None):
@@ -91,25 +119,29 @@ class SocialNetworkEnv(gym.Env):
         return {"trustLevels": trustLevels}, {}
 
     # Step Function for Env
-    # NEED TO FIX
-    def step(self, action, agent=10):
-        # print(action)
-        rewards = 0
-        penalties = 0
+    def step(self, action, agent : NewsAgent | FactCheckerAgent):
+        '''
+        Training loop for an agent
 
-        # CHANGE LATER
+        Params:
+            action: a set of actions the agent will take during training
+            agent: an agent object to train
+
+        Returns: {"trustLevels": trustLevels}, agent.reward, done, info
+        '''
+
+        # think actions should be stored within each agent not in a step function.
         actionNode = self.graph.nodes[agent]
-
         visited = set()
         queue = []
 
-        # Goes through and spreads news from source
+        # (1) = send news, (0) != send news
         for neighbor, sendInfo in zip(self.graph.neighbors(agent), action):
             if sendInfo == 1:
                 queue.append(neighbor)
 
         while queue:
-            curVal = queue.pop()
+            curVal = queue.pop(0)
             if curVal in visited:
                 break
 
@@ -118,32 +150,24 @@ class SocialNetworkEnv(gym.Env):
 
             if curNode["type"] == "consumer":
                 # Update trust-level and stored-information based on the source
-                if actionNode[
-                    "type"
-                ] == "fake-information" and np.random.random() > 1 / (
-                    1 + math.exp(-curNode["trustLevel"])
-                ):
+                if actionNode["type"] == "fake-information" and np.random.random() > 1 / (1 + math.exp(-curNode["trustLevel"])):
                     curNode["trustLevel"] -= 0.1
-                    rewards += 1
+                    agent.reward += 1
 
                     for neighbor in self.graph.neighbors(curVal):
                         queue.append(neighbor)
-                elif actionNode[
-                    "type"
-                ] == "real-information" and np.random.random() < 1 / (
-                    1 + math.exp(-curNode["trustLevel"])
-                ):
+                elif actionNode["type"] == "real-information" and np.random.random() < 1 / (1 + math.exp(-curNode["trustLevel"])):
                     curNode["trustLevel"] += 0.1
-                    rewards += 1
+                    agent.reward += 1
 
                     for neighbor in self.graph.neighbors(curVal):
                         queue.append(neighbor)
 
-        # Calculates Rewards/Penalties
-        # CHANGE LATER
-        max_qVal = max(rewards - penalties, 0)
+        # Calculates Rewards/Penalties:
+        qVal = self.graph.nodes[agent]["qVal"]
+        max_qVal = max(agent.reward - agent.penalty, 0)
         self.graph.nodes[agent]["qVal"] += 0.1 * (
-            rewards - penalties + 0.9 * max_qVal - self.graph.nodes[agent]["qVal"]
+            agent.reward - agent.penalty + 0.9 * max_qVal - qVal
         )
 
         # Return the updated state
@@ -153,10 +177,9 @@ class SocialNetworkEnv(gym.Env):
         done = False  # In this simulation, the environment does not end
         info = {}
 
-        return {"trustLevels": trustLevels}, rewards, done, info
+        return {"trustLevels": trustLevels}, agent.reward, done, info
 
-    # Render the graph for debugging or visualization
-    # NEED FIX
+    # visualizing the network
     def render(self, mode="human"):
         if mode == "human":
             print("Graph Nodes and Attributes:")
@@ -170,13 +193,13 @@ class SocialNetworkEnv(gym.Env):
             node_colors = [
                 (
                     "blue"
-                    if self.graph.nodes[node]["type"] == "real-information"
+                    if self.graph.nodes[node]["agentType"]  == "real-information"
                     else (
                         "red"
-                        if self.graph.nodes[node]["type"] == "fake-information"
+                        if self.graph.nodes[node]["agentType"] == "fake-information"
                         else (
                             "green"
-                            if self.graph.nodes[node]["type"] == "fact-checker"
+                            if self.graph.nodes[node]["agentType"] == "fact-checker"
                             else "gray"
                         )
                     )
@@ -189,6 +212,13 @@ class SocialNetworkEnv(gym.Env):
                 self.graph, pos, node_color=node_colors, node_size=500, alpha=0.8
             )
             nx.draw_networkx_edges(self.graph, pos, alpha=0.5, arrows=True)
+        
+            plt.scatter([], [], color="blue", label="Real Information Agent")
+            plt.scatter([], [], color="red", label="Fake Information Agent")
+            plt.scatter([], [], color="green", label="Fact Checker Agent")
+            plt.scatter([], [], color="gray", label="Consumer Agent")
+            plt.legend(loc="upper right", fontsize=10)
+            
             # nx.draw(self.graph, layout=nx.spring_layout(self.graph))
 
             plt.title("Social Network Graph", fontsize=14)
