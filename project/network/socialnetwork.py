@@ -19,6 +19,9 @@ class SocialNetworkEnv(gym.Env):
 
         self.network_size = self.numConsumers
 
+        self.agent_to_node_map = {}
+
+
     def __str__(self):
         return f"graph: {self.graph} num consumers: {self.numConsumers} total nw size: {self.network_size} action space: {self.action_space}"
 
@@ -49,7 +52,8 @@ class SocialNetworkEnv(gym.Env):
         new_node_id = self.numConsumers
         self.numConsumers += 1
         
-        self.graph.add_node(new_node_id, agentType=agentType.get_type())
+        self.graph.add_node(new_node_id, agentType=agentType.get_type(),  qVal=0.0, trustLevel=0.0, reward=0, penalty=0)
+        self.agent_to_node_map[agentType] = new_node_id  
         self.network_size += 1
         
         for node in self.graph.nodes:
@@ -59,6 +63,28 @@ class SocialNetworkEnv(gym.Env):
                         self.graph.add_edge(new_node_id, node)
                     elif agentType.get_type() == "real-information" and current_type != "fake-information":
                         self.graph.add_edge(new_node_id, node)
+
+    
+    # currently tied to one consumer randomly. Not based on anything atm.
+    def add_fact_checker_to_network(self, agentType: FactCheckerAgent):
+        '''
+        Adds a fact checker to the network. fact checker will only be tied to a consumer.
+
+    
+        '''
+        new_node_id = self.numConsumers
+        self.numConsumers += 1
+
+        self.graph.add_node(new_node_id, agentType = agentType.get_type(), qVal=0.0, trustLevel=0.0, reward=0, penalty=0)
+        self.agent_to_node_map[agentType] = new_node_id
+        self.network_size += 1
+        
+        for node in self.graph.nodes:
+            if node != new_node_id:
+                current_type = self.graph.nodes[node].get("agentType", "consumer")
+                if agentType.get_type() == 'fact-checker' and current_type == "consumer":
+                    self.graph.add_edge(new_node_id, node)
+                    break
 
     def build_action_space(self):
         '''
@@ -129,14 +155,18 @@ class SocialNetworkEnv(gym.Env):
 
         Returns: {"trustLevels": trustLevels}, agent.reward, done, info
         '''
+        
 
-        # think actions should be stored within each agent not in a step function.
-        actionNode = self.graph.nodes[agent]
+        if agent not in self.agent_to_node_map:
+            raise ValueError("Agetn not found in the network")
+        
+        agent_node = self.agent_to_node_map[agent]
+        actionNode = self.graph.nodes[agent_node]
         visited = set()
         queue = []
 
         # (1) = send news, (0) != send news
-        for neighbor, sendInfo in zip(self.graph.neighbors(agent), action):
+        for neighbor, sendInfo in zip(self.graph.neighbors(agent_node), action):
             if sendInfo == 1:
                 queue.append(neighbor)
 
@@ -148,15 +178,16 @@ class SocialNetworkEnv(gym.Env):
             visited.add(curVal)
             curNode = self.graph.nodes[curVal]
 
-            if curNode["type"] == "consumer":
+            if curNode["agentType"] == "consumer":
                 # Update trust-level and stored-information based on the source
-                if actionNode["type"] == "fake-information" and np.random.random() > 1 / (1 + math.exp(-curNode["trustLevel"])):
+                if actionNode["agentType"] == "fake-information" and np.random.random() > 1 / (1 + math.exp(-curNode["trustLevel"])):
                     curNode["trustLevel"] -= 0.1
                     agent.reward += 1
 
                     for neighbor in self.graph.neighbors(curVal):
                         queue.append(neighbor)
-                elif actionNode["type"] == "real-information" and np.random.random() < 1 / (1 + math.exp(-curNode["trustLevel"])):
+                
+                elif actionNode["agentType"] == "real-information" and np.random.random() < 1 / (1 + math.exp(-curNode["trustLevel"])):
                     curNode["trustLevel"] += 0.1
                     agent.reward += 1
 
@@ -164,9 +195,9 @@ class SocialNetworkEnv(gym.Env):
                         queue.append(neighbor)
 
         # Calculates Rewards/Penalties:
-        qVal = self.graph.nodes[agent]["qVal"]
+        qVal = self.graph.nodes[agent_node]["qVal"]
         max_qVal = max(agent.reward - agent.penalty, 0)
-        self.graph.nodes[agent]["qVal"] += 0.1 * (
+        self.graph.nodes[agent_node]["qVal"] += 0.1 * (
             agent.reward - agent.penalty + 0.9 * max_qVal - qVal
         )
 

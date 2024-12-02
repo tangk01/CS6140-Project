@@ -47,7 +47,8 @@ class FactCheckerAgent(AbstractAgent):
         '''
         pass    
 
-
+    def get_type(self):
+        return str(self.agentType)
 
 
 
