@@ -22,6 +22,13 @@ class SocialNetworkEnv(gym.Env):
         self.agent_to_node_map = {}
 
 
+    def print_graph(self):
+        for node in self.graph.nodes:
+            neighbors = list(self.graph.neighbors(node))
+            neighbor_str = ", ".join(map(str, neighbors)) if neighbors else "None"
+            print(f"Node {node}: Points to -> {neighbor_str}")
+
+
     def __str__(self):
         return f"graph: {self.graph} num consumers: {self.numConsumers} total nw size: {self.network_size} action space: {self.action_space}"
 
@@ -153,10 +160,9 @@ class SocialNetworkEnv(gym.Env):
             action: a set of actions the agent will take during training
             agent: an agent object to train
 
-        Returns: {"trustLevels": trustLevels}, agent.reward, done, info
+        Returns: {"trustLevels": trustLevels}, agent.reward, info
         '''
         
-
         if agent not in self.agent_to_node_map:
             raise ValueError("Agetn not found in the network")
         
@@ -183,6 +189,7 @@ class SocialNetworkEnv(gym.Env):
                 if actionNode["agentType"] == "fake-information" and np.random.random() > 1 / (1 + math.exp(-curNode["trustLevel"])):
                     curNode["trustLevel"] -= 0.1
                     agent.reward += 1
+                    self.graph.nodes[agent_node]["reward"] = agent.reward
 
                     for neighbor in self.graph.neighbors(curVal):
                         queue.append(neighbor)
@@ -190,6 +197,7 @@ class SocialNetworkEnv(gym.Env):
                 elif actionNode["agentType"] == "real-information" and np.random.random() < 1 / (1 + math.exp(-curNode["trustLevel"])):
                     curNode["trustLevel"] += 0.1
                     agent.reward += 1
+                    self.graph.nodes[agent_node]["reward"] = agent.reward 
 
                     for neighbor in self.graph.neighbors(curVal):
                         queue.append(neighbor)
@@ -202,16 +210,18 @@ class SocialNetworkEnv(gym.Env):
         )
 
         # Return the updated state
-        trustLevels = np.array(
+        agent.trustLevels = np.array(
             [self.graph.nodes[i]["trustLevel"] for i in range(self.numConsumers)]
         )
-        done = False  # In this simulation, the environment does not end
         info = {}
 
-        return {"trustLevels": trustLevels}, agent.reward, done, info
+        return {"trustLevels": agent.trustLevels}, agent.reward, info
 
     # visualizing the network
     def render(self, mode="human"):
+        if not hasattr(self, 'pos'):  
+            self.pos = nx.spring_layout(self.graph, seed=42)
+        
         if mode == "human":
             print("Graph Nodes and Attributes:")
             for node, data in self.graph.nodes(data=True):
@@ -220,11 +230,10 @@ class SocialNetworkEnv(gym.Env):
             for src, dst, data in self.graph.edges(data=True):
                 print(f"Edge {src} -> {dst}: {data}")
 
-            pos = nx.spring_layout(self.graph)
             node_colors = [
                 (
                     "blue"
-                    if self.graph.nodes[node]["agentType"]  == "real-information"
+                    if self.graph.nodes[node]["agentType"] == "real-information"
                     else (
                         "red"
                         if self.graph.nodes[node]["agentType"] == "fake-information"
@@ -240,18 +249,19 @@ class SocialNetworkEnv(gym.Env):
 
             plt.figure(figsize=(8, 8))
             nx.draw_networkx_nodes(
-                self.graph, pos, node_color=node_colors, node_size=500, alpha=0.8
+                self.graph, self.pos, node_color=node_colors, node_size=500, alpha=0.8
             )
-            nx.draw_networkx_edges(self.graph, pos, alpha=0.5, arrows=True)
-        
+            nx.draw_networkx_edges(self.graph, self.pos, alpha=0.5, arrows=True)
+            
+            nx.draw_networkx_labels(self.graph, self.pos, labels={node: str(node) for node in self.graph.nodes}, font_size=10)
+
             plt.scatter([], [], color="blue", label="Real Information Agent")
             plt.scatter([], [], color="red", label="Fake Information Agent")
             plt.scatter([], [], color="green", label="Fact Checker Agent")
             plt.scatter([], [], color="gray", label="Consumer Agent")
             plt.legend(loc="upper right", fontsize=10)
             
-            # nx.draw(self.graph, layout=nx.spring_layout(self.graph))
-
             plt.title("Social Network Graph", fontsize=14)
             plt.axis("off")
             plt.show()
+
