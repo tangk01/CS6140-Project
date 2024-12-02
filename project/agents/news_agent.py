@@ -1,3 +1,4 @@
+
 from abstract.abstract_agent import AbstractAgent
 import gymnasium as gym
 import numpy as np
@@ -28,7 +29,7 @@ class NewsAgent(AbstractAgent):
         self.agentType = agentType
 
         if self.agentType == "real-information" or self.agentType == "fake-information":
-            self.trustLevel = 0
+            self.trustLevel = np.random.uniform(0,1)
         self.trustLevel = trustLevel
 
         self.learning = learning_rate  
