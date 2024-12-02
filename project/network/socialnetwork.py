@@ -47,7 +47,7 @@ class SocialNetworkEnv(gym.Env):
             src = np.random.randint(0, numConsumer)
             dst = np.random.randint(0, numConsumer)
             if src != dst:
-                self.graph.add_edge(src, dst, weight=1.0)
+                self.graph.add_edge(src, dst)
 
     def add_news_agents_to_network(self, agentType: NewsAgent):
         '''
@@ -171,6 +171,13 @@ class SocialNetworkEnv(gym.Env):
         visited = set()
         queue = []
 
+        # amt of influence an agent will invoke on the network.
+        # agent_node = src node, and trust_in_src_agent = amt of influence agent has in n/w
+        total_nodes = self.numConsumers
+        print('total_nodes in nw', total_nodes)
+        trust_in_src_agent = f"{len(agent.influenced_consumers) / total_nodes:.2f}"
+        print("original trust in src agent", trust_in_src_agent)
+
         # (1) = send news, (0) != send news
         for neighbor, sendInfo in zip(self.graph.neighbors(agent_node), action):
             if sendInfo == 1:
@@ -179,7 +186,7 @@ class SocialNetworkEnv(gym.Env):
         while queue:
             curVal = queue.pop(0)
             if curVal in visited:
-                break
+                continue
 
             visited.add(curVal)
             curNode = self.graph.nodes[curVal]
@@ -189,18 +196,38 @@ class SocialNetworkEnv(gym.Env):
                 if actionNode["agentType"] == "fake-information" and np.random.random() > 1 / (1 + math.exp(-curNode["trustLevel"])):
                     curNode["trustLevel"] -= 0.1
                     agent.reward += 1
+
+                    if curVal not in agent.influenced_consumers:
+                        agent.influenced_consumers.append(curVal)
+                    trust_in_src_agent = len(agent.influenced_consumers) / total_nodes
+
+                    curNode["storedInfo"].append((agent_node, f"{trust_in_src_agent:.2f}"))
                     self.graph.nodes[agent_node]["reward"] = agent.reward
 
                     for neighbor in self.graph.neighbors(curVal):
-                        queue.append(neighbor)
+                        if neighbor not in visited:
+                            queue.append(neighbor)
                 
                 elif actionNode["agentType"] == "real-information" and np.random.random() < 1 / (1 + math.exp(-curNode["trustLevel"])):
                     curNode["trustLevel"] += 0.1
+                    agent.influenced_consumers.append(curNode)
                     agent.reward += 1
+                    if curVal not in agent.influenced_consumers:
+                        agent.influenced_consumers.append(curVal)
+                    trust_in_src_agent = len(agent.influenced_consumers) / total_nodes
+                    curNode["storedInfo"].append((agent_node, f"{trust_in_src_agent:.2f}"))
                     self.graph.nodes[agent_node]["reward"] = agent.reward 
+                    
 
                     for neighbor in self.graph.neighbors(curVal):
-                        queue.append(neighbor)
+                        if neighbor not in visited:
+                            queue.append(neighbor)
+
+        print('agent', agent_node)
+        print('num of influenced consumer from agent ', agent_node, len(agent.influenced_consumers))
+        print('all consumers', agent_node, ' influenced', agent.influenced_consumers)
+        print('total trust_in src agent', trust_in_src_agent)
+
 
         # Calculates Rewards/Penalties:
         qVal = self.graph.nodes[agent_node]["qVal"]
