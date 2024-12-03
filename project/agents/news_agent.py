@@ -45,7 +45,6 @@ class NewsAgent(AbstractAgent):
         self.penalty = 0
 
         self.influenced_consumers = []
-        self.news = np.random.uniform(0, 1)
 
     def select_action(self, state):
         '''
@@ -58,6 +57,8 @@ class NewsAgent(AbstractAgent):
             return self.env.action_space.sample()
         else:
             return int(np.argmax(self.q_values[state]))
+        # i need to check this select_action
+        
 
     def update_q_value(self, state, action, reward, next_state):
         """Update the Q-value using the Q-learning update rule."""
@@ -84,13 +85,3 @@ class NewsAgent(AbstractAgent):
     
     def __str__(self):
         return f"Agent type: {self.get_type()} penalty: {self.penalty} reward: {self.reward} trust level: {self.trustLevel}"
-    
-    # def influenceConsumer(self, network : SocialNetworkEnv):
-    #     total_news_spread = 0
-        
-    #     for i in range(network.network_size):
-    #         if network.graph.nodes[i].contains(self.news):
-    #             total_news_spread += 1
-        
-    #     total_nw_influence = total_news_spread / network.network_size
-    #     return total_nw_influence

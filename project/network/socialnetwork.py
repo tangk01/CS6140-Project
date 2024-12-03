@@ -16,6 +16,7 @@ class SocialNetworkEnv(gym.Env):
         self.build_consumer_network(numConsumer)
         self.build_action_space()
         self.build_obersvation_space()
+        
 
         self.network_size = self.numConsumers
 
@@ -71,7 +72,7 @@ class SocialNetworkEnv(gym.Env):
                     elif agentType.get_type() == "real-information" and current_type != "fake-information":
                         self.graph.add_edge(new_node_id, node)
 
-    
+
     # currently tied to one consumer randomly. Not based on anything atm.
     def add_fact_checker_to_network(self, agentType: FactCheckerAgent):
         '''
@@ -163,9 +164,21 @@ class SocialNetworkEnv(gym.Env):
         Returns: {"trustLevels": trustLevels}, agent.reward, info
         '''
         
-        if agent not in self.agent_to_node_map:
-            raise ValueError("Agetn not found in the network")
-        
+        '''
+        Notes for step function trust levels...
+        overall network trustlevel 
+        trustlevel = .5 (f/r)
+        trustlevel -= .1 > .4
+        less likely to believe in fake? 
+
+        (node_num, fake-Info)
+        1 fake news 
+        each consumer get own trustLevel iff multiple news source 
+        each news source -> network trust lvl 
+        news reliability % (not now)
+    if agent not in self.agent_to_node_map:
+        raise ValueError("Agetn not found in the network")
+        '''     
         agent_node = self.agent_to_node_map[agent]
         actionNode = self.graph.nodes[agent_node]
         visited = set()
@@ -178,7 +191,7 @@ class SocialNetworkEnv(gym.Env):
         trust_in_src_agent = f"{len(agent.influenced_consumers) / total_nodes:.2f}"
         print("original trust in src agent", trust_in_src_agent)
 
-        # (1) = send news, (0) != send news
+        # based on agents actions: (1) = send news to nieghbor, (0) dont send news to neighbor.
         for neighbor, sendInfo in zip(self.graph.neighbors(agent_node), action):
             if sendInfo == 1:
                 queue.append(neighbor)
@@ -191,37 +204,49 @@ class SocialNetworkEnv(gym.Env):
             visited.add(curVal)
             curNode = self.graph.nodes[curVal]
 
+            
             if curNode["agentType"] == "consumer":
-                # Update trust-level and stored-information based on the source
-                if actionNode["agentType"] == "fake-information" and np.random.random() > 1 / (1 + math.exp(-curNode["trustLevel"])):
-                    curNode["trustLevel"] -= 0.1
+                
+                # case 1: consumer reject fake info
+                if actionNode["agentType"] == "fake-information":
+                    if np.random.random() > 1 / (1 + math.exp(-curNode["trustLevel"])):
+                        curNode["trustLevel"] = max(0, curNode["trustLevel"] - 0.1)
+                        agent.penalty += 1
+                        self.graph.nodes[agent_node]["penalty"] = agent.penalty
+
+
+                    # case 2: consumer accepts fake info
+                    else:
+                        curNode["trustLevel"] = max(0, curNode["trustLevel"] - 0.1)
+                        agent.reward += 1
+                        self.graph.nodes[agent_node]["reward"] = agent.reward
+
+
+            # case 3: consumer accepts real info
+            elif actionNode["agentType"] == "real-information":
+                if np.random.random() < 1 / (1 + math.exp(-curNode["trustLevel"])):
+                    curNode["trustLevel"] = min(1, curNode["trustLevel"] + 0.1)
                     agent.reward += 1
-
-                    if curVal not in agent.influenced_consumers:
-                        agent.influenced_consumers.append(curVal)
-                    trust_in_src_agent = len(agent.influenced_consumers) / total_nodes
-
-                    curNode["storedInfo"].append((agent_node, f"{trust_in_src_agent:.2f}"))
                     self.graph.nodes[agent_node]["reward"] = agent.reward
 
-                    for neighbor in self.graph.neighbors(curVal):
-                        if neighbor not in visited:
-                            queue.append(neighbor)
                 
-                elif actionNode["agentType"] == "real-information" and np.random.random() < 1 / (1 + math.exp(-curNode["trustLevel"])):
-                    curNode["trustLevel"] += 0.1
-                    agent.influenced_consumers.append(curNode)
-                    agent.reward += 1
-                    if curVal not in agent.influenced_consumers:
-                        agent.influenced_consumers.append(curVal)
-                    trust_in_src_agent = len(agent.influenced_consumers) / total_nodes
-                    curNode["storedInfo"].append((agent_node, f"{trust_in_src_agent:.2f}"))
-                    self.graph.nodes[agent_node]["reward"] = agent.reward 
-                    
+                # case 4: consumer rejects real information
+                else:
+                    curNode["trustLevel"] = max(0, curNode["trustLevel"] - 0.1)
+                    agent.penalty += 1
+                    self.graph.nodes[agent_node]["penalty"] = agent.penalty
 
-                    for neighbor in self.graph.neighbors(curVal):
-                        if neighbor not in visited:
-                            queue.append(neighbor)
+
+
+            if curVal not in agent.influenced_consumers:
+                agent.influenced_consumers.append(curVal)
+            trust_in_src_agent = len(agent.influenced_consumers) / total_nodes
+            curNode["storedInfo"].append((agent_node, f"{trust_in_src_agent:.2f}"))
+
+
+            for neighbor in self.graph.neighbors(curVal):
+                if neighbor not in visited:
+                    queue.append(neighbor)
 
         print('agent', agent_node)
         print('num of influenced consumer from agent ', agent_node, len(agent.influenced_consumers))
@@ -247,7 +272,7 @@ class SocialNetworkEnv(gym.Env):
     # visualizing the network
     def render(self, mode="human"):
         if not hasattr(self, 'pos'):  
-            self.pos = nx.spring_layout(self.graph, seed=42)
+            self.pos = nx.spring_layout(self.graph, seed=42, scale=.2, center=(0, 0))
         
         if mode == "human":
             print("Graph Nodes and Attributes:")
@@ -286,7 +311,7 @@ class SocialNetworkEnv(gym.Env):
             plt.scatter([], [], color="red", label="Fake Information Agent")
             plt.scatter([], [], color="green", label="Fact Checker Agent")
             plt.scatter([], [], color="gray", label="Consumer Agent")
-            plt.legend(loc="upper right", fontsize=10)
+            plt.legend(loc="upper right", fontsize=10, bbox_to_anchor=(1.15, 1))
             
             plt.title("Social Network Graph", fontsize=14)
             plt.axis("off")
