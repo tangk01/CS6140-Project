@@ -17,7 +17,7 @@ class AbstractAgent(ABC):
         self.agentInformationRecieved = []
 
         self.reward = 0
-        self.pentalty = 0
+        self.penalty = 0
         
         self.learning_rate = learning_rate
         self.discount = discount

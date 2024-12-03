@@ -11,7 +11,9 @@ class SocialNetworkEnv(gym.Env):
     def __init__(self, numConsumer=10):
         super().__init__()
         self.graph = nx.DiGraph()
+        self.original_num_consumers = numConsumer 
         self.numConsumers = numConsumer
+        
 
         self.build_consumer_network(numConsumer)
         self.build_action_space()
@@ -186,8 +188,8 @@ class SocialNetworkEnv(gym.Env):
 
         # amt of influence an agent will invoke on the network.
         # agent_node = src node, and trust_in_src_agent = amt of influence agent has in n/w
-        total_nodes = self.numConsumers
-        print('total_nodes in nw', total_nodes)
+        total_nodes = self.original_num_consumers
+        print('total_consumer_nodes in nw', total_nodes)
         trust_in_src_agent = f"{len(agent.influenced_consumers) / total_nodes:.2f}"
         print("original trust in src agent", trust_in_src_agent)
 
@@ -236,12 +238,12 @@ class SocialNetworkEnv(gym.Env):
                         agent.penalty += 1
                         self.graph.nodes[agent_node]["penalty"] = agent.penalty
 
+            if curVal not in agent.influenced_consumers:
+                agent.influenced_consumers.append(curVal)
+            trust_in_src_agent = len(agent.influenced_consumers) / total_nodes
+            # curNode["storedInfo"].append([(agent_node, f"{trust_in_src_agent:.2f}")])
+            curNode["storedInfo"].append((agent_node, f"{trust_in_src_agent:.2f}"))
 
-
-                if curVal not in agent.influenced_consumers:
-                    agent.influenced_consumers.append(curVal)
-                trust_in_src_agent = len(agent.influenced_consumers) / total_nodes
-                curNode["storedInfo"].append((agent_node, f"{trust_in_src_agent:.2f}"))
 
 
             for neighbor in self.graph.neighbors(curVal):
@@ -265,9 +267,14 @@ class SocialNetworkEnv(gym.Env):
         agent.trustLevels = np.array(
             [self.graph.nodes[i]["trustLevel"] for i in range(self.numConsumers)]
         )
-        info = {}
 
-        return {"trustLevels": agent.trustLevels}, agent.reward, info
+        return {"trustLevels": agent.trustLevels}, agent.reward, agent.penalty
+
+
+    def step_fact_checker(self, fact_checker_agent, threshold=0.7):
+        action = fact_checker_agent.select_action(threshold=threshold)
+        if action == 1:
+            fact_checker_agent.fact_check(fact_checker_agent)
 
     # visualizing the network
     def render(self, mode="human"):
