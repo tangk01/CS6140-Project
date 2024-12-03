@@ -222,19 +222,19 @@ class SocialNetworkEnv(gym.Env):
                         self.graph.nodes[agent_node]["reward"] = agent.reward
 
 
-            # case 3: consumer accepts real info
-            elif actionNode["agentType"] == "real-information":
-                if np.random.random() < 1 / (1 + math.exp(-curNode["trustLevel"])):
-                    curNode["trustLevel"] = min(1, curNode["trustLevel"] + 0.1)
-                    agent.reward += 1
-                    self.graph.nodes[agent_node]["reward"] = agent.reward
+                # case 3: consumer accepts real info
+                elif actionNode["agentType"] == "real-information":
+                    if np.random.random() < 1 / (1 + math.exp(-curNode["trustLevel"])):
+                        curNode["trustLevel"] = min(1, curNode["trustLevel"] + 0.1)
+                        agent.reward += 1
+                        self.graph.nodes[agent_node]["reward"] = agent.reward
 
-                
-                # case 4: consumer rejects real information
-                else:
-                    curNode["trustLevel"] = max(0, curNode["trustLevel"] - 0.1)
-                    agent.penalty += 1
-                    self.graph.nodes[agent_node]["penalty"] = agent.penalty
+                    
+                    # case 4: consumer rejects real information
+                    else:
+                        curNode["trustLevel"] = max(0, curNode["trustLevel"] - 0.1)
+                        agent.penalty += 1
+                        self.graph.nodes[agent_node]["penalty"] = agent.penalty
 
 
 
