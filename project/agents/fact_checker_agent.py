@@ -1,6 +1,11 @@
 from abstract.abstract_agent import AbstractAgent
 import numpy as np
 
+
+# numConsumers = 5 
+# audit -> (1, 5) ~ 3 random nodes
+# audit -> largest length node that recieved the most info
+
 class FactCheckerAgent(AbstractAgent):
     def __init__(
             self, 
