@@ -3,9 +3,10 @@ import gymnasium as gym
 from gymnasium import spaces
 import matplotlib.pyplot as plt
 import networkx as nx
-import math
 from agents.news_agent import NewsAgent
 from agents.fact_checker_agent import FactCheckerAgent
+import math
+
 
 class SocialNetworkEnv(gym.Env):
     def __init__(self, numConsumer=10):
@@ -23,7 +24,6 @@ class SocialNetworkEnv(gym.Env):
         self.network_size = self.numConsumers
 
         self.agent_to_node_map = {}
-        self.edge_colors = {}
 
 
     def print_graph(self):
@@ -192,17 +192,15 @@ class SocialNetworkEnv(gym.Env):
         total_nodes = self.original_num_consumers
         print('total_consumer_nodes in nw', total_nodes)
         trust_in_src_agent = f"{len(agent.influenced_consumers) / total_nodes:.2f}"
-        print("original trust in src agent", trust_in_src_agent)
+        print(f"original nw influence of src agent {agent_node} : {trust_in_src_agent}" )
 
         # based on agents actions: (1) = send news to nieghbor, (0) dont send news to neighbor.
         for neighbor, sendInfo in zip(self.graph.neighbors(agent_node), action):
             if sendInfo == 1:
-                queue.append((agent_node, neighbor))
+                queue.append(neighbor)
 
         while queue:
-            info = queue.pop(0)
-            print(info)
-            curVal = info[1]
+            curVal = queue.pop(0)
             if curVal in visited:
                 continue
 
@@ -211,19 +209,7 @@ class SocialNetworkEnv(gym.Env):
 
             
             if curNode["agentType"] == "consumer":
-
-                # Sets edge colors
-                if (curVal, info[0]) in self.graph.edges():
-                    if (curVal, info[0]) in self.edge_colors:
-                        self.edge_colors[(curVal, info[0])] = "orange"
-                    else:
-                        self.edge_colors[(curVal, info[0])] = "red"
-                elif (info[0], curVal) in self.edge_colors:
-                    self.edge_colors[(info[0], curVal)] = "orange"
-                else:
-                    self.edge_colors[(info[0], curVal)] = "red"
                 
-
                 # case 1: consumer reject fake info
                 if actionNode["agentType"] == "fake-information":
                     if np.random.random() > 1 / (1 + math.exp(-curNode["trustLevel"])):
@@ -239,28 +225,15 @@ class SocialNetworkEnv(gym.Env):
                         self.graph.nodes[agent_node]["reward"] = agent.reward
 
 
-                # case 3: consumer rejects real info
+                # case 3: consumer accepts real info
                 elif actionNode["agentType"] == "real-information":
-
-                    # Sets edge colors
-                    if (curVal, info[0]) in self.graph.edges():
-                        if (curVal, info[0]) in self.edge_colors:
-                            self.edge_colors[(curVal, info[0])] = "orange"
-                        else:
-                            self.edge_colors[(curVal, info[0])] = "blue"
-                    elif (info[0], curVal) in self.edge_colors:
-                        self.edge_colors[(info[0], curVal)] = "orange"
-                    else:
-                        self.edge_colors[(info[0], curVal)] = "blue"
-
-
                     if np.random.random() < 1 / (1 + math.exp(-curNode["trustLevel"])):
                         curNode["trustLevel"] = min(1, curNode["trustLevel"] + 0.1)
                         agent.reward += 1
                         self.graph.nodes[agent_node]["reward"] = agent.reward
 
                     
-                    # case 4: consumer accepts real information
+                    # case 4: consumer rejects real information
                     else:
                         curNode["trustLevel"] = max(0, curNode["trustLevel"] - 0.1)
                         agent.penalty += 1
@@ -271,16 +244,15 @@ class SocialNetworkEnv(gym.Env):
             trust_in_src_agent = len(agent.influenced_consumers) / total_nodes
             curNode["storedInfo"].append((agent_node, f"{trust_in_src_agent:.2f}"))
 
-
-
             for neighbor in self.graph.neighbors(curVal):
                 if neighbor not in visited:
-                    queue.append((curVal, neighbor))
+                    queue.append(neighbor)
 
         print('agent', agent_node)
         print('num of influenced consumer from agent ', agent_node, len(agent.influenced_consumers))
         print('all consumers', agent_node, ' influenced', agent.influenced_consumers)
         print('total trust_in src agent', trust_in_src_agent)
+        print('\n')
 
 
         # Calculates Rewards/Penalties:
@@ -314,8 +286,9 @@ class SocialNetworkEnv(gym.Env):
         )
         self.graph.nodes[agent_node]["qVal"] = updated_qVal
 
-        print(f"Fact-checker Q-value updated: {updated_qVal}")
+        print(f"Fact-checker Q-value updated: {updated_qVal:.2f}")
 
+    
     # visualizing the network
     def render(self, mode="human"):
         if not hasattr(self, 'pos'):  
@@ -325,48 +298,71 @@ class SocialNetworkEnv(gym.Env):
             print("Graph Nodes and Attributes:")
             for node, data in self.graph.nodes(data=True):
                 print(f"Node {node}: {data}")
-            print("Graph Edges:")
-            for src, dst, data in self.graph.edges(data=True):
-                print(f"Edge {src} -> {dst}: {data}")
-
-        self.drawNetwork()
-        self.edge_colors = {}
-
-    # Draws the visualization for the network
-    def drawNetwork(self):
-        node_colors = [
-            (
-                "blue"
-                if self.graph.nodes[node]["agentType"] == "real-information"
-                else (
-                    "red"
-                    if self.graph.nodes[node]["agentType"] == "fake-information"
+            # print("Graph Edges:")
+            # for src, dst, data in self.graph.edges(data=True):
+            #     print(f"Edge {src} -> {dst}: {data}")
+            node_colors = [
+                (
+                    "blue"
+                    if self.graph.nodes[node]["agentType"] == "real-information"
                     else (
-                        "green"
-                        if self.graph.nodes[node]["agentType"] == "fact-checker"
-                        else "gray"
+                        "red"
+                        if self.graph.nodes[node]["agentType"] == "fake-information"
+                        else (
+                            "green"
+                            if self.graph.nodes[node]["agentType"] == "fact-checker"
+                            else "gray"
+                        )
                     )
                 )
+                for node in self.graph.nodes
+            ]
+
+            plt.figure(figsize=(8, 8))
+            nx.draw_networkx_nodes(
+                self.graph, self.pos, node_color=node_colors, node_size=500, alpha=0.8
             )
-            for node in self.graph.nodes
-        ]
+            nx.draw_networkx_edges(self.graph, self.pos, alpha=0.5, arrows=True)
+            
+            nx.draw_networkx_labels(self.graph, self.pos, labels={node: str(node) for node in self.graph.nodes}, font_size=10)
 
-        edge_colors = [self.edge_colors[edge] if edge in self.edge_colors else "gray" for edge in self.graph.edges()]
+            plt.scatter([], [], color="blue", label="Real Information Agent")
+            plt.scatter([], [], color="red", label="Fake Information Agent")
+            plt.scatter([], [], color="green", label="Fact Checker Agent")
+            plt.scatter([], [], color="gray", label="Consumer Agent")
+            plt.legend(loc="upper right", fontsize=10, bbox_to_anchor=(1.15, 1))
+            
+            plt.title("Social Network Graph", fontsize=14)
+            plt.axis("off")
+            plt.show()
 
-        plt.figure(figsize=(8, 8))
-        nx.draw_networkx_nodes(
-            self.graph, self.pos, node_color=node_colors, node_size=500, alpha=0.8
-        )
-        nx.draw_networkx_edges(self.graph, self.pos, edge_color=edge_colors, alpha=0.5, width=3, arrows=True)
-        
-        nx.draw_networkx_labels(self.graph, self.pos, labels={node: str(node) for node in self.graph.nodes}, font_size=10)
 
-        plt.scatter([], [], color="blue", label="Real Information Agent")
-        plt.scatter([], [], color="red", label="Fake Information Agent")
-        plt.scatter([], [], color="green", label="Fact Checker Agent")
-        plt.scatter([], [], color="gray", label="Consumer Agent")
-        plt.legend(loc="upper right", fontsize=10, bbox_to_anchor=(1.15, 1))
-        
-        plt.title("Social Network Graph", fontsize=14)
-        plt.axis("off")
+
+
+    def plot_learning_curve(agent_rewards, agent_penalties, agent_names, num_epochs):
+        """
+        Plots the learning curve (rewards and penalties) for all agents.
+
+        Args:
+            agent_rewards (dict): A dictionary where keys are agent names and values are lists of rewards per epoch.
+            agent_penalties (dict): A dictionary where keys are agent names and values are lists of penalties per epoch.
+            agent_names (list): A list of agent names.
+            num_epochs (int): The number of epochs.
+        """
+        epochs = range(num_epochs)
+
+        plt.figure(figsize=(12, 6))
+
+        for agent_name in agent_names:
+            rewards = agent_rewards.get(agent_name, [])
+            penalties = agent_penalties.get(agent_name, [])
+
+            plt.plot(epochs, rewards, label=f"{agent_name} - Rewards", linestyle='-', marker='o')
+            plt.plot(epochs, penalties, label=f"{agent_name} - Penalties", linestyle='--', marker='x')
+
+        plt.title("Learning Curve: Rewards and Penalties Over Time")
+        plt.xlabel("Epoch")
+        plt.ylabel("Value")
+        plt.legend()
+        plt.grid()
         plt.show()
