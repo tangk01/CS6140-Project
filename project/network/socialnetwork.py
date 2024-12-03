@@ -241,7 +241,6 @@ class SocialNetworkEnv(gym.Env):
             if curVal not in agent.influenced_consumers:
                 agent.influenced_consumers.append(curVal)
             trust_in_src_agent = len(agent.influenced_consumers) / total_nodes
-            # curNode["storedInfo"].append([(agent_node, f"{trust_in_src_agent:.2f}")])
             curNode["storedInfo"].append((agent_node, f"{trust_in_src_agent:.2f}"))
 
 
@@ -273,8 +272,21 @@ class SocialNetworkEnv(gym.Env):
 
     def step_fact_checker(self, fact_checker_agent, threshold=0.7):
         action = fact_checker_agent.select_action(threshold=threshold)
+        agent_node = self.agent_to_node_map[fact_checker_agent]
+
         if action == 1:
             fact_checker_agent.fact_check(fact_checker_agent)
+    
+    
+        # Update the fact-checker's Q-value
+        qVal = self.graph.nodes[agent_node]["qVal"]
+        max_qVal = max(fact_checker_agent.reward - fact_checker_agent.penalty, 0)
+        updated_qVal = qVal + 0.1 * (
+            fact_checker_agent.reward - fact_checker_agent.penalty + 0.9 * max_qVal - qVal
+        )
+        self.graph.nodes[agent_node]["qVal"] = updated_qVal
+
+        print(f"Fact-checker Q-value updated: {updated_qVal}")
 
     # visualizing the network
     def render(self, mode="human"):
