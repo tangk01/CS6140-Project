@@ -217,7 +217,7 @@ class SocialNetworkEnv(gym.Env):
 
                     # case 2: consumer accepts fake info
                     else:
-                        curNode["trustLevel"] = max(0, curNode["trustLevel"] - 0.1)
+                        curNode["trustLevel"] = max(0, curNode["trustLevel"] + 0.1) # increment trustLevel as we will offset this with fact checker
                         agent.reward += 1
                         self.graph.nodes[agent_node]["reward"] = agent.reward
 
@@ -238,10 +238,10 @@ class SocialNetworkEnv(gym.Env):
 
 
 
-            if curVal not in agent.influenced_consumers:
-                agent.influenced_consumers.append(curVal)
-            trust_in_src_agent = len(agent.influenced_consumers) / total_nodes
-            curNode["storedInfo"].append((agent_node, f"{trust_in_src_agent:.2f}"))
+                if curVal not in agent.influenced_consumers:
+                    agent.influenced_consumers.append(curVal)
+                trust_in_src_agent = len(agent.influenced_consumers) / total_nodes
+                curNode["storedInfo"].append((agent_node, f"{trust_in_src_agent:.2f}"))
 
 
             for neighbor in self.graph.neighbors(curVal):
