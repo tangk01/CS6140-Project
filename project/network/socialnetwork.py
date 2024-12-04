@@ -173,80 +173,88 @@ class SocialNetworkEnv(gym.Env):
 
         visited = set()
         queue = []
+        print('orig', queue)
+        
+        nx.draw(self.graph, with_labels=True)
+        plt.show()
 
-        # amt of influence an agent will invoke on the network.
-        # agent_node = src node, and trust_in_src_agent = amt of influence agent has in n/w
+        nodes_to_visit = []
+
         total_nodes = self.original_num_consumers
         for neighbor, sendInfo in zip(self.graph.neighbors(agent_node), action):
             if sendInfo == 1:
-                queue.append(neighbor)
-                visited.add(neighbor)
+                nodes_to_visit.append(neighbor)
         
-
-        if queue:
-            visited.remove(queue[0])
-        
-        while queue:
-            influenced = False
-            currentValue = queue.pop(0)
-
-            if currentValue in visited:
+        for node in nodes_to_visit:
+            if node in visited:
                 continue
-            visited.add(currentValue)
-            currentNode = self.graph.nodes[currentValue]
-            
-            if actionNode["agentType"] == "fake-information":
+            queue.append(node)
 
-                # Sets edge colors
-                if (agent_node, currentValue) in self.edge_colors:
-                    self.edge_colors[(agent_node, currentValue)] = "orange"
-                else:
-                    self.edge_colors[(agent_node, currentValue)] = "red"
+            while queue:
+                influenced = False
+                currentValue = queue.pop(0)
+                print('popping node:', currentValue, 'Queue before adding new neighbors:', queue)
 
-                # case 1: consumer reject fake info
-                if np.random.normal(0.5, .15) > 1 / (1 + math.exp(-currentNode["trustLevel"])):
-                    currentNode["trustLevel"] -= .1
-                    agent.penalty += 1
-                    self.graph.nodes[agent_node]["penalty"] = agent.penalty
+                if currentValue in visited:
+                    continue
+                visited.add(currentValue)
+                currentNode = self.graph.nodes[currentValue]
+                
+                if actionNode["agentType"] == "fake-information":
 
-                # case 2: consumer accepts fake info
-                else:
+                    # Sets edge colors
+                    if (agent_node, currentValue) in self.edge_colors:
+                        self.edge_colors[(agent_node, currentValue)] = "orange"
+                    else:
+                        self.edge_colors[(agent_node, currentValue)] = "red"
 
-                    currentNode["trustLevel"] += .1 
+                    # case 1: consumer reject fake info
+                    if np.random.normal(0.5, .15) > 1 / (1 + math.exp(-currentNode["trustLevel"])):
+                        currentNode["trustLevel"] -= .1
+                        agent.penalty += 1
+                        self.graph.nodes[agent_node]["penalty"] = agent.penalty
 
-                    agent.reward += 1
-                    self.graph.nodes[agent_node]["reward"] = agent.reward
-                    influenced = True
-                    
-            elif actionNode["agentType"] == "real-information":
+                    # case 2: consumer accepts fake info
+                    else:
 
-                # Sets edge colors
-                if (agent_node, currentValue) in self.edge_colors:
-                    self.edge_colors[(agent_node, currentValue)] = "orange"
-                else:
-                    self.edge_colors[(agent_node, currentValue)] = "blue"
+                        currentNode["trustLevel"] += .1 
 
-                # case 3: consumer rejects real info
-                if np.random.normal(0.5, .15) < 1 / (1 + math.exp(-currentNode["trustLevel"])):
-                    currentNode["trustLevel"] += .1
-                    agent.penalty += 1
-                    self.graph.nodes[agent_node]["penalty"] = agent.penalty
-                    
-                # case 4: consumer accepts real information
-                else:
-                    currentNode["trustLevel"] -= .1
-                    agent.reward += 1
-                    self.graph.nodes[agent_node]["reward"] = agent.reward
-                    influenced = True
+                        agent.reward += 1
+                        self.graph.nodes[agent_node]["reward"] = agent.reward
+                        influenced = True
+                        
+                elif actionNode["agentType"] == "real-information":
+
+                    # Sets edge colors
+                    if (agent_node, currentValue) in self.edge_colors:
+                        self.edge_colors[(agent_node, currentValue)] = "orange"
+                    else:
+                        self.edge_colors[(agent_node, currentValue)] = "blue"
+
+                    # case 3: consumer rejects real info
+                    if np.random.normal(0.5, .15) < 1 / (1 + math.exp(-currentNode["trustLevel"])):
+                        currentNode["trustLevel"] += .1
+                        agent.penalty += 1
+                        self.graph.nodes[agent_node]["penalty"] = agent.penalty
+                        
+                    # case 4: consumer accepts real information
+                    else:
+                        currentNode["trustLevel"] -= .1
+                        agent.reward += 1
+                        self.graph.nodes[agent_node]["reward"] = agent.reward
+                        influenced = True
+
+                print(visited, [a for a in self.graph.neighbors(currentValue)])
+                for neighbor in self.graph.neighbors(currentValue):
+                    if neighbor not in visited and neighbor not in queue:
+                        queue.append(neighbor)
+                
+                print('Queue after adding new neighbors:', queue)  
 
 
-            for neighbor in self.graph.neighbors(currentValue):
-                if neighbor not in visited:
-                    queue.append(neighbor)
-
-            if influenced and currentValue not in agent.influenced_consumers:
-                agent.influenced_consumers.append(currentValue)
-                currentNode['interactions'].append(agent)
+                if influenced and currentValue not in agent.influenced_consumers:
+                    agent.influenced_consumers.append(currentValue)
+                    currentNode['interactions'].append(agent)
 
 
         agent.trustLevel = len(agent.influenced_consumers) / total_nodes
