@@ -39,7 +39,7 @@ class NewsAgent(AbstractAgent):
 
         self.trustLevel = np.random.uniform(0, 1)
         self.q_values = defaultdict(lambda: np.zeros(env.action_space.shape))
-        self.q_table = np.zeros((state_space_size, 2)) # 2 actions: (1) send,  (0) dont send
+        self.q_table = np.zeros((self.env.original_num_consumers, 2)) # 2 actions: (1) send,  (0) dont send
 
         self.reward = 0
         self.penalty = 0

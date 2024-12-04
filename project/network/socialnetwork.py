@@ -18,7 +18,7 @@ class SocialNetworkEnv(gym.Env):
 
         self.build_consumer_network(numConsumer)
         self.build_action_space()
-        self.build_obersvation_space()
+        self.build_observation_space()
         
 
         self.network_size = self.numConsumers
@@ -108,7 +108,7 @@ class SocialNetworkEnv(gym.Env):
         builds an action space of shape = self.numConsumers
         randomly assigns 0/1 to each
         '''
-        self.action_space = spaces.Box(low=0, high=1, shape=(self.numConsumers,), dtype=np.int32)
+        self.action_space = spaces.MultiBinary(self.numConsumers)
         return self.action_space
 
     def draw_sample_from_action_space(self):
@@ -121,11 +121,11 @@ class SocialNetworkEnv(gym.Env):
         action = self.action_space.sample()
         return action
 
-    def build_obersvation_space(self):
+    def build_observation_space(self):
         self.observation_space = spaces.Dict(
             {
-                "trustLevels": spaces.Box(
-                    low=0, high=1, shape=(self.numConsumers,), dtype=np.float32
+                "trustLevels": spaces.MultiBinary(
+                    self.numConsumers
                 ),
             }
         )
@@ -137,7 +137,7 @@ class SocialNetworkEnv(gym.Env):
 
         # Reset agents
         for node in self.graph.nodes:
-            nodeType = self.graph.nodes[node]["type"]
+            nodeType = self.graph.nodes[node]["agentType"]
             if nodeType == "consumer":
                 self.graph.nodes[node]["trustLevel"] = 0.0
                 self.graph.nodes[node]["storedInfo"] = []
@@ -210,36 +210,36 @@ class SocialNetworkEnv(gym.Env):
             curNode = self.graph.nodes[curVal]
 
             
-            if curNode["agentType"] == "consumer":
+            if curNode["agentType"] == "consumer":                
 
-                # Sets edge colors
-                if (curVal, info[0]) in self.graph.edges():
-                    if (curVal, info[0]) in self.edge_colors:
-                        self.edge_colors[(curVal, info[0])] = "orange"
-                    else:
-                        self.edge_colors[(curVal, info[0])] = "red"
-                elif (info[0], curVal) in self.edge_colors:
-                    self.edge_colors[(info[0], curVal)] = "orange"
-                else:
-                    self.edge_colors[(info[0], curVal)] = "red"
-                
-
-                # case 1: consumer reject fake info
                 if actionNode["agentType"] == "fake-information":
-                    if np.random.random() > 1 / (1 + math.exp(-curNode["trustLevel"])):
-                        curNode["trustLevel"] = max(0, curNode["trustLevel"] - 0.1)
+
+                    # Sets edge colors
+                    if (curVal, info[0]) in self.graph.edges():
+                        if (curVal, info[0]) in self.edge_colors:
+                            self.edge_colors[(curVal, info[0])] = "orange"
+                        else:
+                            self.edge_colors[(curVal, info[0])] = "red"
+                    elif (info[0], curVal) in self.edge_colors:
+                        self.edge_colors[(info[0], curVal)] = "orange"
+                    else:
+                        self.edge_colors[(info[0], curVal)] = "red"
+
+
+                    # case 1: consumer reject fake info
+                    if np.random.random() > (1 / (1 + math.exp(-curNode["trustLevel"]))):
+                        curNode["trustLevel"] =- 0.1
                         agent.penalty += 1
                         self.graph.nodes[agent_node]["penalty"] = agent.penalty
 
 
                     # case 2: consumer accepts fake info
                     else:
-                        curNode["trustLevel"] = max(0, curNode["trustLevel"] + 0.1) # increment trustLevel as we will offset this with fact checker
+                        curNode["trustLevel"] =+ 0.1 # increment trustLevel as we will offset this with fact checker
                         agent.reward += 1
                         self.graph.nodes[agent_node]["reward"] = agent.reward
 
 
-                # case 3: consumer accepts real info
                 elif actionNode["agentType"] == "real-information":
 
                     # Sets edge colors
@@ -251,18 +251,19 @@ class SocialNetworkEnv(gym.Env):
                     elif (info[0], curVal) in self.edge_colors:
                         self.edge_colors[(info[0], curVal)] = "orange"
                     else:
-                        self.edge_colors[(info[0], curVal)] = "blue"\
+                        self.edge_colors[(info[0], curVal)] = "blue"
                         
 
-                    if np.random.random() < 1 / (1 + math.exp(-curNode["trustLevel"])):
-                        curNode["trustLevel"] = min(1, curNode["trustLevel"] + 0.1)
+                    # case 3: consumer rejects real info
+                    if np.random.random() < (1 / (1 + math.exp(-curNode["trustLevel"]))):
+                        curNode["trustLevel"] =+ 0.1
                         agent.reward += 1
                         self.graph.nodes[agent_node]["reward"] = agent.reward
-
+                        
                     
-                    # case 4: consumer rejects real information
+                    # case 4: consumer accepts real information
                     else:
-                        curNode["trustLevel"] = max(0, curNode["trustLevel"] - 0.1)
+                        curNode["trustLevel"] =- 0.1
                         agent.penalty += 1
                         self.graph.nodes[agent_node]["penalty"] = agent.penalty
 
