@@ -215,12 +215,7 @@ class SocialNetworkEnv(gym.Env):
                 if actionNode["agentType"] == "fake-information":
 
                     # Sets edge colors
-                    if (curVal, info[0]) in self.graph.edges():
-                        if (curVal, info[0]) in self.edge_colors:
-                            self.edge_colors[(curVal, info[0])] = "orange"
-                        else:
-                            self.edge_colors[(curVal, info[0])] = "red"
-                    elif (info[0], curVal) in self.edge_colors:
+                    if (info[0], curVal) in self.edge_colors:
                         self.edge_colors[(info[0], curVal)] = "orange"
                     else:
                         self.edge_colors[(info[0], curVal)] = "red"
@@ -239,16 +234,15 @@ class SocialNetworkEnv(gym.Env):
                         agent.reward += 1
                         self.graph.nodes[agent_node]["reward"] = agent.reward
 
+                        for neighbor in self.graph.neighbors(curVal):
+                            if neighbor not in visited:
+                                queue.append((curVal, neighbor))
+
 
                 elif actionNode["agentType"] == "real-information":
 
                     # Sets edge colors
-                    if (curVal, info[0]) in self.graph.edges():
-                        if (curVal, info[0]) in self.edge_colors:
-                            self.edge_colors[(curVal, info[0])] = "orange"
-                        else:
-                            self.edge_colors[(curVal, info[0])] = "blue"
-                    elif (info[0], curVal) in self.edge_colors:
+                    if (info[0], curVal) in self.edge_colors:
                         self.edge_colors[(info[0], curVal)] = "orange"
                     else:
                         self.edge_colors[(info[0], curVal)] = "blue"
@@ -267,14 +261,14 @@ class SocialNetworkEnv(gym.Env):
                         agent.penalty += 1
                         self.graph.nodes[agent_node]["penalty"] = agent.penalty
 
+                        for neighbor in self.graph.neighbors(curVal):
+                            if neighbor not in visited:
+                                queue.append((curVal, neighbor))
+
             if curVal not in agent.influenced_consumers:
                 agent.influenced_consumers.append(curVal)
             trust_in_src_agent = len(agent.influenced_consumers) / total_nodes
             curNode["storedInfo"].append((agent_node, f"{trust_in_src_agent:.2f}"))
-
-            for neighbor in self.graph.neighbors(curVal):
-                if neighbor not in visited:
-                    queue.append((curVal, neighbor))
 
         print('agent', agent_node)
         print('num of influenced consumer from agent ', agent_node, len(agent.influenced_consumers))
