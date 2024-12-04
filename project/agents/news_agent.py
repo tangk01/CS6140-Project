@@ -28,16 +28,12 @@ class NewsAgent(AbstractAgent):
         self.env = env
         self.agentType = agentType
 
-        if self.agentType == "real-information" or self.agentType == "fake-information":
-            self.trustLevel = np.random.uniform(0,1)
-        self.trustLevel = trustLevel
-
         self.learning = learning_rate  
         self.discount = discount  
         self.epsilon = epsilon  
         self.epsilonDecay = epsilonDecay
 
-        self.trustLevel = np.random.uniform(0, 1)
+        self.trustLevel = trustLevel or np.random.uniform(0, 1)
         self.q_values = defaultdict(lambda: np.zeros(env.action_space.shape))
         self.q_table = np.zeros((self.env.original_num_consumers, 2)) # 2 actions: (1) send,  (0) dont send
 
@@ -57,7 +53,6 @@ class NewsAgent(AbstractAgent):
             return self.env.action_space.sample()
         else:
             return int(np.argmax(self.q_values[state]))
-        # i need to check this select_action
         
 
     def update_q_value(self, state, action, reward, next_state):
@@ -83,5 +78,6 @@ class NewsAgent(AbstractAgent):
     def get_type(self):
         return str(self.agentType)
     
-    def __str__(self):
+    def __repr__(self):
         return f"Agent type: {self.get_type()} penalty: {self.penalty} reward: {self.reward} trust level: {self.trustLevel}"
+    

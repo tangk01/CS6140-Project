@@ -30,30 +30,28 @@ class FactCheckerAgent(AbstractAgent):
         max_stored_info_node = None
         max_stored_info_length = 0
 
-        # Find the node with the most interactions
+        # Find the consumer node with the most interactions
         for node, data in self.env.graph.nodes(data=True):
             if data["agentType"] == "consumer":
-                stored_info_length = len(data["storedInfo"])
+                stored_info_length = len(data['interactions'])
                 if stored_info_length > max_stored_info_length:
                     max_stored_info_length = stored_info_length
-                    max_stored_info_node = node
+                    max_stored_info_node = data
 
         if max_stored_info_node is None or max_stored_info_length == 0:
-            return 0  
+            print("No consumer node to fact-check.")
+            print(self.env.graph.nodes(data=True))
+            return {}
 
-        selected_consumer_data = self.env.graph.nodes[max_stored_info_node]
+        # Find the source agent with the highest influence
         influence_count = {}
-        for src_agent, influence in selected_consumer_data["storedInfo"]:
-            influence_count[src_agent] = influence_count.get(src_agent, 0) + float(influence)
+        for src_agent in max_stored_info_node["interactions"]:
+            print(src_agent)
+            influence_count[src_agent] = influence_count.get(src_agent, 0) + src_agent.trustLevel
 
-        if not influence_count:
-            return 0  
+        actions = {k: 1 if v >= threshold else 0 for k, v in influence_count.items()}
 
-        max_influential_src = max(influence_count, key=influence_count.get)
-        total_nodes = self.env.original_num_consumers
-        network_reach = influence_count[max_influential_src] / total_nodes
-
-        return 1 if network_reach > threshold else 0
+        return actions or {}
 
     
     def update_q_value(self, state, action, reward, next_state):
@@ -77,45 +75,25 @@ class FactCheckerAgent(AbstractAgent):
         '''
         pass
 
-    def fact_check(self, fact_checker_agent, top_k=1):
-        max_stored_info_node = None
-        max_stored_info_length = 0
-
-        # Find the consumer node with the most interactions
-        for node, data in self.env.graph.nodes(data=True):
-            if data["agentType"] == "consumer":
-                stored_info_length = len(data["storedInfo"])
-                if stored_info_length > max_stored_info_length:
-                    max_stored_info_length = stored_info_length
-                    max_stored_info_node = node
-
-        if max_stored_info_node is None or max_stored_info_length == 0:
-            print("No consumer node to fact-check.")
-            return
-
-        # Find the source agent with the highest influence
-        selected_consumer_data = self.env.graph.nodes[max_stored_info_node]
-        influence_count = {}
-        for src_agent, influence in selected_consumer_data["storedInfo"]:
-            influence_count[src_agent] = influence_count.get(src_agent, 0) + float(influence)
-
-        if not influence_count:
-            print("No influence data to process.")
-            return
-
-        max_influential_src = max(influence_count, key=influence_count.get)
-
-        # Check the agent type of the source
-        src_data = self.env.graph.nodes[max_influential_src]
+    def fact_check(self, news_agent, top_k=1):
+        src_data = self.env.get_node_from_agent(news_agent)
+        
         if src_data["agentType"] == "fake-information":
-            print(f"Fact-checker penalized fake news agent {max_influential_src}.")
+            print(f"Fact-checker penalized news agent {src_data}.")
             src_data["penalty"] += 1
-            fact_checker_agent.reward += 1  
-            self.env.graph.nodes[self.env.agent_to_node_map[fact_checker_agent]]["reward"] = fact_checker_agent.reward
-        else:
-            print(f"Fact-checker found no fake news in node {max_stored_info_node}.")
-            fact_checker_agent.penalty += 1
-            self.env.graph.nodes[self.env.agent_to_node_map[fact_checker_agent]]["penalty"] = fact_checker_agent.penalty
+            news_agent.penalty += 1
+            self.reward += 1  
+            self.env.get_node_from_agent(self)["reward"] = self.reward
 
+            return True                    
+
+        else:
+            print(f"Fact-checker found no fake news in node {news_agent}.")
+            self.penalty += 1
+            self.env.get_node_from_agent(self)["penalty"] = self.penalty
+
+        return False 
+    
     def get_type(self):
         return str(self.agentType)
+1
