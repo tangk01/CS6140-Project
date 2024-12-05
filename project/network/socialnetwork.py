@@ -178,83 +178,84 @@ class SocialNetworkEnv(gym.Env):
         # nx.draw(self.graph, with_labels=True)
         # plt.show()
 
-        nodes_to_visit = []
+        # nodes_to_visit = []
 
         total_nodes = self.original_num_consumers
         for neighbor, sendInfo in zip(self.graph.neighbors(agent_node), action):
             if sendInfo == 1:
-                nodes_to_visit.append(neighbor)
+                queue.append((agent_node, neighbor))
         
-        for node in nodes_to_visit:
-            if node in visited:
+        # for node in nodes_to_visit:
+        #     if node in visited:
+        #         continue
+        #     queue.append((agent_node, node))
+
+        while queue:
+            influenced = False
+            info = queue.pop(0)
+            source = info[0]
+            currentValue = info[1]
+            # print('popping node:', currentValue, 'Queue before adding new neighbors:', queue)
+
+            if currentValue in visited:
                 continue
-            queue.append((agent_node, node))
+            visited.add(currentValue)
+            currentNode = self.graph.nodes[currentValue]
+            
+            if actionNode["agentType"] == "fake-information":
 
-            while queue:
-                influenced = False
-                info = queue.pop(0)
-                source = info[0]
-                currentValue = info[1]
-                print('popping node:', currentValue, 'Queue before adding new neighbors:', queue)
+                # Sets edge colors
+                if (source, currentValue) in self.edge_colors:
+                    self.edge_colors[(source, currentValue)] = "orange"
+                else:
+                    self.edge_colors[(source, currentValue)] = "red"
 
-                if currentValue in visited:
-                    continue
-                visited.add(currentValue)
-                currentNode = self.graph.nodes[currentValue]
-                
-                if actionNode["agentType"] == "fake-information":
+                # case 1: consumer reject fake info
+                if np.random.normal(0.5, .15) > 1 / (1 + math.exp(-currentNode["trustLevel"])):
+                    currentNode["trustLevel"] -= .1
+                    agent.penalty += 1
+                    self.graph.nodes[agent_node]["penalty"] = agent.penalty
 
-                    # Sets edge colors
-                    if (source, currentValue) in self.edge_colors:
-                        self.edge_colors[(source, currentValue)] = "orange"
-                    else:
-                        self.edge_colors[(source, currentValue)] = "red"
+                # case 2: consumer accepts fake info
+                else:
+                    currentNode["trustLevel"] += .1 
+                    agent.reward += 1
+                    self.graph.nodes[agent_node]["reward"] = agent.reward
+                    influenced = True
+                    
+            elif actionNode["agentType"] == "real-information":
 
-                    # case 1: consumer reject fake info
-                    if np.random.normal(0.5, .15) > 1 / (1 + math.exp(-currentNode["trustLevel"])):
-                        currentNode["trustLevel"] -= .1
-                        agent.penalty += 1
-                        self.graph.nodes[agent_node]["penalty"] = agent.penalty
+                # Sets edge colors
+                if (source, currentValue) in self.edge_colors:
+                    self.edge_colors[(source, currentValue)] = "orange"
+                else:
+                    self.edge_colors[(source, currentValue)] = "blue"
 
-                    # case 2: consumer accepts fake info
-                    else:
-                        currentNode["trustLevel"] += .1 
-                        agent.reward += 1
-                        self.graph.nodes[agent_node]["reward"] = agent.reward
-                        influenced = True
-                        
-                elif actionNode["agentType"] == "real-information":
+                # case 3: consumer rejects real info
+                if np.random.normal(0.5, .15) < 1 / (1 + math.exp(-currentNode["trustLevel"])):
+                    currentNode["trustLevel"] += .1
+                    agent.penalty += 1
+                    self.graph.nodes[agent_node]["penalty"] = agent.penalty
+                    
+                # case 4: consumer accepts real information
+                else:
+                    currentNode["trustLevel"] -= .1
+                    agent.reward += 1
+                    self.graph.nodes[agent_node]["reward"] = agent.reward
+                    influenced = True
 
-                    # Sets edge colors
-                    if (source, currentValue) in self.edge_colors:
-                        self.edge_colors[(source, currentValue)] = "orange"
-                    else:
-                        self.edge_colors[(source, currentValue)] = "blue"
-
-                    # case 3: consumer rejects real info
-                    if np.random.normal(0.5, .15) < 1 / (1 + math.exp(-currentNode["trustLevel"])):
-                        currentNode["trustLevel"] += .1
-                        agent.penalty += 1
-                        self.graph.nodes[agent_node]["penalty"] = agent.penalty
-                        
-                    # case 4: consumer accepts real information
-                    else:
-                        currentNode["trustLevel"] -= .1
-                        agent.reward += 1
-                        self.graph.nodes[agent_node]["reward"] = agent.reward
-                        influenced = True
-
-                print(visited, [a for a in self.graph.neighbors(currentValue)])
-                for neighbor in self.graph.neighbors(currentValue):
-                    if neighbor not in visited and neighbor not in queue:
-                        queue.append((currentValue, neighbor))
-                
-                print('Queue after adding new neighbors:', queue)  
+            # print(visited, [a for a in self.graph.neighbors(currentValue)])
+            for neighbor in self.graph.neighbors(currentValue):
+                print(currentValue, influenced)
+                if influenced and neighbor not in visited and neighbor not in queue:
+                    queue.append((currentValue, neighbor))
+            
+            print('Queue after adding new neighbors:', queue)  
 
 
-                if influenced and currentValue not in agent.influenced_consumers:
-                    agent.influenced_consumers.append(currentValue)
-                    currentNode['interactions'].append(agent)
+            if influenced and currentValue not in agent.influenced_consumers:
+                agent.influenced_consumers.append(currentValue)
+                currentNode['interactions'].append(agent)
 
 
         agent.trustLevel = len(agent.influenced_consumers) / total_nodes
@@ -284,14 +285,14 @@ class SocialNetworkEnv(gym.Env):
                 if found_fake:
                     found_fake_info.add(agent_value)
         
-        print('set is ', found_fake_info)
-        print('before ', [c[1]['trustLevel'] for c in self.graph.nodes(data=True)])
+        # print('set is ', found_fake_info)
+        # print('before ', [c[1]['trustLevel'] for c in self.graph.nodes(data=True)])
         for nodeValue, node_data in self.graph.nodes(data=True):
             if node_data['agentType'] == 'consumer':
                 for interaction in node_data['interactions']:
                     if interaction in found_fake_info:
                         node_data['trustLevel'] -= 0.15
-        print('after ', [c[1]['trustLevel'] for c in self.graph.nodes(data=True)])
+        # print('after ', [c[1]['trustLevel'] for c in self.graph.nodes(data=True)])
 
         # Update the fact-checker's Q-value
         fact_checker_node = self.get_node_from_agent(fact_checker_agent)
@@ -302,7 +303,7 @@ class SocialNetworkEnv(gym.Env):
         )
         fact_checker_node["qVal"] = updated_qVal
 
-        print(f"Fact-checker Q-value updated: {updated_qVal:.2f}")
+        # print(f"Fact-checker Q-value updated: {updated_qVal:.2f}")
 
     # visualizing the network
     def render(self, mode="human"):
@@ -310,12 +311,12 @@ class SocialNetworkEnv(gym.Env):
             self.pos = nx.spring_layout(self.graph, seed=42, scale=.2, center=(0, 0))
         
         if mode == "human":
-            print("Graph Nodes and Attributes:")
-            for node, data in self.graph.nodes(data=True):
-                print(f"Node {node}: {data}")
-            print("Graph Edges:")
-            for src, dst, data in self.graph.edges(data=True):
-                print(f"Edge {src} -> {dst}: {data}")
+            # print("Graph Nodes and Attributes:")
+            # for node, data in self.graph.nodes(data=True):
+            #     print(f"Node {node}: {data}")
+            # print("Graph Edges:")
+            # for src, dst, data in self.graph.edges(data=True):
+            #     print(f"Edge {src} -> {dst}: {data}")
 
             self.drawNetwork()
             self.edge_colors = {}
