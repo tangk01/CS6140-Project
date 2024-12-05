@@ -175,8 +175,8 @@ class SocialNetworkEnv(gym.Env):
         queue = []
         print('orig', queue)
         
-        nx.draw(self.graph, with_labels=True)
-        plt.show()
+        # nx.draw(self.graph, with_labels=True)
+        # plt.show()
 
         nodes_to_visit = []
 
@@ -188,11 +188,13 @@ class SocialNetworkEnv(gym.Env):
         for node in nodes_to_visit:
             if node in visited:
                 continue
-            queue.append(node)
+            queue.append((agent_node, node))
 
             while queue:
                 influenced = False
-                currentValue = queue.pop(0)
+                info = queue.pop(0)
+                source = info[0]
+                currentValue = info[1]
                 print('popping node:', currentValue, 'Queue before adding new neighbors:', queue)
 
                 if currentValue in visited:
@@ -203,10 +205,10 @@ class SocialNetworkEnv(gym.Env):
                 if actionNode["agentType"] == "fake-information":
 
                     # Sets edge colors
-                    if (agent_node, currentValue) in self.edge_colors:
-                        self.edge_colors[(agent_node, currentValue)] = "orange"
+                    if (source, currentValue) in self.edge_colors:
+                        self.edge_colors[(source, currentValue)] = "orange"
                     else:
-                        self.edge_colors[(agent_node, currentValue)] = "red"
+                        self.edge_colors[(source, currentValue)] = "red"
 
                     # case 1: consumer reject fake info
                     if np.random.normal(0.5, .15) > 1 / (1 + math.exp(-currentNode["trustLevel"])):
@@ -216,9 +218,7 @@ class SocialNetworkEnv(gym.Env):
 
                     # case 2: consumer accepts fake info
                     else:
-
                         currentNode["trustLevel"] += .1 
-
                         agent.reward += 1
                         self.graph.nodes[agent_node]["reward"] = agent.reward
                         influenced = True
@@ -226,10 +226,10 @@ class SocialNetworkEnv(gym.Env):
                 elif actionNode["agentType"] == "real-information":
 
                     # Sets edge colors
-                    if (agent_node, currentValue) in self.edge_colors:
-                        self.edge_colors[(agent_node, currentValue)] = "orange"
+                    if (source, currentValue) in self.edge_colors:
+                        self.edge_colors[(source, currentValue)] = "orange"
                     else:
-                        self.edge_colors[(agent_node, currentValue)] = "blue"
+                        self.edge_colors[(source, currentValue)] = "blue"
 
                     # case 3: consumer rejects real info
                     if np.random.normal(0.5, .15) < 1 / (1 + math.exp(-currentNode["trustLevel"])):
@@ -247,7 +247,7 @@ class SocialNetworkEnv(gym.Env):
                 print(visited, [a for a in self.graph.neighbors(currentValue)])
                 for neighbor in self.graph.neighbors(currentValue):
                     if neighbor not in visited and neighbor not in queue:
-                        queue.append(neighbor)
+                        queue.append((currentValue, neighbor))
                 
                 print('Queue after adding new neighbors:', queue)  
 
