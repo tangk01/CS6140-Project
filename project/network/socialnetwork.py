@@ -271,6 +271,8 @@ class SocialNetworkEnv(gym.Env):
             agent.reward - agent.penalty + 0.9 * max_qVal - qVal
         )
 
+        print("QVAL", qVal)
+
         return agent.reward, agent.penalty
 
 

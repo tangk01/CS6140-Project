@@ -52,7 +52,12 @@ class NewsAgent(AbstractAgent):
         if np.random.random() < self.epsilon:
             return self.env.action_space.sample()
         else:
-            return int(np.argmax(self.q_values[state]))
+            action = np.array([], dtype=int)
+            for node in self.q_table:
+                if node[0] > node[1]:
+                    action.append(0)
+            # return int(np.argmax(self.q_values[state]))
+            return action
         
 
     def update_q_value(self, state, action, reward, next_state):
