@@ -18,8 +18,8 @@ class NewsAgent(AbstractAgent):
         env: gym.Env = None,
         learning_rate=0.1,
         discount=0.9,
-        epsilon=0.1,
-        epsilonDecay=0.0001,
+        epsilon=0.3,
+        epsilonDecay=0.01,
     ):
 
         if env is None:
@@ -34,38 +34,66 @@ class NewsAgent(AbstractAgent):
         self.epsilonDecay = epsilonDecay
 
         self.trustLevel = trustLevel or np.random.uniform(0, 1)
-        self.q_values = defaultdict(lambda: np.zeros(env.action_space.shape))
-        self.q_table = np.zeros((self.env.original_num_consumers, 2)) # 2 actions: (1) send,  (0) dont send
+        self.q_values = defaultdict(lambda: np.zeros(env.action_space.shape)) #Delete?
+
+        self.q_table = np.zeros((self.env.original_num_consumers, 1)) # 2 actions: (1) send,  (0) dont send
 
         self.reward = 0
         self.penalty = 0
 
         self.influenced_consumers = []
 
-    def select_action(self, state):
+    def select_action(self):
         '''
         Actions = ["spread-info", "dont spread-info"]
 
         using epsilon-greedy strategy where ϵ = probability of choosing a random action &&
         1 - ϵ chooses action with highest q-value.
         '''
+        self.epsilon -= self.epsilonDecay
+        print("QTABLE", self.q_table)
         if np.random.random() < self.epsilon:
             return self.env.action_space.sample()
         else:
-            action = np.array([], dtype=int)
-            for node in self.q_table:
-                if node[0] > node[1]:
+            action = []
+            for val in self.q_table:
+                if val >= 0:
+                    action.append(1)
+                else:
                     action.append(0)
-            # return int(np.argmax(self.q_values[state]))
             return action
         
 
-    def update_q_value(self, state, action, reward, next_state):
+    def update_q_value(self, state, action, reward, penalty, qVal):
         """Update the Q-value using the Q-learning update rule."""
-        best_next_action = np.argmax(self.q_table[next_state])
-        td_target = reward + self.discount * self.q_table[next_state, best_next_action]
-        td_error = td_target - self.q_table[state, action]
-        self.q_table[state, action] += self.learning * td_error
+        if self.agentType == "fake-information":
+            agent = -0.8
+        else:
+            agent = 0.8
+        
+        fake = state[1]
+        real = state[0]
+        # Loop through state and action to update
+        for node, send in zip(range(len(action)), action):
+            if send == 1:
+                if node in fake:
+                    self.q_table[node] -= agent * (qVal + 2)
+                else:
+                    self.q_table[node] -= agent * (qVal + 1)
+                if node in real:
+                    self.q_table[node] += agent * (qVal + 2)
+                else:
+                    self.q_table[node] += agent * (qVal + 1)
+            else:
+                self.q_table[node] += 0.8 * (qVal + 1)
+            
+
+
+
+        # best_next_action = np.argmax(self.q_table[next_state])
+        # td_target = reward + self.discount * self.q_table[next_state, best_next_action]
+        # td_error = td_target - self.q_table[state, action]
+        # self.q_table[state, action] += self.learning * td_error
 
 
     def send_information(self):

@@ -172,6 +172,7 @@ class SocialNetworkEnv(gym.Env):
         actionNode = self.graph.nodes[agent_node]
 
         visited = set()
+        influenced = set()
         queue = []
         print('orig', queue)
         
@@ -184,14 +185,8 @@ class SocialNetworkEnv(gym.Env):
         for neighbor, sendInfo in zip(self.graph.neighbors(agent_node), action):
             if sendInfo == 1:
                 queue.append((agent_node, neighbor))
-        
-        # for node in nodes_to_visit:
-        #     if node in visited:
-        #         continue
-        #     queue.append((agent_node, node))
 
         while queue:
-            influenced = False
             info = queue.pop(0)
             source = info[0]
             currentValue = info[1]
@@ -221,7 +216,7 @@ class SocialNetworkEnv(gym.Env):
                     currentNode["trustLevel"] += .1 
                     agent.reward += 1
                     self.graph.nodes[agent_node]["reward"] = agent.reward
-                    influenced = True
+                    influenced.add(currentValue)
                     
             elif actionNode["agentType"] == "real-information":
 
@@ -242,18 +237,17 @@ class SocialNetworkEnv(gym.Env):
                     currentNode["trustLevel"] -= .1
                     agent.reward += 1
                     self.graph.nodes[agent_node]["reward"] = agent.reward
-                    influenced = True
+                    influenced.add(currentValue)
 
             # print(visited, [a for a in self.graph.neighbors(currentValue)])
             for neighbor in self.graph.neighbors(currentValue):
-                print(currentValue, influenced)
-                if influenced and neighbor not in visited and neighbor not in queue:
+                if currentValue in influenced and neighbor not in visited and neighbor not in queue:
                     queue.append((currentValue, neighbor))
             
             print('Queue after adding new neighbors:', queue)  
 
 
-            if influenced and currentValue not in agent.influenced_consumers:
+            if currentValue in influenced and currentValue not in agent.influenced_consumers:
                 agent.influenced_consumers.append(currentValue)
                 currentNode['interactions'].append(agent)
 
@@ -272,8 +266,9 @@ class SocialNetworkEnv(gym.Env):
         )
 
         print("QVAL", qVal)
+        print(influenced)
 
-        return agent.reward, agent.penalty
+        return agent.reward, agent.penalty, influenced, qVal
 
 
     def step_fact_checker(self, fact_checker_agent, threshold=0.7):
@@ -368,4 +363,3 @@ class SocialNetworkEnv(gym.Env):
     
     def get_node_from_agent(self, agent):
         return self.graph.nodes[self.get_value_from_agent(agent)]
-    
