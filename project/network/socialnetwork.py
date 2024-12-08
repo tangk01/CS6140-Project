@@ -25,6 +25,7 @@ class SocialNetworkEnv(gym.Env):
 
         self.agent_to_node_map = {}
         self.edge_colors = {}
+        self.node_edge_colors = {}
 
 
     def print_graph(self):
@@ -171,6 +172,9 @@ class SocialNetworkEnv(gym.Env):
         agent_node = self.agent_to_node_map[agent]
         actionNode = self.graph.nodes[agent_node]
 
+        reward = 0
+        penalty = 0
+
         visited = set()
         influenced = set()
         queue = []
@@ -208,15 +212,20 @@ class SocialNetworkEnv(gym.Env):
                 # case 1: consumer reject fake info
                 if np.random.normal(0.5, .15) > 1 / (1 + math.exp(-currentNode["trustLevel"])):
                     currentNode["trustLevel"] -= .1
-                    agent.penalty += 1
-                    self.graph.nodes[agent_node]["penalty"] = agent.penalty
+                    penalty += 1
+                    currentNode["penalty"] += 1
 
                 # case 2: consumer accepts fake info
                 else:
                     currentNode["trustLevel"] += .1 
-                    agent.reward += 1
-                    self.graph.nodes[agent_node]["reward"] = agent.reward
+                    reward += 1
+                    currentNode["reward"] += 1
                     influenced.add(currentValue)
+
+                    if currentValue in self.node_edge_colors:
+                        self.node_edge_colors[currentValue] = "orange"
+                    else:
+                        self.node_edge_colors[currentValue] = "red"
                     
             elif actionNode["agentType"] == "real-information":
 
@@ -229,15 +238,20 @@ class SocialNetworkEnv(gym.Env):
                 # case 3: consumer rejects real info
                 if np.random.normal(0.5, .15) < 1 / (1 + math.exp(-currentNode["trustLevel"])):
                     currentNode["trustLevel"] += .1
-                    agent.penalty += 1
-                    self.graph.nodes[agent_node]["penalty"] = agent.penalty
+                    penalty += 1
+                    currentNode["penalty"] += 1
                     
                 # case 4: consumer accepts real information
                 else:
                     currentNode["trustLevel"] -= .1
-                    agent.reward += 1
-                    self.graph.nodes[agent_node]["reward"] = agent.reward
+                    reward += 1
+                    currentNode["reward"] += 1
                     influenced.add(currentValue)
+
+                    if currentValue in self.node_edge_colors:
+                        self.node_edge_colors[currentValue] = "orange"
+                    else:
+                        self.node_edge_colors[currentValue] = "blue"
 
             # print(visited, [a for a in self.graph.neighbors(currentValue)])
             for neighbor in self.graph.neighbors(currentValue):
@@ -254,22 +268,21 @@ class SocialNetworkEnv(gym.Env):
 
         agent.trustLevel = len(agent.influenced_consumers) / total_nodes
         
-
         # print(agent.trustLevel)
-
 
         # Calculates Rewards/Penalties:
         qVal = self.graph.nodes[agent_node]["qVal"]
-        max_qVal = max(agent.reward - agent.penalty, 0)
+        max_qVal = max(reward - penalty, 0)
         self.graph.nodes[agent_node]["qVal"] += 0.1 * (
-            agent.reward - agent.penalty + 0.9 * max_qVal - qVal
+            reward - penalty + 0.9 * max_qVal - qVal
         )
 
-        return agent.reward, agent.penalty, influenced, qVal
+        return reward, penalty, influenced, qVal
 
 
     def step_fact_checker(self, fact_checker_agent, threshold=0.7):
         actions = fact_checker_agent.select_action(threshold=threshold)
+        updateQVals = set()
 
         found_fake_info = set()
         for agent_value, action in actions.items():
@@ -286,6 +299,10 @@ class SocialNetworkEnv(gym.Env):
                 for interaction in node_data['interactions']:
                     if interaction in found_fake_info:
                         node_data['trustLevel'] -= 0.15
+                        updateQVals.add(nodeValue)
+
+        if found_fake:
+            agent_value.factChecked(updateQVals)
         # print('after ', [c[1]['trustLevel'] for c in self.graph.nodes(data=True)])
 
         # Update the fact-checker's Q-value
@@ -314,6 +331,7 @@ class SocialNetworkEnv(gym.Env):
 
             self.drawNetwork()
             self.edge_colors = {}
+            self.node_edge_colors = {}
 
 
     # Draws the visualization for the network
@@ -336,10 +354,11 @@ class SocialNetworkEnv(gym.Env):
         ]
 
         edge_colors = [self.edge_colors[edge] if edge in self.edge_colors else "gray" for edge in self.graph.edges()]
+        node_edge_colors = [self.node_edge_colors[node] if node in self.node_edge_colors else "gray" for node in self.graph.nodes()]
 
         plt.figure(figsize=(8, 8))
         nx.draw_networkx_nodes(
-            self.graph, self.pos, node_color=node_colors, node_size=500, alpha=0.8
+            self.graph, self.pos, node_color=node_colors, edgecolors=node_edge_colors, node_size=500, alpha=0.8
         )
         nx.draw_networkx_edges(self.graph, self.pos, edge_color=edge_colors, alpha=0.5, width=3, arrows=True)
         

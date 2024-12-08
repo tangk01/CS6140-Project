@@ -81,9 +81,10 @@ class FactCheckerAgent(AbstractAgent):
         if src_data["agentType"] == "fake-information":
             print(f"Fact-checker penalized news agent {src_data}.")
             src_data["penalty"] += 1
-            news_agent.penalty += 1
             self.reward += 1  
             self.env.get_node_from_agent(self)["reward"] = self.reward
+
+            print("Fact Check True")
 
             return True                    
 
@@ -91,6 +92,8 @@ class FactCheckerAgent(AbstractAgent):
             print(f"Fact-checker found no fake news in node {news_agent}.")
             self.penalty += 1
             self.env.get_node_from_agent(self)["penalty"] = self.penalty
+
+        print("Fact Check False")
 
         return False 
     

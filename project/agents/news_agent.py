@@ -33,12 +33,7 @@ class NewsAgent(AbstractAgent):
         self.epsilonDecay = epsilonDecay
 
         self.trustLevel = trustLevel or np.random.uniform(0, 1)
-        self.q_values = defaultdict(lambda: np.zeros(env.action_space.shape)) #Delete?
-
         self.q_table = np.zeros((self.env.original_num_consumers, 1)) # 2 actions: (1) send,  (0) dont send
-
-        self.reward = 0
-        self.penalty = 0
 
         self.influenced_consumers = []
 
@@ -63,12 +58,12 @@ class NewsAgent(AbstractAgent):
             return action
         
 
-    def update_q_value(self, state, action, reward, penalty, qVal):
+    def update_q_value(self, state, action, qVal):
         """Update the Q-value using the Q-learning update rule."""
         if self.agentType == "fake-information":
-            agent = -0.1
+            agent = -0.2
         else:
-            agent = 0.1
+            agent = 0.2
         
         fake = state[1]
         real = state[0]
@@ -85,7 +80,12 @@ class NewsAgent(AbstractAgent):
                 else:
                     self.q_table[node] += agent * (qVal + 1)
             else:
-                self.q_table[node] += 0.1 * (qVal + 1)
+                self.q_table[node] += 0.2 * (qVal + 1)
+
+    def factChecked(self, nodes):
+        for node in nodes:
+            self.q_table[node] -= 0.2 * 2
+
 
 
     def send_information(self):
@@ -104,5 +104,5 @@ class NewsAgent(AbstractAgent):
         return str(self.agentType)
     
     def __repr__(self):
-        return f"Agent type: {self.get_type()} penalty: {self.penalty} reward: {self.reward} trust level: {self.trustLevel}"
+        return f"Agent type: {self.get_type()} QTable: {self.q_table} Trust Level: {self.trustLevel}"
     
