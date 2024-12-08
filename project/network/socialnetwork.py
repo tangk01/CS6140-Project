@@ -25,6 +25,7 @@ class SocialNetworkEnv(gym.Env):
 
         self.agent_to_node_map = {}
         self.edge_colors = {}
+        self.node_edge_colors = {}
 
 
     def print_graph(self):
@@ -217,6 +218,11 @@ class SocialNetworkEnv(gym.Env):
                     agent.reward += 1
                     self.graph.nodes[agent_node]["reward"] = agent.reward
                     influenced.add(currentValue)
+
+                    if currentValue in self.node_edge_colors:
+                        self.node_edge_colors[currentValue] = "orange"
+                    else:
+                        self.node_edge_colors[currentValue] = "red"
                     
             elif actionNode["agentType"] == "real-information":
 
@@ -238,6 +244,11 @@ class SocialNetworkEnv(gym.Env):
                     agent.reward += 1
                     self.graph.nodes[agent_node]["reward"] = agent.reward
                     influenced.add(currentValue)
+
+                    if currentValue in self.node_edge_colors:
+                        self.node_edge_colors[currentValue] = "orange"
+                    else:
+                        self.node_edge_colors[currentValue] = "blue"
 
             # print(visited, [a for a in self.graph.neighbors(currentValue)])
             for neighbor in self.graph.neighbors(currentValue):
@@ -314,6 +325,7 @@ class SocialNetworkEnv(gym.Env):
 
             self.drawNetwork()
             self.edge_colors = {}
+            self.node_edge_colors = {}
 
 
     # Draws the visualization for the network
@@ -336,10 +348,11 @@ class SocialNetworkEnv(gym.Env):
         ]
 
         edge_colors = [self.edge_colors[edge] if edge in self.edge_colors else "gray" for edge in self.graph.edges()]
+        node_edge_colors = [self.node_edge_colors[node] if node in self.node_edge_colors else "gray" for node in self.graph.nodes()]
 
         plt.figure(figsize=(8, 8))
         nx.draw_networkx_nodes(
-            self.graph, self.pos, node_color=node_colors, node_size=500, alpha=0.8
+            self.graph, self.pos, node_color=node_colors, edgecolors=node_edge_colors, node_size=500, alpha=0.8
         )
         nx.draw_networkx_edges(self.graph, self.pos, edge_color=edge_colors, alpha=0.5, width=3, arrows=True)
         

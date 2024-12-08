@@ -63,7 +63,7 @@ class NewsAgent(AbstractAgent):
             return action
         
 
-    def update_q_value(self, state, action, reward, penalty, qVal):
+    def update_q_value(self, state, action, qVal):
         """Update the Q-value using the Q-learning update rule."""
         if self.agentType == "fake-information":
             agent = -0.1
