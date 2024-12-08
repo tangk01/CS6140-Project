@@ -244,7 +244,7 @@ class SocialNetworkEnv(gym.Env):
                 if currentValue in influenced and neighbor not in visited and neighbor not in queue:
                     queue.append((currentValue, neighbor))
             
-            print('Queue after adding new neighbors:', queue)  
+            # print('Queue after adding new neighbors:', queue)  
 
 
             if currentValue in influenced and currentValue not in agent.influenced_consumers:
@@ -255,7 +255,7 @@ class SocialNetworkEnv(gym.Env):
         agent.trustLevel = len(agent.influenced_consumers) / total_nodes
         
 
-        print(agent.trustLevel)
+        # print(agent.trustLevel)
 
 
         # Calculates Rewards/Penalties:
@@ -264,9 +264,6 @@ class SocialNetworkEnv(gym.Env):
         self.graph.nodes[agent_node]["qVal"] += 0.1 * (
             agent.reward - agent.penalty + 0.9 * max_qVal - qVal
         )
-
-        print("QVAL", qVal)
-        print(influenced)
 
         return agent.reward, agent.penalty, influenced, qVal
 

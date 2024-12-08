@@ -14,7 +14,6 @@ class NewsAgent(AbstractAgent):
         self,
         agentType,
         trustLevel,
-        state_space_size,
         env: gym.Env = None,
         learning_rate=0.1,
         discount=0.9,
@@ -67,12 +66,13 @@ class NewsAgent(AbstractAgent):
     def update_q_value(self, state, action, reward, penalty, qVal):
         """Update the Q-value using the Q-learning update rule."""
         if self.agentType == "fake-information":
-            agent = -0.8
+            agent = -0.1
         else:
-            agent = 0.8
+            agent = 0.1
         
         fake = state[1]
         real = state[0]
+        
         # Loop through state and action to update
         for node, send in zip(range(len(action)), action):
             if send == 1:
@@ -85,15 +85,7 @@ class NewsAgent(AbstractAgent):
                 else:
                     self.q_table[node] += agent * (qVal + 1)
             else:
-                self.q_table[node] += 0.8 * (qVal + 1)
-            
-
-
-
-        # best_next_action = np.argmax(self.q_table[next_state])
-        # td_target = reward + self.discount * self.q_table[next_state, best_next_action]
-        # td_error = td_target - self.q_table[state, action]
-        # self.q_table[state, action] += self.learning * td_error
+                self.q_table[node] += 0.1 * (qVal + 1)
 
 
     def send_information(self):
