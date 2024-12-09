@@ -12,7 +12,7 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{babel}
-
+\usepackage{graphicx}
 
 \setlength{\oddsidemargin}{0 in}
 \setlength{\evensidemargin}{0 in}
@@ -284,6 +284,120 @@ The way we will evaluate our environment is based on three criteria. Each agents
 
 
 \section{Results}
+\subsubsection{Network setup: }
+The first three scenarios we analyzed were keeping the number of agents constant and changing the number of consumers in the network. Since all consumers begin with an equal trust level defaulting each consumer to have 50\% trust in fake and 50\% trust in real agents, we are able to see how a larger network may affect the spread of information. The setup is:
+
+1. 5 consumers, 1 real agent, 1 fake agent, 1 fact checking agent\\
+2. 50 consumers, 1 real agent, 1 fake agent, 1 fact checking agent\\
+3. 100 consumers, 1 real agent, 1 fake agent, 1 fact checking agent\\
+
+\textbf{Scenario 1: 5 consumer network at first epoch}
+
+\begin{figure}[htbp]
+     \centering
+     \includegraphics[width=0.5\textwidth]{../results/images/Initial_network.png}
+     \caption{5 consumer network with 3 agents.}
+     \label{fig: 5 consumer network, 3 agents}
+ \end{figure}
+ 
+
+ The initial trust levels for all consumers will be 0 and the agents will have a random action space indicating if they decide to send information to their neighbors. 
+
+\pagebreak
+\textbf{Output after the first epoch:}
+
+\begin{verbatim}
+Fake Agent: 
+reward: 0, penalty : 3, influenced : None, qval : 0.0
+
+Real Agent: 
+reward: 1, penalty : 1, influenced : {4}, qval : 0.0
+
+Fact Checker Agent: Agent type: real-information penalty: 1 reward: 1 trust level: 0.2
+
+Fact-checker found no fake news in node Agent type: 
+real-information penalty: 1 reward: 1 trust level: 0.2.
+
+set of fake information agents audited:  None
+Consumer trust level before fact checking  [0.0, -0.1, -0.1, 0.1, -0.2, 0.0, 0.0, 0.0]
+Consumer trust level after fact checking [0.0, -0.1, -0.1, 0.1, -0.2, 0.0, 0.0, 0.0]
+
+\end{verbatim}
+
+We can see that after our first epoch, the fake-information agent has already accrued a penalty of 3 and the real agent has accrued a reward of 1 and a penalty of 1. These reward/penalties are a direct result from whether or not a consumer is accepting or denying their information. As a result, each consumers trustLevel is increasing or decreasing. At the end of the epoch, our fact checking agent kicks into gear and finds no fake information being spread across the network, and so the trust levels stand for this scenario. Because no false information was found, the consumer trust levels before and after the fact checker was introduced stay the same.
+
+\textbf{Scenario 1: 5 consumer network at final epoch}
+
+\begin{figure}[htbp]
+     \centering
+     \includegraphics[width=0.5\textwidth]{../results/images/output1.png}
+     \caption{5 consumers with 3 agents after final epoch.}
+     \label{fig: 5 consumer, 3 agents}
+ \end{figure}
+ 
+The network now shows at epoch 7 the information traveling from consumer to consumer, indicated by the edge color to depict whether it is false, or real information being sent.
+
+\textbf{Output after the final epoch:}
+\begin{verbatim}
+--------- epoch 7 ---------------------
+
+
+Fake Agent: 
+reward: 7, penalty : 27, influenced : None, qval : -4.0934193
+
+Real Agent: 
+reward: 26, penalty : 6, influenced : {0, 1, 2, 4}, qval : 10.440129500000001
+
+
+Fact Checker Agent: Agent type: real-information penalty: 6 reward: 26 trust level: 1.0
+
+Agent type: fake-information penalty: 27 reward: 7 trust level: 1.0
+
+Fact-checker penalized news agent {'agentType': 'fake-information', 'qVal': -5.68407737, 
+'trustLevel': 0.0, 'reward': 7, 'penalty': 27}.
+
+set of fake information agents audited:  
+{Agent type: fake-information penalty: 28 reward: 7 trust level: 1.0}
+
+Consumer trust level before fact checking:  
+[-1.1, -1.7, -1.5, -0.85, -2.1500000000000004, 0.0, 0.0, 0.0]
+
+Consumer trust level after fact checking: 
+[-1.25, -1.8499999999999999, -1.65, -1.0, -2.3000000000000003, 0.0, 0.0, 0.0]
+\end{verbatim}
+
+A few results are obvious when we analyze the outcome of this scenario from the first to the final epoch. The real-information agent ended the session with a reward of 26 and a penalty of 6. Meaning, it was able to gain more rewards opposed to penalty, successfully influencing the network. We can see that the real information agents q-value rose to 10.44. The fake information agent is opposite where it has a reward of 7, and a penalty of 27, meaning that it was not quite successful in influencing the network. The fake information agent ends the scenario with a negative q-value at -4.09 and was unable to influence the network. The penalty and negative q-value reflect the fact that the fact-checker was able to do a good job punishing this agent for not being deceptive enough. 
+
+\begin{figure}[htbp]
+     \centering
+     \begin{minipage}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{../results/images/real_info_rp.png}
+         \caption{Real info Agent reward vs penalty}
+         \label{fig:image1}
+     \end{minipage}
+     \hfill
+     \begin{minipage}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{../results/images/fake_info_rp.png}
+         \caption{Fake info Agent reward vs penalty}
+         \label{fig:image2}
+     \end{minipage}
+ \end{figure}
+ 
+
+
+Lastly, consumers trust significantly decreased. While the spread of real information was apparent, the fact that the fake information spreader has such a high penalty indicates it was caught various times throughout our simulation and therefore consumer trust ended negative, infact here are some visuals to see it:
+
+\begin{figure}[htbp]
+     \centering
+     \includegraphics[width=0.5\textwidth]{../results/images/consumertrust.png}
+     \caption{Consumer Trust at end of all epochs}
+     \label{fig: 52 consumer, 3 agents}
+ \end{figure}
+
+\textbf{note:} For the full set of outputs, please refer to the output.txt file inside the results folder for the specific number of consumer network you want to analyze. This is shortened for the report to reduce the number of images and output text necessary.
+
 
 \section{Individual Tasks}
 
@@ -291,60 +405,6 @@ The way we will evaluate our environment is based on three criteria. Each agents
 [1] M. Goindani and J. Neville, "Social Reinforcement Learning to Combat Fake News Spread," *Proceedings of Machine Learning Research*, vol. 115, pp. 1–15, 2020.
 
 
-\begin{enumerate}
-\item Project title.
-\item Names of the team members and their Northeastern University emails.
-     \begin{enumerate}
-     \item If the project is under the guidance of a particular faculty member, list the professor(s) working with you.
-     \end{enumerate}
-\item Objectives and significance (1-3 paragraphs)
-     \begin{enumerate}
-     \item Describe what the goal of the project was, why it was important, and your motivation for doing it. Briefly summarize the main findings.
-     \end{enumerate}
-\item Background (1-2 pages)
-     \begin{enumerate}
-     \item Introduce all important concepts and background information.
-     \item Describe previous work on this problem.
-     \item Describe what makes your work particularly interesting. 
-     \end{enumerate}
-\item Methods (2-4 pages)
-     \begin{enumerate}
-     \item Describe your data and how you obtained it.
-     \item Describe your methodology: give flowcharts, diagrams, pseudocode or formulas where appropriate.
-     \item Describe evaluation strategy.
-     \end{enumerate}
-     
-\item Results (5-6 pages)
-     \begin{enumerate}
-     \item Present here all your results and findings
-     \item Describe experiments done for each figure and table.
-     \item Provide headers for all your tables and make sure it is easy to understand what your results are.
-     \end{enumerate}
-
-\item Conclusions (1 page)
-     \begin{enumerate}
-     \item Summarize what the conclusions are and how they derive from the results. If your ideas worked, try to provide rationalizations as to why. If not, discuss what may have gone wrong. In either case, discuss what could be done in the future to improve or further improve this project.
-     \end{enumerate}
-
-\item Individual tasks (1-3 paragraphs)
-     \begin{enumerate}
-     \item This part of the writeup is \emph{individual} and team members need to write their own summary.
-     \item Describe what each member of the team did. Be specific about the roles of everyone. 
-     \item If the project was a part or extension of some other project you have carried out, explain what was new in this project.
-     \end{enumerate}
-\item References
-     \begin{enumerate}
-     \item List books, scientific papers, web sites etc. that you referenced in the body of your manuscript.
-     \end{enumerate}
-\end{enumerate}
-
-Technical details:
-\begin{enumerate}
-\item Use 1 inch margins from each side.
-\item Use 11pt or 12pt font size.
-\item Use standard font types such as Times New Roman, Arial, or Latex default fonts.
-\item Use 1.5 line spacing that will allow for our comments during grading.
-\end{enumerate}
 
 %\input{policies.tex}
 

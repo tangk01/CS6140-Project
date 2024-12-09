@@ -287,14 +287,14 @@ class SocialNetworkEnv(gym.Env):
                 if found_fake:
                     found_fake_info.add(agent_value)
         
-        # print('set is ', found_fake_info)
-        # print('before ', [c[1]['trustLevel'] for c in self.graph.nodes(data=True)])
+        print('\nset of fake information agents audited: ', found_fake_info if found_fake_info else None)
+        print('Consumer trust level before fact checking ', [c[1]['trustLevel'] for c in self.graph.nodes(data=True)])
         for nodeValue, node_data in self.graph.nodes(data=True):
             if node_data['agentType'] == 'consumer':
                 for interaction in node_data['interactions']:
                     if interaction in found_fake_info:
                         node_data['trustLevel'] -= 0.15
-        # print('after ', [c[1]['trustLevel'] for c in self.graph.nodes(data=True)])
+        print('Consumer trust level after fact checking', [c[1]['trustLevel'] for c in self.graph.nodes(data=True)])
 
         # Update the fact-checker's Q-value
         fact_checker_node = self.get_node_from_agent(fact_checker_agent)
@@ -376,7 +376,7 @@ class SocialNetworkEnv(gym.Env):
         """
         Prints trust levels and other information for each consumer node.
         """
-        print("\nConsumer Node Info:")
+        print("Consumer Node Info:")
         for node, data in self.graph.nodes(data=True):
             if data["agentType"] == "consumer":
                 trust_level = data["trustLevel"]
@@ -406,3 +406,52 @@ class SocialNetworkEnv(gym.Env):
         plt.grid(alpha=0.4)
         plt.tight_layout()
         plt.show()
+
+
+
+    def visualize_consumer_trust_levels(self, trust_levels_history):
+        """
+        Visualizes the trust levels of all consumer nodes over time.
+
+        Parameters:
+        - trust_levels_history: A dictionary where keys are consumer node IDs and values are lists of trust levels
+        over epochs.
+        """
+        plt.figure(figsize=(12, 8))
+        
+        for consumer, trust_levels in trust_levels_history.items():
+            epochs = range(1, len(trust_levels) + 1)
+            plt.plot(epochs, trust_levels, label=f"Consumer {consumer}", marker='o', alpha=0.7)
+        
+        plt.title("Consumer Trust Levels Over Epochs", fontsize=16)
+        plt.xlabel("Epochs", fontsize=14)
+        plt.ylabel("Trust Level", fontsize=14)
+        plt.legend(fontsize=10, loc="upper right", bbox_to_anchor=(1.25, 1))
+        plt.grid(alpha=0.4)
+        plt.tight_layout()
+        plt.show()
+
+
+    def visualize_agent_influence(self, influence_history):
+        """
+        Visualizes the influence of all agents in the network based on their trust levels.
+
+        Parameters:
+        - influence_history: A dictionary where keys are agent IDs (nodes) and values are lists of trust levels
+        over epochs.
+        """
+        plt.figure(figsize=(12, 8))
+        
+        for agent, trust_levels in influence_history.items():
+            agent_type = agent.get_type()
+            epochs = range(1, len(trust_levels) + 1)
+            plt.plot(epochs, trust_levels, label=f"{agent_type} (Agent {id(agent)})", marker='o', alpha=0.7)
+        
+        plt.title("Agent Influence (Trust Level) Over Epochs", fontsize=16)
+        plt.xlabel("Epochs", fontsize=14)
+        plt.ylabel("Trust Level (Influence)", fontsize=14)
+        plt.legend(fontsize=10, loc="upper right", bbox_to_anchor=(1.25, 1))
+        plt.grid(alpha=0.4)
+        plt.tight_layout()
+        plt.show()
+
