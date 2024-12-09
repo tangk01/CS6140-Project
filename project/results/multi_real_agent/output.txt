@@ -1,0 +1,536 @@
+--------- epoch 0 ---------------------
+Trust Levels:
+
+Fake Agent: 
+reward: 4, penalty : 0, influenced : {0, 2, 3, 4}, qval : 0.0
+
+Real Agent: 
+reward: 0, penalty : 2, influenced : None, qval : 0.0
+
+Real Agent 2: 
+reward: 3, penalty : 1, influenced : {0, 1, 4}, qval : 0.0
+
+Real Agent 3: 
+reward: 0, penalty : 1, influenced : None, qval : 0.0
+
+consumer info before fact checker is in network
+Consumer Node Info:
+
+Node 0 - Trust Level: 0.10, Interactions: 2
+
+Node 1 - Trust Level: -0.10, Interactions: 1
+
+Node 2 - Trust Level: 0.10, Interactions: 1
+
+Node 3 - Trust Level: 0.20, Interactions: 1
+
+Node 4 - Trust Level: 0.20, Interactions: 2
+
+Fact Checker Agent: Agent type: fake-information penalty: 0 reward: 4 trust level: 0.8
+Agent type: real-information penalty: 1 reward: 3 trust level: 0.6
+Fact-checker penalized news agent {'agentType': 'fake-information', 'qVal': 0.76, 'trustLevel': 0.0, 'reward': 4, 'penalty': 0}.
+
+set of fake information agents audited:  {Agent type: fake-information penalty: 1 reward: 4 trust level: 0.8}
+Consumer trust level before fact checking  [0.1, -0.1, 0.1, 0.2, 0.2, 0.0, 0.0, 0.0, 0.0, 0.0]
+Consumer trust level after fact checking [-0.04999999999999999, -0.1, -0.04999999999999999, 0.05000000000000002, 0.05000000000000002, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+reward: 1 penalty: 0
+consumer info after fact checker in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -0.05, Interactions: 2
+
+Node 1 - Trust Level: -0.10, Interactions: 1
+
+Node 2 - Trust Level: -0.05, Interactions: 1
+
+Node 3 - Trust Level: 0.05, Interactions: 1
+
+Node 4 - Trust Level: 0.05, Interactions: 2
+
+--------- epoch 1 ---------------------
+Trust Levels:
+
+Fake Agent: 
+reward: 4, penalty : 1, influenced : None, qval : 0.76
+
+Real Agent: 
+reward: 2, penalty : 4, influenced : {0, 2}, qval : -0.2
+
+Real Agent 2: 
+reward: 6, penalty : 2, influenced : {0, 1, 4}, qval : 0.38
+
+Real Agent 3: 
+reward: 3, penalty : 3, influenced : {0, 1, 4}, qval : -0.1
+
+consumer info before fact checker is in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -0.35, Interactions: 4
+
+Node 1 - Trust Level: -0.20, Interactions: 2
+
+Node 2 - Trust Level: -0.05, Interactions: 2
+
+Node 3 - Trust Level: 0.35, Interactions: 1
+
+Node 4 - Trust Level: -0.15, Interactions: 3
+
+Fact Checker Agent: Agent type: fake-information penalty: 1 reward: 4 trust level: 0.8
+Agent type: real-information penalty: 2 reward: 6 trust level: 0.6
+Agent type: real-information penalty: 4 reward: 2 trust level: 0.4
+Agent type: real-information penalty: 3 reward: 3 trust level: 0.6
+Fact-checker penalized news agent {'agentType': 'fake-information', 'qVal': 1.254, 'trustLevel': 0.0, 'reward': 4, 'penalty': 1}.
+
+set of fake information agents audited:  {Agent type: fake-information penalty: 2 reward: 4 trust level: 0.8}
+Consumer trust level before fact checking  [-0.35, -0.2, -0.04999999999999999, 0.35, -0.15, 0.0, 0.0, 0.0, 0.0, 0.0]
+Consumer trust level after fact checking [-0.5, -0.2, -0.19999999999999998, 0.19999999999999998, -0.3, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+reward: 2 penalty: 0
+consumer info after fact checker in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -0.50, Interactions: 4
+
+Node 1 - Trust Level: -0.20, Interactions: 2
+
+Node 2 - Trust Level: -0.20, Interactions: 2
+
+Node 3 - Trust Level: 0.20, Interactions: 1
+
+Node 4 - Trust Level: -0.30, Interactions: 3
+
+--------- epoch 2 ---------------------
+Trust Levels:
+
+Fake Agent: 
+reward: 7, penalty : 4, influenced : {2, 3, 4}, qval : 1.254
+
+Real Agent: 
+reward: 4, penalty : 5, influenced : {0, 4}, qval : -0.38
+
+Real Agent 2: 
+reward: 6, penalty : 4, influenced : None, qval : 1.1019999999999999
+
+Real Agent 3: 
+reward: 5, penalty : 4, influenced : {0, 2}, qval : -0.09
+
+consumer info before fact checker is in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -0.80, Interactions: 4
+
+Node 1 - Trust Level: -0.20, Interactions: 2
+
+Node 2 - Trust Level: -0.20, Interactions: 3
+
+Node 3 - Trust Level: 0.60, Interactions: 1
+
+Node 4 - Trust Level: -0.30, Interactions: 4
+
+Fact Checker Agent: Agent type: fake-information penalty: 4 reward: 7 trust level: 0.8
+Agent type: real-information penalty: 4 reward: 6 trust level: 0.6
+Agent type: real-information penalty: 5 reward: 4 trust level: 0.6
+Agent type: real-information penalty: 4 reward: 5 trust level: 0.8
+Fact-checker penalized news agent {'agentType': 'fake-information', 'qVal': 1.6985999999999999, 'trustLevel': 0.0, 'reward': 7, 'penalty': 4}.
+Fact-checker found no fake news in node Agent type: real-information penalty: 4 reward: 5 trust level: 0.8.
+
+set of fake information agents audited:  {Agent type: fake-information penalty: 5 reward: 7 trust level: 0.8}
+Consumer trust level before fact checking  [-0.7999999999999999, -0.20000000000000004, -0.19999999999999998, 0.6, -0.3, 0.0, 0.0, 0.0, 0.0, 0.0]
+Consumer trust level after fact checking [-0.95, -0.20000000000000004, -0.35, 0.44999999999999996, -0.44999999999999996, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+reward: 3 penalty: 1
+consumer info after fact checker in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -0.95, Interactions: 4
+
+Node 1 - Trust Level: -0.20, Interactions: 2
+
+Node 2 - Trust Level: -0.35, Interactions: 3
+
+Node 3 - Trust Level: 0.45, Interactions: 1
+
+Node 4 - Trust Level: -0.45, Interactions: 4
+
+--------- epoch 3 ---------------------
+Trust Levels:
+
+Fake Agent: 
+reward: 9, penalty : 7, influenced : {2, 3}, qval : 1.6985999999999999
+
+Real Agent: 
+reward: 9, penalty : 5, influenced : {0, 1, 2, 3, 4}, qval : -0.442
+
+Real Agent 2: 
+reward: 6, penalty : 5, influenced : None, qval : 1.3718
+
+Real Agent 3: 
+reward: 8, penalty : 5, influenced : {0, 2, 4}, qval : 0.10900000000000001
+
+consumer info before fact checker is in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -1.25, Interactions: 4
+
+Node 1 - Trust Level: -0.30, Interactions: 3
+
+Node 2 - Trust Level: -0.35, Interactions: 3
+
+Node 3 - Trust Level: 0.55, Interactions: 2
+
+Node 4 - Trust Level: -0.75, Interactions: 4
+
+Fact Checker Agent: Agent type: fake-information penalty: 7 reward: 9 trust level: 0.8
+Agent type: real-information penalty: 5 reward: 6 trust level: 0.6
+Agent type: real-information penalty: 5 reward: 9 trust level: 1.0
+Agent type: real-information penalty: 5 reward: 8 trust level: 0.8
+Fact-checker penalized news agent {'agentType': 'fake-information', 'qVal': 1.9087399999999999, 'trustLevel': 0.0, 'reward': 9, 'penalty': 7}.
+Fact-checker found no fake news in node Agent type: real-information penalty: 5 reward: 9 trust level: 1.0.
+Fact-checker found no fake news in node Agent type: real-information penalty: 5 reward: 8 trust level: 0.8.
+
+set of fake information agents audited:  {Agent type: fake-information penalty: 8 reward: 9 trust level: 0.8}
+Consumer trust level before fact checking  [-1.2500000000000002, -0.30000000000000004, -0.35, 0.5499999999999999, -0.7499999999999999, 0.0, 0.0, 0.0, 0.0, 0.0]
+Consumer trust level after fact checking [-1.4000000000000001, -0.30000000000000004, -0.5, 0.3999999999999999, -0.8999999999999999, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+reward: 4 penalty: 3
+consumer info after fact checker in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -1.40, Interactions: 4
+
+Node 1 - Trust Level: -0.30, Interactions: 3
+
+Node 2 - Trust Level: -0.50, Interactions: 3
+
+Node 3 - Trust Level: 0.40, Interactions: 2
+
+Node 4 - Trust Level: -0.90, Interactions: 4
+
+--------- epoch 4 ---------------------
+Trust Levels:
+
+Fake Agent: 
+reward: 11, penalty : 11, influenced : {1, 3}, qval : 1.9087399999999999
+
+Real Agent: 
+reward: 10, penalty : 6, influenced : {4}, qval : 0.3622
+
+Real Agent 2: 
+reward: 7, penalty : 6, influenced : {0}, qval : 1.42462
+
+Real Agent 3: 
+reward: 12, penalty : 6, influenced : {0, 1, 2, 4}, qval : 0.6681
+
+consumer info before fact checker is in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -1.60, Interactions: 4
+
+Node 1 - Trust Level: -0.30, Interactions: 4
+
+Node 2 - Trust Level: -0.70, Interactions: 3
+
+Node 3 - Trust Level: 0.70, Interactions: 2
+
+Node 4 - Trust Level: -1.20, Interactions: 4
+
+Fact Checker Agent: Agent type: fake-information penalty: 11 reward: 11 trust level: 1.0
+Agent type: real-information penalty: 6 reward: 7 trust level: 0.6
+Agent type: real-information penalty: 6 reward: 10 trust level: 1.0
+Agent type: real-information penalty: 6 reward: 12 trust level: 0.8
+Fact-checker penalized news agent {'agentType': 'fake-information', 'qVal': 1.717866, 'trustLevel': 0.0, 'reward': 11, 'penalty': 11}.
+Fact-checker found no fake news in node Agent type: real-information penalty: 6 reward: 10 trust level: 1.0.
+Fact-checker found no fake news in node Agent type: real-information penalty: 6 reward: 12 trust level: 0.8.
+
+set of fake information agents audited:  {Agent type: fake-information penalty: 12 reward: 11 trust level: 1.0}
+Consumer trust level before fact checking  [-1.6000000000000003, -0.30000000000000004, -0.7, 0.6999999999999998, -1.2, 0.0, 0.0, 0.0, 0.0, 0.0]
+Consumer trust level after fact checking [-1.7500000000000002, -0.45000000000000007, -0.85, 0.5499999999999998, -1.3499999999999999, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+reward: 5 penalty: 5
+consumer info after fact checker in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -1.75, Interactions: 4
+
+Node 1 - Trust Level: -0.45, Interactions: 4
+
+Node 2 - Trust Level: -0.85, Interactions: 3
+
+Node 3 - Trust Level: 0.55, Interactions: 2
+
+Node 4 - Trust Level: -1.35, Interactions: 4
+
+Trust Levels:
+
+Fake Agent: 
+reward: 11, penalty : 13, influenced : None, qval : 1.717866
+
+Real Agent: 
+reward: 14, penalty : 6, influenced : {0, 2, 3, 4}, qval : 1.0859800000000002
+
+Real Agent 2: 
+reward: 9, penalty : 7, influenced : {0, 2}, qval : 1.472158
+
+Real Agent 3: 
+reward: 17, penalty : 6, influenced : {0, 1, 2, 3, 4}, qval : 1.7412900000000002
+
+consumer info before fact checker is in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -2.05, Interactions: 4
+
+Node 1 - Trust Level: -0.55, Interactions: 4
+
+Node 2 - Trust Level: -1.25, Interactions: 4
+
+Node 3 - Trust Level: 0.45, Interactions: 3
+
+Node 4 - Trust Level: -1.55, Interactions: 4
+
+Fact Checker Agent: Agent type: fake-information penalty: 13 reward: 11 trust level: 1.0
+Agent type: real-information penalty: 7 reward: 9 trust level: 0.8
+Agent type: real-information penalty: 6 reward: 14 trust level: 1.0
+Agent type: real-information penalty: 6 reward: 17 trust level: 1.0
+Fact-checker penalized news agent {'agentType': 'fake-information', 'qVal': 1.3460793999999998, 'trustLevel': 0.0, 'reward': 11, 'penalty': 13}.
+Fact-checker found no fake news in node Agent type: real-information penalty: 7 reward: 9 trust level: 0.8.
+Fact-checker found no fake news in node Agent type: real-information penalty: 6 reward: 14 trust level: 1.0.
+Fact-checker found no fake news in node Agent type: real-information penalty: 6 reward: 17 trust level: 1.0.
+
+set of fake information agents audited:  {Agent type: fake-information penalty: 14 reward: 11 trust level: 1.0}
+Consumer trust level before fact checking  [-2.0500000000000003, -0.55, -1.2500000000000002, 0.44999999999999984, -1.55, 0.0, 0.0, 0.0, 0.0, 0.0]
+Consumer trust level after fact checking [-2.2, -0.7000000000000001, -1.4000000000000001, 0.2999999999999998, -1.7, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+reward: 6 penalty: 8
+consumer info after fact checker in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -2.20, Interactions: 4
+
+Node 1 - Trust Level: -0.70, Interactions: 4
+
+Node 2 - Trust Level: -1.40, Interactions: 4
+
+Node 3 - Trust Level: 0.30, Interactions: 3
+
+Node 4 - Trust Level: -1.70, Interactions: 4
+
+--------- epoch 6 ---------------------
+Trust Levels:
+
+Fake Agent: 
+reward: 11, penalty : 17, influenced : None, qval : 1.3460793999999998
+
+Real Agent: 
+reward: 17, penalty : 7, influenced : {0, 1, 4}, qval : 2.497382
+
+Real Agent 2: 
+reward: 11, penalty : 8, influenced : {0, 2}, qval : 1.7049422
+
+Real Agent 3: 
+reward: 19, penalty : 7, influenced : {0, 2}, qval : 3.6571610000000003
+
+consumer info before fact checker is in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -2.60, Interactions: 4
+
+Node 1 - Trust Level: -0.80, Interactions: 4
+
+Node 2 - Trust Level: -1.70, Interactions: 4
+
+Node 3 - Trust Level: 0.60, Interactions: 3
+
+Node 4 - Trust Level: -1.90, Interactions: 4
+
+Fact Checker Agent: Agent type: fake-information penalty: 17 reward: 11 trust level: 1.0
+Agent type: real-information penalty: 8 reward: 11 trust level: 0.8
+Agent type: real-information penalty: 7 reward: 17 trust level: 1.0
+Agent type: real-information penalty: 7 reward: 19 trust level: 1.0
+Fact-checker penalized news agent {'agentType': 'fake-information', 'qVal': 0.6114714599999997, 'trustLevel': 0.0, 'reward': 11, 'penalty': 17}.
+Fact-checker found no fake news in node Agent type: real-information penalty: 8 reward: 11 trust level: 0.8.
+Fact-checker found no fake news in node Agent type: real-information penalty: 7 reward: 17 trust level: 1.0.
+Fact-checker found no fake news in node Agent type: real-information penalty: 7 reward: 19 trust level: 1.0.
+
+set of fake information agents audited:  {Agent type: fake-information penalty: 18 reward: 11 trust level: 1.0}
+Consumer trust level before fact checking  [-2.6000000000000005, -0.8, -1.7000000000000004, 0.5999999999999998, -1.9000000000000001, 0.0, 0.0, 0.0, 0.0, 0.0]
+Consumer trust level after fact checking [-2.7500000000000004, -0.9500000000000001, -1.8500000000000003, 0.44999999999999973, -2.0500000000000003, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+reward: 7 penalty: 11
+consumer info after fact checker in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -2.75, Interactions: 4
+
+Node 1 - Trust Level: -0.95, Interactions: 4
+
+Node 2 - Trust Level: -1.85, Interactions: 4
+
+Node 3 - Trust Level: 0.45, Interactions: 3
+
+Node 4 - Trust Level: -2.05, Interactions: 4
+
+--------- epoch 7 ---------------------
+Trust Levels:
+
+Fake Agent: 
+reward: 11, penalty : 21, influenced : None, qval : 0.6114714599999997
+
+Real Agent: 
+reward: 19, penalty : 9, influenced : {0, 4}, qval : 4.1476438
+
+Real Agent 2: 
+reward: 14, penalty : 9, influenced : {0, 1, 4}, qval : 2.10444798
+
+Real Agent 3: 
+reward: 21, penalty : 8, influenced : {0, 4}, qval : 5.5714449
+
+consumer info before fact checker is in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -3.15, Interactions: 4
+
+Node 1 - Trust Level: -1.05, Interactions: 4
+
+Node 2 - Trust Level: -1.85, Interactions: 4
+
+Node 3 - Trust Level: 0.75, Interactions: 3
+
+Node 4 - Trust Level: -2.45, Interactions: 4
+
+Fact Checker Agent: Agent type: fake-information penalty: 21 reward: 11 trust level: 1.0
+Agent type: real-information penalty: 9 reward: 14 trust level: 0.8
+Agent type: real-information penalty: 9 reward: 19 trust level: 1.0
+Agent type: real-information penalty: 8 reward: 21 trust level: 1.0
+Fact-checker penalized news agent {'agentType': 'fake-information', 'qVal': -0.4496756860000004, 'trustLevel': 0.0, 'reward': 11, 'penalty': 21}.
+Fact-checker found no fake news in node Agent type: real-information penalty: 9 reward: 14 trust level: 0.8.
+Fact-checker found no fake news in node Agent type: real-information penalty: 9 reward: 19 trust level: 1.0.
+Fact-checker found no fake news in node Agent type: real-information penalty: 8 reward: 21 trust level: 1.0.
+
+set of fake information agents audited:  {Agent type: fake-information penalty: 22 reward: 11 trust level: 1.0}
+Consumer trust level before fact checking  [-3.150000000000001, -1.05, -1.8500000000000003, 0.7499999999999997, -2.4500000000000006, 0.0, 0.0, 0.0, 0.0, 0.0]
+Consumer trust level after fact checking [-3.3000000000000007, -1.2, -2.0000000000000004, 0.5999999999999996, -2.6000000000000005, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+reward: 8 penalty: 14
+consumer info after fact checker in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -3.30, Interactions: 4
+
+Node 1 - Trust Level: -1.20, Interactions: 4
+
+Node 2 - Trust Level: -2.00, Interactions: 4
+
+Node 3 - Trust Level: 0.60, Interactions: 3
+
+Node 4 - Trust Level: -2.60, Interactions: 4
+
+--------- epoch 8 ---------------------
+Trust Levels:
+
+Fake Agent: 
+reward: 11, penalty : 24, influenced : None, qval : -0.4496756860000004
+
+Real Agent: 
+reward: 21, penalty : 10, influenced : {0, 2}, qval : 5.63287942
+
+Real Agent 2: 
+reward: 18, penalty : 10, influenced : {0, 1, 2, 4}, qval : 2.8440031820000002
+
+Real Agent 3: 
+reward: 23, penalty : 9, influenced : {0, 4}, qval : 7.484300410000001
+
+consumer info before fact checker is in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -3.70, Interactions: 4
+
+Node 1 - Trust Level: -1.30, Interactions: 4
+
+Node 2 - Trust Level: -2.20, Interactions: 4
+
+Node 3 - Trust Level: 0.80, Interactions: 3
+
+Node 4 - Trust Level: -2.80, Interactions: 4
+
+Fact Checker Agent: Agent type: fake-information penalty: 24 reward: 11 trust level: 1.0
+Agent type: real-information penalty: 10 reward: 18 trust level: 0.8
+Agent type: real-information penalty: 10 reward: 21 trust level: 1.0
+Agent type: real-information penalty: 9 reward: 23 trust level: 1.0
+Fact-checker penalized news agent {'agentType': 'fake-information', 'qVal': -1.7047081174000005, 'trustLevel': 0.0, 'reward': 11, 'penalty': 24}.
+Fact-checker found no fake news in node Agent type: real-information penalty: 10 reward: 18 trust level: 0.8.
+Fact-checker found no fake news in node Agent type: real-information penalty: 10 reward: 21 trust level: 1.0.
+Fact-checker found no fake news in node Agent type: real-information penalty: 9 reward: 23 trust level: 1.0.
+
+set of fake information agents audited:  {Agent type: fake-information penalty: 25 reward: 11 trust level: 1.0}
+Consumer trust level before fact checking  [-3.700000000000001, -1.3, -2.2000000000000006, 0.7999999999999996, -2.8000000000000007, 0.0, 0.0, 0.0, 0.0, 0.0]
+Consumer trust level after fact checking [-3.850000000000001, -1.45, -2.3500000000000005, 0.6499999999999996, -2.9500000000000006, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+reward: 9 penalty: 17
+consumer info after fact checker in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -3.85, Interactions: 4
+
+Node 1 - Trust Level: -1.45, Interactions: 4
+
+Node 2 - Trust Level: -2.35, Interactions: 4
+
+Node 3 - Trust Level: 0.65, Interactions: 3
+
+Node 4 - Trust Level: -2.95, Interactions: 4
+
+--------- epoch 9 ---------------------
+Trust Levels:
+
+Fake Agent: 
+reward: 12, penalty : 28, influenced : {3}, qval : -1.7047081174000005
+
+Real Agent: 
+reward: 21, penalty : 10, influenced : None, qval : 7.159591478
+
+Real Agent 2: 
+reward: 18, penalty : 10, influenced : None, qval : 4.0796028638
+
+Real Agent 3: 
+reward: 23, penalty : 9, influenced : None, qval : 9.395870369
+
+consumer info before fact checker is in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -3.85, Interactions: 4
+
+Node 1 - Trust Level: -1.55, Interactions: 4
+
+Node 2 - Trust Level: -2.45, Interactions: 4
+
+Node 3 - Trust Level: 0.75, Interactions: 3
+
+Node 4 - Trust Level: -3.05, Interactions: 4
+
+Fact Checker Agent: Agent type: fake-information penalty: 28 reward: 12 trust level: 1.0
+Agent type: real-information penalty: 10 reward: 18 trust level: 0.8
+Agent type: real-information penalty: 10 reward: 21 trust level: 1.0
+Agent type: real-information penalty: 9 reward: 23 trust level: 1.0
+Fact-checker penalized news agent {'agentType': 'fake-information', 'qVal': -3.1342373056600006, 'trustLevel': 0.0, 'reward': 12, 'penalty': 28}.
+Fact-checker found no fake news in node Agent type: real-information penalty: 10 reward: 18 trust level: 0.8.
+Fact-checker found no fake news in node Agent type: real-information penalty: 10 reward: 21 trust level: 1.0.
+Fact-checker found no fake news in node Agent type: real-information penalty: 9 reward: 23 trust level: 1.0.
+
+set of fake information agents audited:  {Agent type: fake-information penalty: 29 reward: 12 trust level: 1.0}
+Consumer trust level before fact checking  [-3.850000000000001, -1.55, -2.4500000000000006, 0.7499999999999996, -3.0500000000000007, 0.0, 0.0, 0.0, 0.0, 0.0]
+Consumer trust level after fact checking [-4.000000000000001, -1.7, -2.6000000000000005, 0.5999999999999995, -3.2000000000000006, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+reward: 10 penalty: 20
+consumer info after fact checker in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -4.00, Interactions: 4
+
+Node 1 - Trust Level: -1.70, Interactions: 4
+
+Node 2 - Trust Level: -2.60, Interactions: 4
+
+Node 3 - Trust Level: 0.60, Interactions: 3
+
+Node 4 - Trust Level: -3.20, Interactions: 4

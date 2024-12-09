@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.8)  9 DEC 2024 14:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.8)  9 DEC 2024 17:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -151,7 +151,11 @@ Language: nil 2023/02/13 3.86 Nil language
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count274
 \l__pdf_internal_box=\box53
-) (./mp (1).aux)
+) (./mp (1).aux
+
+LaTeX Warning: Label `fig:image4' multiply defined.
+
+)
 \openout1 = `"mp (1).aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 47.
@@ -265,20 +269,81 @@ File: ../results/images/consumertrust.png Graphic file (type png)
 <use ../results/images/consumertrust.png>
 Package pdftex.def Info: ../results/images/consumertrust.png  used on input line 394.
 (pdftex.def)             Requested size: 234.87749pt x 157.77805pt.
- [10 <../results/images/consumertrust.png>] (./mp (1).aux) ) 
+<../results/50consumer/50_initial.png, id=55, 524.6802pt x 476.2593pt>
+File: ../results/50consumer/50_initial.png Graphic file (type png)
+<use ../results/50consumer/50_initial.png>
+Package pdftex.def Info: ../results/50consumer/50_initial.png  used on input line 404.
+(pdftex.def)             Requested size: 234.87749pt x 213.20282pt.
+<../results/50consumer/real_rp.png, id=56, 714.7503pt x 426.393pt>
+File: ../results/50consumer/real_rp.png Graphic file (type png)
+<use ../results/50consumer/real_rp.png>
+Package pdftex.def Info: ../results/50consumer/real_rp.png  used on input line 414.
+(pdftex.def)             Requested size: 211.3883pt x 126.10364pt.
+<../results/50consumer/fake_rp.png, id=57, 714.7503pt x 426.393pt>
+File: ../results/50consumer/fake_rp.png Graphic file (type png)
+<use ../results/50consumer/fake_rp.png>
+Package pdftex.def Info: ../results/50consumer/fake_rp.png  used on input line 421.
+(pdftex.def)             Requested size: 211.3883pt x 126.10364pt.
+
+Underfull \vbox (badness 7291) has occurred while \output is active []
+
+ [10 <../results/images/consumertrust.png> <../results/50consumer/50_initial.png>]
+<../results/50consumer/finaltrust.png, id=63, 705.63625pt x 231.86626pt>
+File: ../results/50consumer/finaltrust.png Graphic file (type png)
+<use ../results/50consumer/finaltrust.png>
+Package pdftex.def Info: ../results/50consumer/finaltrust.png  used on input line 433.
+(pdftex.def)             Requested size: 469.75499pt x 154.35893pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [11 <../results/50consumer/real_rp.png> <../results/50consumer/fake_rp.png> <../results/50consumer/finaltrust.png>]
+<../results/multi_real_agent/initial.png, id=70, 524.6802pt x 476.2593pt>
+File: ../results/multi_real_agent/initial.png Graphic file (type png)
+<use ../results/multi_real_agent/initial.png>
+Package pdftex.def Info: ../results/multi_real_agent/initial.png  used on input line 449.
+(pdftex.def)             Requested size: 234.87749pt x 213.20282pt.
+
+Overfull \hbox (23.7407pt too wide) in paragraph at lines 491--491
+[]\OT1/cmtt/m/n/10 {'agentType': 'fake-information', 'qVal': 0.76, 'trustLevel': 0.0, 'reward': 4, 'penalty': 0}.[] 
+ []
+
+[12 <../results/multi_real_agent/initial.png>] [13]
+<../results/multi_real_agent/real_rp.png, id=79, 715.473pt x 426.393pt>
+File: ../results/multi_real_agent/real_rp.png Graphic file (type png)
+<use ../results/multi_real_agent/real_rp.png>
+Package pdftex.def Info: ../results/multi_real_agent/real_rp.png  used on input line 553.
+(pdftex.def)             Requested size: 211.3883pt x 125.97351pt.
+<../results/multi_real_agent/fake_rp.png, id=80, 715.473pt x 426.393pt>
+File: ../results/multi_real_agent/fake_rp.png Graphic file (type png)
+<use ../results/multi_real_agent/fake_rp.png>
+Package pdftex.def Info: ../results/multi_real_agent/fake_rp.png  used on input line 560.
+(pdftex.def)             Requested size: 211.3883pt x 125.97351pt.
+<../results/multi_real_agent/consumertrust.png, id=81, 852.0633pt x 570.933pt>
+File: ../results/multi_real_agent/consumertrust.png Graphic file (type png)
+<use ../results/multi_real_agent/consumertrust.png>
+Package pdftex.def Info: ../results/multi_real_agent/consumertrust.png  used on input line 568.
+(pdftex.def)             Requested size: 328.82706pt x 220.33693pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [14 <../results/multi_real_agent/real_rp.png> <../results/multi_real_agent/fake_rp.png>] [15 <../results/multi_real_agent/consumertrust.png>] [16] (./mp (1).aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 4053 strings out of 476025
- 63014 string characters out of 5790018
+ 4115 strings out of 476025
+ 65333 string characters out of 5790018
  1870388 words of memory out of 5000000
- 24475 multiletter control sequences out of 15000+600000
+ 24530 multiletter control sequences out of 15000+600000
  515766 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  72i,10n,76p,1550b,329s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "mp (1).pdf" (10 pages, 447273 bytes).
+Output written on "mp (1).pdf" (16 pages, 892727 bytes).
 PDF statistics:
- 118 PDF objects out of 1000 (max. 8388607)
- 67 compressed objects within 1 object stream
+ 153 PDF objects out of 1000 (max. 8388607)
+ 80 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
 

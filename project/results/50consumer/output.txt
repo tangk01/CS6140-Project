@@ -1,0 +1,3777 @@
+--------- epoch 0 ---------------------
+Trust Levels:
+
+Fake Agent: 
+reward: 15, penalty : 22, influenced : {0, 32, 3, 35, 38, 9, 12, 45, 46, 13, 48, 14, 20, 25, 28}, qval : 0.0
+
+Real Agent: 
+reward: 28, penalty : 12, influenced : {1, 2, 5, 10, 11, 12, 13, 16, 17, 21, 22, 23, 24, 28, 29, 30, 31, 34, 35, 37, 38, 39, 40, 41, 42, 44, 45, 47}, qval : 0.0
+
+consumer info before fact checker is in network
+Consumer Node Info:
+
+Node 0 - Trust Level: 0.10, Interactions: 1
+
+Node 1 - Trust Level: -0.10, Interactions: 1
+
+Node 2 - Trust Level: -0.20, Interactions: 1
+
+Node 3 - Trust Level: 0.20, Interactions: 1
+
+Node 4 - Trust Level: 0.10, Interactions: 0
+
+Node 5 - Trust Level: -0.20, Interactions: 1
+
+Node 6 - Trust Level: -0.10, Interactions: 0
+
+Node 7 - Trust Level: 0.00, Interactions: 0
+
+Node 8 - Trust Level: 0.00, Interactions: 0
+
+Node 9 - Trust Level: 0.20, Interactions: 1
+
+Node 10 - Trust Level: -0.10, Interactions: 1
+
+Node 11 - Trust Level: -0.20, Interactions: 1
+
+Node 12 - Trust Level: 0.00, Interactions: 2
+
+Node 13 - Trust Level: 0.00, Interactions: 2
+
+Node 14 - Trust Level: 0.20, Interactions: 1
+
+Node 15 - Trust Level: -0.10, Interactions: 0
+
+Node 16 - Trust Level: -0.20, Interactions: 1
+
+Node 17 - Trust Level: -0.20, Interactions: 1
+
+Node 18 - Trust Level: 0.10, Interactions: 0
+
+Node 19 - Trust Level: 0.00, Interactions: 0
+
+Node 20 - Trust Level: 0.20, Interactions: 1
+
+Node 21 - Trust Level: -0.20, Interactions: 1
+
+Node 22 - Trust Level: -0.20, Interactions: 1
+
+Node 23 - Trust Level: -0.20, Interactions: 1
+
+Node 24 - Trust Level: -0.10, Interactions: 1
+
+Node 25 - Trust Level: 0.10, Interactions: 1
+
+Node 26 - Trust Level: -0.10, Interactions: 0
+
+Node 27 - Trust Level: -0.10, Interactions: 0
+
+Node 28 - Trust Level: 0.00, Interactions: 2
+
+Node 29 - Trust Level: -0.20, Interactions: 1
+
+Node 30 - Trust Level: -0.10, Interactions: 1
+
+Node 31 - Trust Level: -0.20, Interactions: 1
+
+Node 32 - Trust Level: 0.20, Interactions: 1
+
+Node 33 - Trust Level: 0.00, Interactions: 0
+
+Node 34 - Trust Level: -0.20, Interactions: 1
+
+Node 35 - Trust Level: 0.00, Interactions: 2
+
+Node 36 - Trust Level: -0.10, Interactions: 0
+
+Node 37 - Trust Level: -0.10, Interactions: 1
+
+Node 38 - Trust Level: 0.00, Interactions: 2
+
+Node 39 - Trust Level: -0.20, Interactions: 1
+
+Node 40 - Trust Level: -0.10, Interactions: 1
+
+Node 41 - Trust Level: -0.10, Interactions: 1
+
+Node 42 - Trust Level: -0.20, Interactions: 1
+
+Node 43 - Trust Level: -0.10, Interactions: 0
+
+Node 44 - Trust Level: -0.20, Interactions: 1
+
+Node 45 - Trust Level: 0.00, Interactions: 2
+
+Node 46 - Trust Level: 0.20, Interactions: 1
+
+Node 47 - Trust Level: -0.10, Interactions: 1
+
+Node 48 - Trust Level: 0.20, Interactions: 1
+
+Node 49 - Trust Level: 0.10, Interactions: 0
+
+Fact Checker Agent: Agent type: fake-information penalty: 22 reward: 15 trust level: 0.3
+Agent type: real-information penalty: 12 reward: 28 trust level: 0.56
+Fact-checker penalized news agent {'agentType': 'fake-information', 'qVal': -0.7000000000000001, 'trustLevel': 0.0, 'reward': 15, 'penalty': 22}.
+Fact-checker found no fake news in node Agent type: real-information penalty: 12 reward: 28 trust level: 0.56.
+
+set of fake information agents audited:  {Agent type: fake-information penalty: 23 reward: 15 trust level: 0.3}
+Consumer trust level before fact checking  [0.1, -0.1, -0.2, 0.2, 0.1, -0.2, -0.1, 0.0, 0.0, 0.2, -0.1, -0.2, 0.0, 0.0, 0.2, -0.1, -0.2, -0.2, 0.1, 0.0, 0.2, -0.2, -0.2, -0.2, -0.1, 0.1, -0.1, -0.1, 0.0, -0.2, -0.1, -0.2, 0.2, 0.0, -0.2, 0.0, -0.1, -0.1, 0.0, -0.2, -0.1, -0.1, -0.2, -0.1, -0.2, 0.0, 0.2, -0.1, 0.2, 0.1, 0.0, 0.0, 0.0]
+Consumer trust level after fact checking [-0.04999999999999999, -0.1, -0.2, 0.05000000000000002, 0.1, -0.2, -0.1, 0.0, 0.0, 0.05000000000000002, -0.1, -0.2, -0.15, -0.15, 0.05000000000000002, -0.1, -0.2, -0.2, 0.1, 0.0, 0.05000000000000002, -0.2, -0.2, -0.2, -0.1, -0.04999999999999999, -0.1, -0.1, -0.15, -0.2, -0.1, -0.2, 0.05000000000000002, 0.0, -0.2, -0.15, -0.1, -0.1, -0.15, -0.2, -0.1, -0.1, -0.2, -0.1, -0.2, -0.15, 0.05000000000000002, -0.1, 0.05000000000000002, 0.1, 0.0, 0.0, 0.0]
+
+reward: 1 penalty: 1
+consumer info after fact checker in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -0.05, Interactions: 1
+
+Node 1 - Trust Level: -0.10, Interactions: 1
+
+Node 2 - Trust Level: -0.20, Interactions: 1
+
+Node 3 - Trust Level: 0.05, Interactions: 1
+
+Node 4 - Trust Level: 0.10, Interactions: 0
+
+Node 5 - Trust Level: -0.20, Interactions: 1
+
+Node 6 - Trust Level: -0.10, Interactions: 0
+
+Node 7 - Trust Level: 0.00, Interactions: 0
+
+Node 8 - Trust Level: 0.00, Interactions: 0
+
+Node 9 - Trust Level: 0.05, Interactions: 1
+
+Node 10 - Trust Level: -0.10, Interactions: 1
+
+Node 11 - Trust Level: -0.20, Interactions: 1
+
+Node 12 - Trust Level: -0.15, Interactions: 2
+
+Node 13 - Trust Level: -0.15, Interactions: 2
+
+Node 14 - Trust Level: 0.05, Interactions: 1
+
+Node 15 - Trust Level: -0.10, Interactions: 0
+
+Node 16 - Trust Level: -0.20, Interactions: 1
+
+Node 17 - Trust Level: -0.20, Interactions: 1
+
+Node 18 - Trust Level: 0.10, Interactions: 0
+
+Node 19 - Trust Level: 0.00, Interactions: 0
+
+Node 20 - Trust Level: 0.05, Interactions: 1
+
+Node 21 - Trust Level: -0.20, Interactions: 1
+
+Node 22 - Trust Level: -0.20, Interactions: 1
+
+Node 23 - Trust Level: -0.20, Interactions: 1
+
+Node 24 - Trust Level: -0.10, Interactions: 1
+
+Node 25 - Trust Level: -0.05, Interactions: 1
+
+Node 26 - Trust Level: -0.10, Interactions: 0
+
+Node 27 - Trust Level: -0.10, Interactions: 0
+
+Node 28 - Trust Level: -0.15, Interactions: 2
+
+Node 29 - Trust Level: -0.20, Interactions: 1
+
+Node 30 - Trust Level: -0.10, Interactions: 1
+
+Node 31 - Trust Level: -0.20, Interactions: 1
+
+Node 32 - Trust Level: 0.05, Interactions: 1
+
+Node 33 - Trust Level: 0.00, Interactions: 0
+
+Node 34 - Trust Level: -0.20, Interactions: 1
+
+Node 35 - Trust Level: -0.15, Interactions: 2
+
+Node 36 - Trust Level: -0.10, Interactions: 0
+
+Node 37 - Trust Level: -0.10, Interactions: 1
+
+Node 38 - Trust Level: -0.15, Interactions: 2
+
+Node 39 - Trust Level: -0.20, Interactions: 1
+
+Node 40 - Trust Level: -0.10, Interactions: 1
+
+Node 41 - Trust Level: -0.10, Interactions: 1
+
+Node 42 - Trust Level: -0.20, Interactions: 1
+
+Node 43 - Trust Level: -0.10, Interactions: 0
+
+Node 44 - Trust Level: -0.20, Interactions: 1
+
+Node 45 - Trust Level: -0.15, Interactions: 2
+
+Node 46 - Trust Level: 0.05, Interactions: 1
+
+Node 47 - Trust Level: -0.10, Interactions: 1
+
+Node 48 - Trust Level: 0.05, Interactions: 1
+
+Node 49 - Trust Level: 0.10, Interactions: 0
+
+--------- epoch 1 ---------------------
+Trust Levels:
+
+Fake Agent: 
+reward: 37, penalty : 45, influenced : {0, 4, 5, 7, 8, 9, 10, 14, 15, 19, 21, 25, 26, 27, 29, 32, 34, 44, 45, 46, 47, 49}, qval : -0.7000000000000001
+
+Real Agent: 
+reward: 51, penalty : 27, influenced : {1, 4, 5, 6, 8, 10, 11, 12, 15, 17, 19, 22, 23, 26, 27, 28, 31, 37, 38, 44, 46, 47, 48}, qval : 3.04
+
+consumer info before fact checker is in network
+Consumer Node Info:
+
+Node 0 - Trust Level: 0.15, Interactions: 1
+
+Node 1 - Trust Level: -0.30, Interactions: 1
+
+Node 2 - Trust Level: -0.20, Interactions: 1
+
+Node 3 - Trust Level: 0.15, Interactions: 1
+
+Node 4 - Trust Level: 0.10, Interactions: 2
+
+Node 5 - Trust Level: -0.20, Interactions: 2
+
+Node 6 - Trust Level: -0.30, Interactions: 1
+
+Node 7 - Trust Level: 0.10, Interactions: 1
+
+Node 8 - Trust Level: 0.00, Interactions: 2
+
+Node 9 - Trust Level: 0.25, Interactions: 1
+
+Node 10 - Trust Level: -0.10, Interactions: 2
+
+Node 11 - Trust Level: -0.40, Interactions: 1
+
+Node 12 - Trust Level: -0.35, Interactions: 2
+
+Node 13 - Trust Level: -0.15, Interactions: 2
+
+Node 14 - Trust Level: 0.15, Interactions: 1
+
+Node 15 - Trust Level: -0.10, Interactions: 2
+
+Node 16 - Trust Level: -0.30, Interactions: 1
+
+Node 17 - Trust Level: -0.40, Interactions: 1
+
+Node 18 - Trust Level: 0.10, Interactions: 0
+
+Node 19 - Trust Level: 0.00, Interactions: 2
+
+Node 20 - Trust Level: 0.15, Interactions: 1
+
+Node 21 - Trust Level: 0.00, Interactions: 2
+
+Node 22 - Trust Level: -0.40, Interactions: 1
+
+Node 23 - Trust Level: -0.30, Interactions: 1
+
+Node 24 - Trust Level: -0.20, Interactions: 1
+
+Node 25 - Trust Level: 0.15, Interactions: 1
+
+Node 26 - Trust Level: -0.10, Interactions: 2
+
+Node 27 - Trust Level: -0.10, Interactions: 2
+
+Node 28 - Trust Level: -0.35, Interactions: 2
+
+Node 29 - Trust Level: -0.10, Interactions: 2
+
+Node 30 - Trust Level: -0.20, Interactions: 1
+
+Node 31 - Trust Level: -0.40, Interactions: 1
+
+Node 32 - Trust Level: 0.25, Interactions: 1
+
+Node 33 - Trust Level: -0.10, Interactions: 0
+
+Node 34 - Trust Level: -0.10, Interactions: 2
+
+Node 35 - Trust Level: -0.25, Interactions: 2
+
+Node 36 - Trust Level: -0.10, Interactions: 0
+
+Node 37 - Trust Level: -0.20, Interactions: 1
+
+Node 38 - Trust Level: -0.35, Interactions: 2
+
+Node 39 - Trust Level: -0.30, Interactions: 1
+
+Node 40 - Trust Level: -0.10, Interactions: 1
+
+Node 41 - Trust Level: -0.10, Interactions: 1
+
+Node 42 - Trust Level: -0.30, Interactions: 1
+
+Node 43 - Trust Level: 0.00, Interactions: 0
+
+Node 44 - Trust Level: -0.20, Interactions: 2
+
+Node 45 - Trust Level: 0.05, Interactions: 2
+
+Node 46 - Trust Level: 0.05, Interactions: 2
+
+Node 47 - Trust Level: -0.10, Interactions: 2
+
+Node 48 - Trust Level: -0.15, Interactions: 2
+
+Node 49 - Trust Level: 0.30, Interactions: 1
+
+Fact Checker Agent: Agent type: fake-information penalty: 45 reward: 37 trust level: 0.6
+Agent type: real-information penalty: 27 reward: 51 trust level: 0.74
+Fact-checker penalized news agent {'agentType': 'fake-information', 'qVal': -1.4300000000000002, 'trustLevel': 0.0, 'reward': 37, 'penalty': 45}.
+Fact-checker found no fake news in node Agent type: real-information penalty: 27 reward: 51 trust level: 0.74.
+
+set of fake information agents audited:  {Agent type: fake-information penalty: 46 reward: 37 trust level: 0.6}
+Consumer trust level before fact checking  [0.15000000000000002, -0.30000000000000004, -0.20000000000000004, 0.15000000000000002, 0.1, -0.2, -0.30000000000000004, 0.1, 0.0, 0.25, -0.1, -0.4, -0.35, -0.15, 0.15000000000000002, -0.1, -0.30000000000000004, -0.4, 0.1, 0.0, 0.15000000000000002, 0.0, -0.4, -0.30000000000000004, -0.2, 0.15000000000000002, -0.1, -0.1, -0.35, -0.1, -0.2, -0.4, 0.25, -0.1, -0.1, -0.25, -0.1, -0.2, -0.35, -0.30000000000000004, -0.1, -0.1, -0.30000000000000004, 0.0, -0.2, 0.05000000000000002, 0.05000000000000002, -0.1, -0.15, 0.30000000000000004, 0.0, 0.0, 0.0]
+Consumer trust level after fact checking [2.7755575615628914e-17, -0.30000000000000004, -0.20000000000000004, 2.7755575615628914e-17, -0.04999999999999999, -0.35, -0.30000000000000004, -0.04999999999999999, -0.15, 0.1, -0.25, -0.4, -0.5, -0.3, 2.7755575615628914e-17, -0.25, -0.30000000000000004, -0.4, 0.1, -0.15, 2.7755575615628914e-17, -0.15, -0.4, -0.30000000000000004, -0.2, 2.7755575615628914e-17, -0.25, -0.25, -0.5, -0.25, -0.2, -0.4, 0.1, -0.1, -0.25, -0.4, -0.1, -0.2, -0.5, -0.30000000000000004, -0.1, -0.1, -0.30000000000000004, 0.0, -0.35, -0.09999999999999998, -0.09999999999999998, -0.25, -0.3, 0.15000000000000005, 0.0, 0.0, 0.0]
+
+reward: 2 penalty: 2
+consumer info after fact checker in network
+Consumer Node Info:
+
+Node 0 - Trust Level: 0.00, Interactions: 1
+
+Node 1 - Trust Level: -0.30, Interactions: 1
+
+Node 2 - Trust Level: -0.20, Interactions: 1
+
+Node 3 - Trust Level: 0.00, Interactions: 1
+
+Node 4 - Trust Level: -0.05, Interactions: 2
+
+Node 5 - Trust Level: -0.35, Interactions: 2
+
+Node 6 - Trust Level: -0.30, Interactions: 1
+
+Node 7 - Trust Level: -0.05, Interactions: 1
+
+Node 8 - Trust Level: -0.15, Interactions: 2
+
+Node 9 - Trust Level: 0.10, Interactions: 1
+
+Node 10 - Trust Level: -0.25, Interactions: 2
+
+Node 11 - Trust Level: -0.40, Interactions: 1
+
+Node 12 - Trust Level: -0.50, Interactions: 2
+
+Node 13 - Trust Level: -0.30, Interactions: 2
+
+Node 14 - Trust Level: 0.00, Interactions: 1
+
+Node 15 - Trust Level: -0.25, Interactions: 2
+
+Node 16 - Trust Level: -0.30, Interactions: 1
+
+Node 17 - Trust Level: -0.40, Interactions: 1
+
+Node 18 - Trust Level: 0.10, Interactions: 0
+
+Node 19 - Trust Level: -0.15, Interactions: 2
+
+Node 20 - Trust Level: 0.00, Interactions: 1
+
+Node 21 - Trust Level: -0.15, Interactions: 2
+
+Node 22 - Trust Level: -0.40, Interactions: 1
+
+Node 23 - Trust Level: -0.30, Interactions: 1
+
+Node 24 - Trust Level: -0.20, Interactions: 1
+
+Node 25 - Trust Level: 0.00, Interactions: 1
+
+Node 26 - Trust Level: -0.25, Interactions: 2
+
+Node 27 - Trust Level: -0.25, Interactions: 2
+
+Node 28 - Trust Level: -0.50, Interactions: 2
+
+Node 29 - Trust Level: -0.25, Interactions: 2
+
+Node 30 - Trust Level: -0.20, Interactions: 1
+
+Node 31 - Trust Level: -0.40, Interactions: 1
+
+Node 32 - Trust Level: 0.10, Interactions: 1
+
+Node 33 - Trust Level: -0.10, Interactions: 0
+
+Node 34 - Trust Level: -0.25, Interactions: 2
+
+Node 35 - Trust Level: -0.40, Interactions: 2
+
+Node 36 - Trust Level: -0.10, Interactions: 0
+
+Node 37 - Trust Level: -0.20, Interactions: 1
+
+Node 38 - Trust Level: -0.50, Interactions: 2
+
+Node 39 - Trust Level: -0.30, Interactions: 1
+
+Node 40 - Trust Level: -0.10, Interactions: 1
+
+Node 41 - Trust Level: -0.10, Interactions: 1
+
+Node 42 - Trust Level: -0.30, Interactions: 1
+
+Node 43 - Trust Level: 0.00, Interactions: 0
+
+Node 44 - Trust Level: -0.35, Interactions: 2
+
+Node 45 - Trust Level: -0.10, Interactions: 2
+
+Node 46 - Trust Level: -0.10, Interactions: 2
+
+Node 47 - Trust Level: -0.25, Interactions: 2
+
+Node 48 - Trust Level: -0.30, Interactions: 2
+
+Node 49 - Trust Level: 0.15, Interactions: 1
+
+--------- epoch 2 ---------------------
+Trust Levels:
+
+Fake Agent: 
+reward: 48, penalty : 70, influenced : {32, 33, 35, 4, 41, 14, 15, 48, 24, 25, 30}, qval : -1.4300000000000002
+
+Real Agent: 
+reward: 78, penalty : 36, influenced : {1, 2, 3, 4, 5, 8, 10, 12, 13, 14, 15, 16, 17, 19, 20, 21, 22, 23, 25, 28, 31, 36, 39, 40, 43, 46, 48}, qval : 7.296
+
+consumer info before fact checker is in network
+Consumer Node Info:
+
+Node 0 - Trust Level: 0.00, Interactions: 1
+
+Node 1 - Trust Level: -0.50, Interactions: 1
+
+Node 2 - Trust Level: -0.40, Interactions: 1
+
+Node 3 - Trust Level: -0.10, Interactions: 2
+
+Node 4 - Trust Level: -0.05, Interactions: 2
+
+Node 5 - Trust Level: -0.45, Interactions: 2
+
+Node 6 - Trust Level: -0.30, Interactions: 1
+
+Node 7 - Trust Level: -0.05, Interactions: 1
+
+Node 8 - Trust Level: -0.35, Interactions: 2
+
+Node 9 - Trust Level: 0.10, Interactions: 1
+
+Node 10 - Trust Level: -0.45, Interactions: 2
+
+Node 11 - Trust Level: -0.50, Interactions: 1
+
+Node 12 - Trust Level: -0.70, Interactions: 2
+
+Node 13 - Trust Level: -0.50, Interactions: 2
+
+Node 14 - Trust Level: 0.00, Interactions: 2
+
+Node 15 - Trust Level: -0.25, Interactions: 2
+
+Node 16 - Trust Level: -0.50, Interactions: 1
+
+Node 17 - Trust Level: -0.50, Interactions: 1
+
+Node 18 - Trust Level: 0.20, Interactions: 0
+
+Node 19 - Trust Level: -0.25, Interactions: 2
+
+Node 20 - Trust Level: -0.10, Interactions: 2
+
+Node 21 - Trust Level: -0.35, Interactions: 2
+
+Node 22 - Trust Level: -0.50, Interactions: 1
+
+Node 23 - Trust Level: -0.50, Interactions: 1
+
+Node 24 - Trust Level: -0.10, Interactions: 2
+
+Node 25 - Trust Level: 0.00, Interactions: 2
+
+Node 26 - Trust Level: -0.15, Interactions: 2
+
+Node 27 - Trust Level: -0.25, Interactions: 2
+
+Node 28 - Trust Level: -0.70, Interactions: 2
+
+Node 29 - Trust Level: -0.35, Interactions: 2
+
+Node 30 - Trust Level: 0.00, Interactions: 2
+
+Node 31 - Trust Level: -0.60, Interactions: 1
+
+Node 32 - Trust Level: 0.30, Interactions: 1
+
+Node 33 - Trust Level: 0.10, Interactions: 1
+
+Node 34 - Trust Level: -0.35, Interactions: 2
+
+Node 35 - Trust Level: -0.30, Interactions: 2
+
+Node 36 - Trust Level: -0.20, Interactions: 1
+
+Node 37 - Trust Level: -0.30, Interactions: 1
+
+Node 38 - Trust Level: -0.40, Interactions: 2
+
+Node 39 - Trust Level: -0.50, Interactions: 1
+
+Node 40 - Trust Level: -0.30, Interactions: 1
+
+Node 41 - Trust Level: 0.00, Interactions: 2
+
+Node 42 - Trust Level: -0.40, Interactions: 1
+
+Node 43 - Trust Level: -0.20, Interactions: 1
+
+Node 44 - Trust Level: -0.45, Interactions: 2
+
+Node 45 - Trust Level: -0.10, Interactions: 2
+
+Node 46 - Trust Level: -0.30, Interactions: 2
+
+Node 47 - Trust Level: -0.35, Interactions: 2
+
+Node 48 - Trust Level: -0.30, Interactions: 2
+
+Node 49 - Trust Level: 0.25, Interactions: 1
+
+Fact Checker Agent: Agent type: fake-information penalty: 70 reward: 48 trust level: 0.68
+Agent type: real-information penalty: 36 reward: 78 trust level: 0.86
+Fact-checker penalized news agent {'agentType': 'fake-information', 'qVal': -3.487, 'trustLevel': 0.0, 'reward': 48, 'penalty': 70}.
+Fact-checker found no fake news in node Agent type: real-information penalty: 36 reward: 78 trust level: 0.86.
+
+set of fake information agents audited:  {Agent type: fake-information penalty: 71 reward: 48 trust level: 0.68}
+Consumer trust level before fact checking  [2.7755575615628914e-17, -0.5, -0.4, -0.09999999999999998, -0.04999999999999999, -0.44999999999999996, -0.30000000000000004, -0.04999999999999999, -0.35, 0.1, -0.44999999999999996, -0.5, -0.7, -0.5, 2.7755575615628914e-17, -0.25, -0.5, -0.5, 0.2, -0.25, -0.09999999999999998, -0.35, -0.5, -0.5, -0.1, 2.7755575615628914e-17, -0.15, -0.24999999999999997, -0.7, -0.35, 0.0, -0.6, 0.30000000000000004, 0.1, -0.35, -0.30000000000000004, -0.2, -0.30000000000000004, -0.4, -0.5, -0.30000000000000004, 0.0, -0.4, -0.2, -0.44999999999999996, -0.09999999999999998, -0.3, -0.35, -0.3, 0.25000000000000006, 0.0, 0.0, 0.0]
+Consumer trust level after fact checking [-0.14999999999999997, -0.5, -0.4, -0.24999999999999997, -0.19999999999999998, -0.6, -0.30000000000000004, -0.19999999999999998, -0.5, -0.04999999999999999, -0.6, -0.5, -0.85, -0.65, -0.14999999999999997, -0.4, -0.5, -0.5, 0.2, -0.4, -0.24999999999999997, -0.5, -0.5, -0.5, -0.25, -0.14999999999999997, -0.3, -0.39999999999999997, -0.85, -0.5, -0.15, -0.6, 0.15000000000000005, -0.04999999999999999, -0.5, -0.45000000000000007, -0.2, -0.30000000000000004, -0.55, -0.5, -0.30000000000000004, -0.15, -0.4, -0.2, -0.6, -0.24999999999999997, -0.44999999999999996, -0.5, -0.44999999999999996, 0.10000000000000006, 0.0, 0.0, 0.0]
+
+reward: 3 penalty: 3
+consumer info after fact checker in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -0.15, Interactions: 1
+
+Node 1 - Trust Level: -0.50, Interactions: 1
+
+Node 2 - Trust Level: -0.40, Interactions: 1
+
+Node 3 - Trust Level: -0.25, Interactions: 2
+
+Node 4 - Trust Level: -0.20, Interactions: 2
+
+Node 5 - Trust Level: -0.60, Interactions: 2
+
+Node 6 - Trust Level: -0.30, Interactions: 1
+
+Node 7 - Trust Level: -0.20, Interactions: 1
+
+Node 8 - Trust Level: -0.50, Interactions: 2
+
+Node 9 - Trust Level: -0.05, Interactions: 1
+
+Node 10 - Trust Level: -0.60, Interactions: 2
+
+Node 11 - Trust Level: -0.50, Interactions: 1
+
+Node 12 - Trust Level: -0.85, Interactions: 2
+
+Node 13 - Trust Level: -0.65, Interactions: 2
+
+Node 14 - Trust Level: -0.15, Interactions: 2
+
+Node 15 - Trust Level: -0.40, Interactions: 2
+
+Node 16 - Trust Level: -0.50, Interactions: 1
+
+Node 17 - Trust Level: -0.50, Interactions: 1
+
+Node 18 - Trust Level: 0.20, Interactions: 0
+
+Node 19 - Trust Level: -0.40, Interactions: 2
+
+Node 20 - Trust Level: -0.25, Interactions: 2
+
+Node 21 - Trust Level: -0.50, Interactions: 2
+
+Node 22 - Trust Level: -0.50, Interactions: 1
+
+Node 23 - Trust Level: -0.50, Interactions: 1
+
+Node 24 - Trust Level: -0.25, Interactions: 2
+
+Node 25 - Trust Level: -0.15, Interactions: 2
+
+Node 26 - Trust Level: -0.30, Interactions: 2
+
+Node 27 - Trust Level: -0.40, Interactions: 2
+
+Node 28 - Trust Level: -0.85, Interactions: 2
+
+Node 29 - Trust Level: -0.50, Interactions: 2
+
+Node 30 - Trust Level: -0.15, Interactions: 2
+
+Node 31 - Trust Level: -0.60, Interactions: 1
+
+Node 32 - Trust Level: 0.15, Interactions: 1
+
+Node 33 - Trust Level: -0.05, Interactions: 1
+
+Node 34 - Trust Level: -0.50, Interactions: 2
+
+Node 35 - Trust Level: -0.45, Interactions: 2
+
+Node 36 - Trust Level: -0.20, Interactions: 1
+
+Node 37 - Trust Level: -0.30, Interactions: 1
+
+Node 38 - Trust Level: -0.55, Interactions: 2
+
+Node 39 - Trust Level: -0.50, Interactions: 1
+
+Node 40 - Trust Level: -0.30, Interactions: 1
+
+Node 41 - Trust Level: -0.15, Interactions: 2
+
+Node 42 - Trust Level: -0.40, Interactions: 1
+
+Node 43 - Trust Level: -0.20, Interactions: 1
+
+Node 44 - Trust Level: -0.60, Interactions: 2
+
+Node 45 - Trust Level: -0.25, Interactions: 2
+
+Node 46 - Trust Level: -0.45, Interactions: 2
+
+Node 47 - Trust Level: -0.50, Interactions: 2
+
+Node 48 - Trust Level: -0.45, Interactions: 2
+
+Node 49 - Trust Level: 0.10, Interactions: 1
+
+--------- epoch 3 ---------------------
+Trust Levels:
+
+Fake Agent: 
+reward: 59, penalty : 93, influenced : {32, 1, 37, 6, 8, 9, 17, 18, 20, 21, 31}, qval : -3.487
+
+Real Agent: 
+reward: 110, penalty : 47, influenced : {3, 4, 5, 6, 9, 10, 11, 12, 13, 14, 15, 16, 19, 21, 22, 25, 26, 27, 28, 29, 30, 31, 32, 35, 37, 39, 40, 41, 42, 43, 46, 48}, qval : 14.546400000000002
+
+consumer info before fact checker is in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -0.15, Interactions: 1
+
+Node 1 - Trust Level: -0.30, Interactions: 2
+
+Node 2 - Trust Level: -0.30, Interactions: 1
+
+Node 3 - Trust Level: -0.35, Interactions: 2
+
+Node 4 - Trust Level: -0.40, Interactions: 2
+
+Node 5 - Trust Level: -0.80, Interactions: 2
+
+Node 6 - Trust Level: -0.30, Interactions: 2
+
+Node 7 - Trust Level: -0.10, Interactions: 1
+
+Node 8 - Trust Level: -0.30, Interactions: 2
+
+Node 9 - Trust Level: -0.05, Interactions: 2
+
+Node 10 - Trust Level: -0.70, Interactions: 2
+
+Node 11 - Trust Level: -0.70, Interactions: 1
+
+Node 12 - Trust Level: -0.95, Interactions: 2
+
+Node 13 - Trust Level: -0.75, Interactions: 2
+
+Node 14 - Trust Level: -0.35, Interactions: 2
+
+Node 15 - Trust Level: -0.60, Interactions: 2
+
+Node 16 - Trust Level: -0.70, Interactions: 1
+
+Node 17 - Trust Level: -0.30, Interactions: 2
+
+Node 18 - Trust Level: 0.40, Interactions: 1
+
+Node 19 - Trust Level: -0.50, Interactions: 2
+
+Node 20 - Trust Level: -0.05, Interactions: 2
+
+Node 21 - Trust Level: -0.50, Interactions: 2
+
+Node 22 - Trust Level: -0.70, Interactions: 1
+
+Node 23 - Trust Level: -0.50, Interactions: 1
+
+Node 24 - Trust Level: -0.25, Interactions: 2
+
+Node 25 - Trust Level: -0.35, Interactions: 2
+
+Node 26 - Trust Level: -0.50, Interactions: 2
+
+Node 27 - Trust Level: -0.60, Interactions: 2
+
+Node 28 - Trust Level: -1.05, Interactions: 2
+
+Node 29 - Trust Level: -0.60, Interactions: 2
+
+Node 30 - Trust Level: -0.35, Interactions: 2
+
+Node 31 - Trust Level: -0.60, Interactions: 2
+
+Node 32 - Trust Level: 0.15, Interactions: 2
+
+Node 33 - Trust Level: -0.05, Interactions: 1
+
+Node 34 - Trust Level: -0.50, Interactions: 2
+
+Node 35 - Trust Level: -0.65, Interactions: 2
+
+Node 36 - Trust Level: -0.30, Interactions: 1
+
+Node 37 - Trust Level: -0.30, Interactions: 2
+
+Node 38 - Trust Level: -0.55, Interactions: 2
+
+Node 39 - Trust Level: -0.70, Interactions: 1
+
+Node 40 - Trust Level: -0.50, Interactions: 1
+
+Node 41 - Trust Level: -0.25, Interactions: 2
+
+Node 42 - Trust Level: -0.50, Interactions: 1
+
+Node 43 - Trust Level: -0.40, Interactions: 1
+
+Node 44 - Trust Level: -0.60, Interactions: 2
+
+Node 45 - Trust Level: -0.25, Interactions: 2
+
+Node 46 - Trust Level: -0.65, Interactions: 2
+
+Node 47 - Trust Level: -0.50, Interactions: 2
+
+Node 48 - Trust Level: -0.65, Interactions: 2
+
+Node 49 - Trust Level: 0.20, Interactions: 1
+
+Fact Checker Agent: Agent type: real-information penalty: 47 reward: 110 trust level: 0.9
+Agent type: fake-information penalty: 93 reward: 59 trust level: 0.8
+Fact-checker found no fake news in node Agent type: real-information penalty: 47 reward: 110 trust level: 0.9.
+Fact-checker penalized news agent {'agentType': 'fake-information', 'qVal': -6.5383, 'trustLevel': 0.0, 'reward': 59, 'penalty': 93}.
+
+set of fake information agents audited:  {Agent type: fake-information penalty: 94 reward: 59 trust level: 0.8}
+Consumer trust level before fact checking  [-0.14999999999999997, -0.30000000000000004, -0.30000000000000004, -0.35, -0.4, -0.7999999999999999, -0.30000000000000004, -0.09999999999999998, -0.30000000000000004, -0.04999999999999999, -0.7, -0.7, -0.95, -0.75, -0.35, -0.6, -0.7, -0.30000000000000004, 0.4, -0.5, -0.04999999999999996, -0.5, -0.7, -0.5, -0.25, -0.35, -0.5, -0.6, -1.05, -0.6, -0.35, -0.6, 0.15000000000000005, -0.04999999999999999, -0.5, -0.65, -0.30000000000000004, -0.30000000000000004, -0.55, -0.7, -0.5, -0.25, -0.5, -0.4, -0.6, -0.24999999999999997, -0.6499999999999999, -0.5, -0.6499999999999999, 0.20000000000000007, 0.0, 0.0, 0.0]
+Consumer trust level after fact checking [-0.29999999999999993, -0.45000000000000007, -0.30000000000000004, -0.5, -0.55, -0.95, -0.45000000000000007, -0.24999999999999997, -0.45000000000000007, -0.19999999999999998, -0.85, -0.7, -1.0999999999999999, -0.9, -0.5, -0.75, -0.7, -0.45000000000000007, 0.25, -0.65, -0.19999999999999996, -0.65, -0.7, -0.5, -0.4, -0.5, -0.65, -0.75, -1.2, -0.75, -0.5, -0.75, 5.551115123125783e-17, -0.19999999999999998, -0.65, -0.8, -0.30000000000000004, -0.45000000000000007, -0.7000000000000001, -0.7, -0.5, -0.4, -0.5, -0.4, -0.75, -0.39999999999999997, -0.7999999999999999, -0.65, -0.7999999999999999, 0.05000000000000007, 0.0, 0.0, 0.0]
+
+reward: 4 penalty: 4
+consumer info after fact checker in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -0.30, Interactions: 1
+
+Node 1 - Trust Level: -0.45, Interactions: 2
+
+Node 2 - Trust Level: -0.30, Interactions: 1
+
+Node 3 - Trust Level: -0.50, Interactions: 2
+
+Node 4 - Trust Level: -0.55, Interactions: 2
+
+Node 5 - Trust Level: -0.95, Interactions: 2
+
+Node 6 - Trust Level: -0.45, Interactions: 2
+
+Node 7 - Trust Level: -0.25, Interactions: 1
+
+Node 8 - Trust Level: -0.45, Interactions: 2
+
+Node 9 - Trust Level: -0.20, Interactions: 2
+
+Node 10 - Trust Level: -0.85, Interactions: 2
+
+Node 11 - Trust Level: -0.70, Interactions: 1
+
+Node 12 - Trust Level: -1.10, Interactions: 2
+
+Node 13 - Trust Level: -0.90, Interactions: 2
+
+Node 14 - Trust Level: -0.50, Interactions: 2
+
+Node 15 - Trust Level: -0.75, Interactions: 2
+
+Node 16 - Trust Level: -0.70, Interactions: 1
+
+Node 17 - Trust Level: -0.45, Interactions: 2
+
+Node 18 - Trust Level: 0.25, Interactions: 1
+
+Node 19 - Trust Level: -0.65, Interactions: 2
+
+Node 20 - Trust Level: -0.20, Interactions: 2
+
+Node 21 - Trust Level: -0.65, Interactions: 2
+
+Node 22 - Trust Level: -0.70, Interactions: 1
+
+Node 23 - Trust Level: -0.50, Interactions: 1
+
+Node 24 - Trust Level: -0.40, Interactions: 2
+
+Node 25 - Trust Level: -0.50, Interactions: 2
+
+Node 26 - Trust Level: -0.65, Interactions: 2
+
+Node 27 - Trust Level: -0.75, Interactions: 2
+
+Node 28 - Trust Level: -1.20, Interactions: 2
+
+Node 29 - Trust Level: -0.75, Interactions: 2
+
+Node 30 - Trust Level: -0.50, Interactions: 2
+
+Node 31 - Trust Level: -0.75, Interactions: 2
+
+Node 32 - Trust Level: 0.00, Interactions: 2
+
+Node 33 - Trust Level: -0.20, Interactions: 1
+
+Node 34 - Trust Level: -0.65, Interactions: 2
+
+Node 35 - Trust Level: -0.80, Interactions: 2
+
+Node 36 - Trust Level: -0.30, Interactions: 1
+
+Node 37 - Trust Level: -0.45, Interactions: 2
+
+Node 38 - Trust Level: -0.70, Interactions: 2
+
+Node 39 - Trust Level: -0.70, Interactions: 1
+
+Node 40 - Trust Level: -0.50, Interactions: 1
+
+Node 41 - Trust Level: -0.40, Interactions: 2
+
+Node 42 - Trust Level: -0.50, Interactions: 1
+
+Node 43 - Trust Level: -0.40, Interactions: 1
+
+Node 44 - Trust Level: -0.75, Interactions: 2
+
+Node 45 - Trust Level: -0.40, Interactions: 2
+
+Node 46 - Trust Level: -0.80, Interactions: 2
+
+Node 47 - Trust Level: -0.65, Interactions: 2
+
+Node 48 - Trust Level: -0.80, Interactions: 2
+
+Node 49 - Trust Level: 0.05, Interactions: 1
+
+--------- epoch 4 ---------------------
+Trust Levels:
+
+Fake Agent: 
+reward: 62, penalty : 121, influenced : {16, 43, 3}, qval : -6.5383
+
+Real Agent: 
+reward: 142, penalty : 57, influenced : {2, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 22, 23, 27, 28, 31, 33, 37, 38, 39, 40, 42, 43, 44, 45, 46, 47, 48}, qval : 25.061760000000003
+
+consumer info before fact checker is in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -0.30, Interactions: 1
+
+Node 1 - Trust Level: -0.35, Interactions: 2
+
+Node 2 - Trust Level: -0.50, Interactions: 1
+
+Node 3 - Trust Level: -0.40, Interactions: 2
+
+Node 4 - Trust Level: -0.55, Interactions: 2
+
+Node 5 - Trust Level: -1.05, Interactions: 2
+
+Node 6 - Trust Level: -0.55, Interactions: 2
+
+Node 7 - Trust Level: -0.45, Interactions: 2
+
+Node 8 - Trust Level: -0.35, Interactions: 2
+
+Node 9 - Trust Level: -0.30, Interactions: 2
+
+Node 10 - Trust Level: -1.05, Interactions: 2
+
+Node 11 - Trust Level: -0.80, Interactions: 1
+
+Node 12 - Trust Level: -1.30, Interactions: 2
+
+Node 13 - Trust Level: -1.10, Interactions: 2
+
+Node 14 - Trust Level: -0.60, Interactions: 2
+
+Node 15 - Trust Level: -0.85, Interactions: 2
+
+Node 16 - Trust Level: -0.70, Interactions: 2
+
+Node 17 - Trust Level: -0.65, Interactions: 2
+
+Node 18 - Trust Level: 0.25, Interactions: 1
+
+Node 19 - Trust Level: -0.75, Interactions: 2
+
+Node 20 - Trust Level: -0.20, Interactions: 2
+
+Node 21 - Trust Level: -0.85, Interactions: 2
+
+Node 22 - Trust Level: -0.80, Interactions: 1
+
+Node 23 - Trust Level: -0.60, Interactions: 1
+
+Node 24 - Trust Level: -0.50, Interactions: 2
+
+Node 25 - Trust Level: -0.50, Interactions: 2
+
+Node 26 - Trust Level: -0.55, Interactions: 2
+
+Node 27 - Trust Level: -0.95, Interactions: 2
+
+Node 28 - Trust Level: -1.40, Interactions: 2
+
+Node 29 - Trust Level: -0.85, Interactions: 2
+
+Node 30 - Trust Level: -0.60, Interactions: 2
+
+Node 31 - Trust Level: -0.95, Interactions: 2
+
+Node 32 - Trust Level: 0.00, Interactions: 2
+
+Node 33 - Trust Level: -0.30, Interactions: 2
+
+Node 34 - Trust Level: -0.65, Interactions: 2
+
+Node 35 - Trust Level: -0.90, Interactions: 2
+
+Node 36 - Trust Level: -0.30, Interactions: 1
+
+Node 37 - Trust Level: -0.55, Interactions: 2
+
+Node 38 - Trust Level: -0.80, Interactions: 2
+
+Node 39 - Trust Level: -0.90, Interactions: 1
+
+Node 40 - Trust Level: -0.70, Interactions: 1
+
+Node 41 - Trust Level: -0.50, Interactions: 2
+
+Node 42 - Trust Level: -0.60, Interactions: 1
+
+Node 43 - Trust Level: -0.40, Interactions: 2
+
+Node 44 - Trust Level: -0.95, Interactions: 2
+
+Node 45 - Trust Level: -0.60, Interactions: 2
+
+Node 46 - Trust Level: -1.00, Interactions: 2
+
+Node 47 - Trust Level: -0.75, Interactions: 2
+
+Node 48 - Trust Level: -1.00, Interactions: 2
+
+Node 49 - Trust Level: 0.15, Interactions: 1
+
+Fact Checker Agent: Agent type: real-information penalty: 57 reward: 142 trust level: 0.94
+Agent type: fake-information penalty: 121 reward: 62 trust level: 0.84
+Fact-checker found no fake news in node Agent type: real-information penalty: 57 reward: 142 trust level: 0.94.
+Fact-checker penalized news agent {'agentType': 'fake-information', 'qVal': -11.784469999999999, 'trustLevel': 0.0, 'reward': 62, 'penalty': 121}.
+
+set of fake information agents audited:  {Agent type: fake-information penalty: 122 reward: 62 trust level: 0.84}
+Consumer trust level before fact checking  [-0.29999999999999993, -0.3500000000000001, -0.5, -0.4, -0.55, -1.05, -0.55, -0.44999999999999996, -0.3500000000000001, -0.3, -1.05, -0.7999999999999999, -1.3, -1.1, -0.6, -0.85, -0.7, -0.65, 0.25, -0.75, -0.19999999999999993, -0.85, -0.7999999999999999, -0.6, -0.5, -0.5, -0.55, -0.95, -1.4000000000000001, -0.85, -0.6, -0.95, 5.551115123125783e-17, -0.3, -0.65, -0.9, -0.30000000000000004, -0.55, -0.8, -0.8999999999999999, -0.7, -0.5, -0.6, -0.4, -0.95, -0.6, -0.9999999999999999, -0.75, -0.9999999999999999, 0.15000000000000008, 0.0, 0.0, 0.0]
+Consumer trust level after fact checking [-0.44999999999999996, -0.5000000000000001, -0.5, -0.55, -0.7000000000000001, -1.2, -0.7000000000000001, -0.6, -0.5000000000000001, -0.44999999999999996, -1.2, -0.7999999999999999, -1.45, -1.25, -0.75, -1.0, -0.85, -0.8, 0.1, -0.9, -0.3499999999999999, -1.0, -0.7999999999999999, -0.6, -0.65, -0.65, -0.7000000000000001, -1.0999999999999999, -1.55, -1.0, -0.75, -1.0999999999999999, -0.14999999999999994, -0.44999999999999996, -0.8, -1.05, -0.30000000000000004, -0.7000000000000001, -0.9500000000000001, -0.8999999999999999, -0.7, -0.65, -0.6, -0.55, -1.0999999999999999, -0.75, -1.15, -0.9, -1.15, 8.326672684688674e-17, 0.0, 0.0, 0.0]
+
+reward: 5 penalty: 5
+consumer info after fact checker in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -0.45, Interactions: 1
+
+Node 1 - Trust Level: -0.50, Interactions: 2
+
+Node 2 - Trust Level: -0.50, Interactions: 1
+
+Node 3 - Trust Level: -0.55, Interactions: 2
+
+Node 4 - Trust Level: -0.70, Interactions: 2
+
+Node 5 - Trust Level: -1.20, Interactions: 2
+
+Node 6 - Trust Level: -0.70, Interactions: 2
+
+Node 7 - Trust Level: -0.60, Interactions: 2
+
+Node 8 - Trust Level: -0.50, Interactions: 2
+
+Node 9 - Trust Level: -0.45, Interactions: 2
+
+Node 10 - Trust Level: -1.20, Interactions: 2
+
+Node 11 - Trust Level: -0.80, Interactions: 1
+
+Node 12 - Trust Level: -1.45, Interactions: 2
+
+Node 13 - Trust Level: -1.25, Interactions: 2
+
+Node 14 - Trust Level: -0.75, Interactions: 2
+
+Node 15 - Trust Level: -1.00, Interactions: 2
+
+Node 16 - Trust Level: -0.85, Interactions: 2
+
+Node 17 - Trust Level: -0.80, Interactions: 2
+
+Node 18 - Trust Level: 0.10, Interactions: 1
+
+Node 19 - Trust Level: -0.90, Interactions: 2
+
+Node 20 - Trust Level: -0.35, Interactions: 2
+
+Node 21 - Trust Level: -1.00, Interactions: 2
+
+Node 22 - Trust Level: -0.80, Interactions: 1
+
+Node 23 - Trust Level: -0.60, Interactions: 1
+
+Node 24 - Trust Level: -0.65, Interactions: 2
+
+Node 25 - Trust Level: -0.65, Interactions: 2
+
+Node 26 - Trust Level: -0.70, Interactions: 2
+
+Node 27 - Trust Level: -1.10, Interactions: 2
+
+Node 28 - Trust Level: -1.55, Interactions: 2
+
+Node 29 - Trust Level: -1.00, Interactions: 2
+
+Node 30 - Trust Level: -0.75, Interactions: 2
+
+Node 31 - Trust Level: -1.10, Interactions: 2
+
+Node 32 - Trust Level: -0.15, Interactions: 2
+
+Node 33 - Trust Level: -0.45, Interactions: 2
+
+Node 34 - Trust Level: -0.80, Interactions: 2
+
+Node 35 - Trust Level: -1.05, Interactions: 2
+
+Node 36 - Trust Level: -0.30, Interactions: 1
+
+Node 37 - Trust Level: -0.70, Interactions: 2
+
+Node 38 - Trust Level: -0.95, Interactions: 2
+
+Node 39 - Trust Level: -0.90, Interactions: 1
+
+Node 40 - Trust Level: -0.70, Interactions: 1
+
+Node 41 - Trust Level: -0.65, Interactions: 2
+
+Node 42 - Trust Level: -0.60, Interactions: 1
+
+Node 43 - Trust Level: -0.55, Interactions: 2
+
+Node 44 - Trust Level: -1.10, Interactions: 2
+
+Node 45 - Trust Level: -0.75, Interactions: 2
+
+Node 46 - Trust Level: -1.15, Interactions: 2
+
+Node 47 - Trust Level: -0.90, Interactions: 2
+
+Node 48 - Trust Level: -1.15, Interactions: 2
+
+Node 49 - Trust Level: 0.00, Interactions: 1
+
+--------- epoch 5 ---------------------
+Trust Levels:
+
+Fake Agent: 
+reward: 67, penalty : 146, influenced : {2, 35, 37, 14, 24}, qval : -11.784469999999999
+
+Real Agent: 
+reward: 182, penalty : 62, influenced : {0, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 20, 22, 24, 26, 27, 28, 29, 31, 34, 35, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48}, qval : 38.705584
+
+consumer info before fact checker is in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -0.55, Interactions: 2
+
+Node 1 - Trust Level: -0.70, Interactions: 2
+
+Node 2 - Trust Level: -0.50, Interactions: 2
+
+Node 3 - Trust Level: -0.75, Interactions: 2
+
+Node 4 - Trust Level: -0.70, Interactions: 2
+
+Node 5 - Trust Level: -1.40, Interactions: 2
+
+Node 6 - Trust Level: -0.90, Interactions: 2
+
+Node 7 - Trust Level: -0.70, Interactions: 2
+
+Node 8 - Trust Level: -0.70, Interactions: 2
+
+Node 9 - Trust Level: -0.55, Interactions: 2
+
+Node 10 - Trust Level: -1.30, Interactions: 2
+
+Node 11 - Trust Level: -0.90, Interactions: 1
+
+Node 12 - Trust Level: -1.65, Interactions: 2
+
+Node 13 - Trust Level: -1.45, Interactions: 2
+
+Node 14 - Trust Level: -0.75, Interactions: 2
+
+Node 15 - Trust Level: -1.20, Interactions: 2
+
+Node 16 - Trust Level: -1.05, Interactions: 2
+
+Node 17 - Trust Level: -0.90, Interactions: 2
+
+Node 18 - Trust Level: 0.00, Interactions: 1
+
+Node 19 - Trust Level: -1.00, Interactions: 2
+
+Node 20 - Trust Level: -0.45, Interactions: 2
+
+Node 21 - Trust Level: -1.00, Interactions: 2
+
+Node 22 - Trust Level: -1.00, Interactions: 1
+
+Node 23 - Trust Level: -0.50, Interactions: 1
+
+Node 24 - Trust Level: -0.65, Interactions: 2
+
+Node 25 - Trust Level: -0.55, Interactions: 2
+
+Node 26 - Trust Level: -0.80, Interactions: 2
+
+Node 27 - Trust Level: -1.30, Interactions: 2
+
+Node 28 - Trust Level: -1.75, Interactions: 2
+
+Node 29 - Trust Level: -1.20, Interactions: 2
+
+Node 30 - Trust Level: -0.75, Interactions: 2
+
+Node 31 - Trust Level: -1.20, Interactions: 2
+
+Node 32 - Trust Level: -0.15, Interactions: 2
+
+Node 33 - Trust Level: -0.45, Interactions: 2
+
+Node 34 - Trust Level: -1.00, Interactions: 2
+
+Node 35 - Trust Level: -1.05, Interactions: 2
+
+Node 36 - Trust Level: -0.30, Interactions: 1
+
+Node 37 - Trust Level: -0.70, Interactions: 2
+
+Node 38 - Trust Level: -1.15, Interactions: 2
+
+Node 39 - Trust Level: -1.00, Interactions: 1
+
+Node 40 - Trust Level: -0.90, Interactions: 1
+
+Node 41 - Trust Level: -0.85, Interactions: 2
+
+Node 42 - Trust Level: -0.80, Interactions: 1
+
+Node 43 - Trust Level: -0.75, Interactions: 2
+
+Node 44 - Trust Level: -1.30, Interactions: 2
+
+Node 45 - Trust Level: -0.85, Interactions: 2
+
+Node 46 - Trust Level: -1.35, Interactions: 2
+
+Node 47 - Trust Level: -1.00, Interactions: 2
+
+Node 48 - Trust Level: -1.25, Interactions: 2
+
+Node 49 - Trust Level: 0.10, Interactions: 1
+
+Fact Checker Agent: Agent type: fake-information penalty: 146 reward: 67 trust level: 0.86
+Agent type: real-information penalty: 62 reward: 182 trust level: 0.96
+Fact-checker penalized news agent {'agentType': 'fake-information', 'qVal': -18.506023, 'trustLevel': 0.0, 'reward': 67, 'penalty': 146}.
+Fact-checker found no fake news in node Agent type: real-information penalty: 62 reward: 182 trust level: 0.96.
+
+set of fake information agents audited:  {Agent type: fake-information penalty: 147 reward: 67 trust level: 0.86}
+Consumer trust level before fact checking  [-0.5499999999999999, -0.7000000000000001, -0.5, -0.75, -0.7000000000000001, -1.4000000000000001, -0.9, -0.7, -0.7000000000000001, -0.5499999999999999, -1.3, -0.8999999999999999, -1.6500000000000001, -1.4500000000000002, -0.75, -1.2000000000000002, -1.05, -0.9, 0.0, -1.0, -0.44999999999999996, -1.0, -0.9999999999999999, -0.5, -0.65, -0.55, -0.8, -1.3, -1.7500000000000002, -1.2000000000000002, -0.75, -1.2, -0.14999999999999994, -0.44999999999999996, -1.0, -1.05, -0.30000000000000004, -0.7000000000000001, -1.1500000000000001, -0.9999999999999999, -0.8999999999999999, -0.85, -0.7999999999999999, -0.75, -1.3, -0.85, -1.35, -1.0, -1.25, 0.10000000000000009, 0.0, 0.0, 0.0]
+Consumer trust level after fact checking [-0.7, -0.8500000000000001, -0.65, -0.9, -0.8500000000000001, -1.55, -1.05, -0.85, -0.8500000000000001, -0.7, -1.45, -0.8999999999999999, -1.8, -1.6, -0.9, -1.35, -1.2, -1.05, -0.15, -1.15, -0.6, -1.15, -0.9999999999999999, -0.5, -0.8, -0.7000000000000001, -0.9500000000000001, -1.45, -1.9000000000000001, -1.35, -0.9, -1.3499999999999999, -0.29999999999999993, -0.6, -1.15, -1.2, -0.30000000000000004, -0.8500000000000001, -1.3, -0.9999999999999999, -0.8999999999999999, -1.0, -0.7999999999999999, -0.9, -1.45, -1.0, -1.5, -1.15, -1.4, -0.049999999999999906, 0.0, 0.0, 0.0]
+
+reward: 6 penalty: 6
+consumer info after fact checker in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -0.70, Interactions: 2
+
+Node 1 - Trust Level: -0.85, Interactions: 2
+
+Node 2 - Trust Level: -0.65, Interactions: 2
+
+Node 3 - Trust Level: -0.90, Interactions: 2
+
+Node 4 - Trust Level: -0.85, Interactions: 2
+
+Node 5 - Trust Level: -1.55, Interactions: 2
+
+Node 6 - Trust Level: -1.05, Interactions: 2
+
+Node 7 - Trust Level: -0.85, Interactions: 2
+
+Node 8 - Trust Level: -0.85, Interactions: 2
+
+Node 9 - Trust Level: -0.70, Interactions: 2
+
+Node 10 - Trust Level: -1.45, Interactions: 2
+
+Node 11 - Trust Level: -0.90, Interactions: 1
+
+Node 12 - Trust Level: -1.80, Interactions: 2
+
+Node 13 - Trust Level: -1.60, Interactions: 2
+
+Node 14 - Trust Level: -0.90, Interactions: 2
+
+Node 15 - Trust Level: -1.35, Interactions: 2
+
+Node 16 - Trust Level: -1.20, Interactions: 2
+
+Node 17 - Trust Level: -1.05, Interactions: 2
+
+Node 18 - Trust Level: -0.15, Interactions: 1
+
+Node 19 - Trust Level: -1.15, Interactions: 2
+
+Node 20 - Trust Level: -0.60, Interactions: 2
+
+Node 21 - Trust Level: -1.15, Interactions: 2
+
+Node 22 - Trust Level: -1.00, Interactions: 1
+
+Node 23 - Trust Level: -0.50, Interactions: 1
+
+Node 24 - Trust Level: -0.80, Interactions: 2
+
+Node 25 - Trust Level: -0.70, Interactions: 2
+
+Node 26 - Trust Level: -0.95, Interactions: 2
+
+Node 27 - Trust Level: -1.45, Interactions: 2
+
+Node 28 - Trust Level: -1.90, Interactions: 2
+
+Node 29 - Trust Level: -1.35, Interactions: 2
+
+Node 30 - Trust Level: -0.90, Interactions: 2
+
+Node 31 - Trust Level: -1.35, Interactions: 2
+
+Node 32 - Trust Level: -0.30, Interactions: 2
+
+Node 33 - Trust Level: -0.60, Interactions: 2
+
+Node 34 - Trust Level: -1.15, Interactions: 2
+
+Node 35 - Trust Level: -1.20, Interactions: 2
+
+Node 36 - Trust Level: -0.30, Interactions: 1
+
+Node 37 - Trust Level: -0.85, Interactions: 2
+
+Node 38 - Trust Level: -1.30, Interactions: 2
+
+Node 39 - Trust Level: -1.00, Interactions: 1
+
+Node 40 - Trust Level: -0.90, Interactions: 1
+
+Node 41 - Trust Level: -1.00, Interactions: 2
+
+Node 42 - Trust Level: -0.80, Interactions: 1
+
+Node 43 - Trust Level: -0.90, Interactions: 2
+
+Node 44 - Trust Level: -1.45, Interactions: 2
+
+Node 45 - Trust Level: -1.00, Interactions: 2
+
+Node 46 - Trust Level: -1.50, Interactions: 2
+
+Node 47 - Trust Level: -1.15, Interactions: 2
+
+Node 48 - Trust Level: -1.40, Interactions: 2
+
+Node 49 - Trust Level: -0.05, Interactions: 1
+
+--------- epoch 6 ---------------------
+Trust Levels:
+
+Fake Agent: 
+reward: 70, penalty : 172, influenced : {49, 14, 39}, qval : -18.506023
+
+Real Agent: 
+reward: 227, penalty : 63, influenced : {0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 20, 21, 22, 24, 25, 26, 27, 28, 29, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49}, qval : 57.635025600000006
+
+consumer info before fact checker is in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -0.80, Interactions: 2
+
+Node 1 - Trust Level: -0.95, Interactions: 2
+
+Node 2 - Trust Level: -0.85, Interactions: 2
+
+Node 3 - Trust Level: -1.00, Interactions: 2
+
+Node 4 - Trust Level: -1.05, Interactions: 2
+
+Node 5 - Trust Level: -1.65, Interactions: 2
+
+Node 6 - Trust Level: -1.25, Interactions: 2
+
+Node 7 - Trust Level: -1.05, Interactions: 2
+
+Node 8 - Trust Level: -1.05, Interactions: 2
+
+Node 9 - Trust Level: -0.80, Interactions: 2
+
+Node 10 - Trust Level: -1.55, Interactions: 2
+
+Node 11 - Trust Level: -1.10, Interactions: 1
+
+Node 12 - Trust Level: -2.00, Interactions: 2
+
+Node 13 - Trust Level: -1.80, Interactions: 2
+
+Node 14 - Trust Level: -0.90, Interactions: 2
+
+Node 15 - Trust Level: -1.45, Interactions: 2
+
+Node 16 - Trust Level: -1.40, Interactions: 2
+
+Node 17 - Trust Level: -1.15, Interactions: 2
+
+Node 18 - Trust Level: -0.15, Interactions: 1
+
+Node 19 - Trust Level: -1.25, Interactions: 2
+
+Node 20 - Trust Level: -0.80, Interactions: 2
+
+Node 21 - Trust Level: -1.35, Interactions: 2
+
+Node 22 - Trust Level: -1.10, Interactions: 1
+
+Node 23 - Trust Level: -0.40, Interactions: 1
+
+Node 24 - Trust Level: -1.00, Interactions: 2
+
+Node 25 - Trust Level: -0.90, Interactions: 2
+
+Node 26 - Trust Level: -1.05, Interactions: 2
+
+Node 27 - Trust Level: -1.55, Interactions: 2
+
+Node 28 - Trust Level: -2.00, Interactions: 2
+
+Node 29 - Trust Level: -1.55, Interactions: 2
+
+Node 30 - Trust Level: -0.90, Interactions: 2
+
+Node 31 - Trust Level: -1.55, Interactions: 2
+
+Node 32 - Trust Level: -0.50, Interactions: 2
+
+Node 33 - Trust Level: -0.70, Interactions: 2
+
+Node 34 - Trust Level: -1.25, Interactions: 2
+
+Node 35 - Trust Level: -1.40, Interactions: 2
+
+Node 36 - Trust Level: -0.30, Interactions: 1
+
+Node 37 - Trust Level: -1.05, Interactions: 2
+
+Node 38 - Trust Level: -1.40, Interactions: 2
+
+Node 39 - Trust Level: -1.00, Interactions: 2
+
+Node 40 - Trust Level: -1.00, Interactions: 1
+
+Node 41 - Trust Level: -1.10, Interactions: 2
+
+Node 42 - Trust Level: -1.00, Interactions: 1
+
+Node 43 - Trust Level: -1.10, Interactions: 2
+
+Node 44 - Trust Level: -1.65, Interactions: 2
+
+Node 45 - Trust Level: -1.20, Interactions: 2
+
+Node 46 - Trust Level: -1.70, Interactions: 2
+
+Node 47 - Trust Level: -1.25, Interactions: 2
+
+Node 48 - Trust Level: -1.60, Interactions: 2
+
+Node 49 - Trust Level: -0.05, Interactions: 2
+
+Fact Checker Agent: Agent type: fake-information penalty: 172 reward: 70 trust level: 0.88
+Agent type: real-information penalty: 63 reward: 227 trust level: 0.98
+Fact-checker penalized news agent {'agentType': 'fake-information', 'qVal': -26.8554207, 'trustLevel': 0.0, 'reward': 70, 'penalty': 172}.
+Fact-checker found no fake news in node Agent type: real-information penalty: 63 reward: 227 trust level: 0.98.
+
+set of fake information agents audited:  {Agent type: fake-information penalty: 173 reward: 70 trust level: 0.88}
+Consumer trust level before fact checking  [-0.7999999999999999, -0.9500000000000001, -0.85, -1.0, -1.05, -1.6500000000000001, -1.2500000000000002, -1.05, -1.05, -0.7999999999999999, -1.55, -1.0999999999999999, -2.0, -1.8000000000000003, -0.9, -1.4500000000000002, -1.4000000000000001, -1.1500000000000001, -0.15, -1.25, -0.7999999999999999, -1.35, -1.0999999999999999, -0.4, -1.0, -0.9, -1.05, -1.55, -2.0, -1.5500000000000003, -0.9, -1.55, -0.4999999999999999, -0.7, -1.25, -1.4000000000000001, -0.30000000000000004, -1.05, -1.4000000000000001, -0.9999999999999999, -0.9999999999999999, -1.1, -0.9999999999999999, -1.1, -1.6500000000000001, -1.2000000000000002, -1.7000000000000002, -1.25, -1.6, -0.049999999999999906, 0.0, 0.0, 0.0]
+Consumer trust level after fact checking [-0.95, -1.1, -1.0, -1.15, -1.2, -1.8, -1.4000000000000001, -1.2, -1.2, -0.95, -1.7, -1.0999999999999999, -2.15, -1.9500000000000002, -1.05, -1.6, -1.55, -1.3, -0.3, -1.4, -0.95, -1.5, -1.0999999999999999, -0.4, -1.15, -1.05, -1.2, -1.7, -2.15, -1.7000000000000002, -1.05, -1.7, -0.6499999999999999, -0.85, -1.4, -1.55, -0.30000000000000004, -1.2, -1.55, -1.15, -0.9999999999999999, -1.25, -0.9999999999999999, -1.25, -1.8, -1.35, -1.85, -1.4, -1.75, -0.1999999999999999, 0.0, 0.0, 0.0]
+
+reward: 7 penalty: 7
+consumer info after fact checker in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -0.95, Interactions: 2
+
+Node 1 - Trust Level: -1.10, Interactions: 2
+
+Node 2 - Trust Level: -1.00, Interactions: 2
+
+Node 3 - Trust Level: -1.15, Interactions: 2
+
+Node 4 - Trust Level: -1.20, Interactions: 2
+
+Node 5 - Trust Level: -1.80, Interactions: 2
+
+Node 6 - Trust Level: -1.40, Interactions: 2
+
+Node 7 - Trust Level: -1.20, Interactions: 2
+
+Node 8 - Trust Level: -1.20, Interactions: 2
+
+Node 9 - Trust Level: -0.95, Interactions: 2
+
+Node 10 - Trust Level: -1.70, Interactions: 2
+
+Node 11 - Trust Level: -1.10, Interactions: 1
+
+Node 12 - Trust Level: -2.15, Interactions: 2
+
+Node 13 - Trust Level: -1.95, Interactions: 2
+
+Node 14 - Trust Level: -1.05, Interactions: 2
+
+Node 15 - Trust Level: -1.60, Interactions: 2
+
+Node 16 - Trust Level: -1.55, Interactions: 2
+
+Node 17 - Trust Level: -1.30, Interactions: 2
+
+Node 18 - Trust Level: -0.30, Interactions: 1
+
+Node 19 - Trust Level: -1.40, Interactions: 2
+
+Node 20 - Trust Level: -0.95, Interactions: 2
+
+Node 21 - Trust Level: -1.50, Interactions: 2
+
+Node 22 - Trust Level: -1.10, Interactions: 1
+
+Node 23 - Trust Level: -0.40, Interactions: 1
+
+Node 24 - Trust Level: -1.15, Interactions: 2
+
+Node 25 - Trust Level: -1.05, Interactions: 2
+
+Node 26 - Trust Level: -1.20, Interactions: 2
+
+Node 27 - Trust Level: -1.70, Interactions: 2
+
+Node 28 - Trust Level: -2.15, Interactions: 2
+
+Node 29 - Trust Level: -1.70, Interactions: 2
+
+Node 30 - Trust Level: -1.05, Interactions: 2
+
+Node 31 - Trust Level: -1.70, Interactions: 2
+
+Node 32 - Trust Level: -0.65, Interactions: 2
+
+Node 33 - Trust Level: -0.85, Interactions: 2
+
+Node 34 - Trust Level: -1.40, Interactions: 2
+
+Node 35 - Trust Level: -1.55, Interactions: 2
+
+Node 36 - Trust Level: -0.30, Interactions: 1
+
+Node 37 - Trust Level: -1.20, Interactions: 2
+
+Node 38 - Trust Level: -1.55, Interactions: 2
+
+Node 39 - Trust Level: -1.15, Interactions: 2
+
+Node 40 - Trust Level: -1.00, Interactions: 1
+
+Node 41 - Trust Level: -1.25, Interactions: 2
+
+Node 42 - Trust Level: -1.00, Interactions: 1
+
+Node 43 - Trust Level: -1.25, Interactions: 2
+
+Node 44 - Trust Level: -1.80, Interactions: 2
+
+Node 45 - Trust Level: -1.35, Interactions: 2
+
+Node 46 - Trust Level: -1.85, Interactions: 2
+
+Node 47 - Trust Level: -1.40, Interactions: 2
+
+Node 48 - Trust Level: -1.75, Interactions: 2
+
+Node 49 - Trust Level: -0.20, Interactions: 2
+
+--------- epoch 7 ---------------------
+Trust Levels:
+
+Fake Agent: 
+reward: 71, penalty : 194, influenced : {46}, qval : -26.8554207
+
+Real Agent: 
+reward: 264, penalty : 66, influenced : {1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16, 17, 19, 20, 22, 23, 25, 26, 27, 28, 29, 31, 32, 36, 37, 38, 39, 40, 42, 43, 44, 46, 47, 48}, qval : 83.03152304000001
+
+consumer info before fact checker is in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -1.05, Interactions: 2
+
+Node 1 - Trust Level: -1.30, Interactions: 2
+
+Node 2 - Trust Level: -1.10, Interactions: 2
+
+Node 3 - Trust Level: -1.35, Interactions: 2
+
+Node 4 - Trust Level: -1.10, Interactions: 2
+
+Node 5 - Trust Level: -2.00, Interactions: 2
+
+Node 6 - Trust Level: -1.60, Interactions: 2
+
+Node 7 - Trust Level: -1.30, Interactions: 2
+
+Node 8 - Trust Level: -1.30, Interactions: 2
+
+Node 9 - Trust Level: -1.05, Interactions: 2
+
+Node 10 - Trust Level: -1.80, Interactions: 2
+
+Node 11 - Trust Level: -1.30, Interactions: 1
+
+Node 12 - Trust Level: -2.25, Interactions: 2
+
+Node 13 - Trust Level: -2.15, Interactions: 2
+
+Node 14 - Trust Level: -0.95, Interactions: 2
+
+Node 15 - Trust Level: -1.70, Interactions: 2
+
+Node 16 - Trust Level: -1.65, Interactions: 2
+
+Node 17 - Trust Level: -1.40, Interactions: 2
+
+Node 18 - Trust Level: -0.40, Interactions: 1
+
+Node 19 - Trust Level: -1.50, Interactions: 2
+
+Node 20 - Trust Level: -1.15, Interactions: 2
+
+Node 21 - Trust Level: -1.50, Interactions: 2
+
+Node 22 - Trust Level: -1.30, Interactions: 1
+
+Node 23 - Trust Level: -0.60, Interactions: 1
+
+Node 24 - Trust Level: -1.15, Interactions: 2
+
+Node 25 - Trust Level: -1.25, Interactions: 2
+
+Node 26 - Trust Level: -1.40, Interactions: 2
+
+Node 27 - Trust Level: -1.90, Interactions: 2
+
+Node 28 - Trust Level: -2.35, Interactions: 2
+
+Node 29 - Trust Level: -1.80, Interactions: 2
+
+Node 30 - Trust Level: -1.05, Interactions: 2
+
+Node 31 - Trust Level: -1.80, Interactions: 2
+
+Node 32 - Trust Level: -0.85, Interactions: 2
+
+Node 33 - Trust Level: -0.95, Interactions: 2
+
+Node 34 - Trust Level: -1.40, Interactions: 2
+
+Node 35 - Trust Level: -1.55, Interactions: 2
+
+Node 36 - Trust Level: -0.50, Interactions: 1
+
+Node 37 - Trust Level: -1.40, Interactions: 2
+
+Node 38 - Trust Level: -1.65, Interactions: 2
+
+Node 39 - Trust Level: -1.25, Interactions: 2
+
+Node 40 - Trust Level: -1.10, Interactions: 1
+
+Node 41 - Trust Level: -1.25, Interactions: 2
+
+Node 42 - Trust Level: -1.10, Interactions: 1
+
+Node 43 - Trust Level: -1.35, Interactions: 2
+
+Node 44 - Trust Level: -2.00, Interactions: 2
+
+Node 45 - Trust Level: -1.35, Interactions: 2
+
+Node 46 - Trust Level: -1.85, Interactions: 2
+
+Node 47 - Trust Level: -1.50, Interactions: 2
+
+Node 48 - Trust Level: -1.85, Interactions: 2
+
+Node 49 - Trust Level: -0.20, Interactions: 2
+
+Fact Checker Agent: Agent type: fake-information penalty: 194 reward: 71 trust level: 0.88
+Agent type: real-information penalty: 66 reward: 264 trust level: 0.98
+Fact-checker penalized news agent {'agentType': 'fake-information', 'qVal': -36.46987863, 'trustLevel': 0.0, 'reward': 71, 'penalty': 194}.
+Fact-checker found no fake news in node Agent type: real-information penalty: 66 reward: 264 trust level: 0.98.
+
+set of fake information agents audited:  {Agent type: fake-information penalty: 195 reward: 71 trust level: 0.88}
+Consumer trust level before fact checking  [-1.05, -1.3000000000000003, -1.1, -1.35, -1.0999999999999999, -2.0, -1.6000000000000003, -1.3, -1.3, -1.05, -1.8, -1.3, -2.25, -2.1500000000000004, -0.9500000000000001, -1.7000000000000002, -1.6500000000000001, -1.4000000000000001, -0.4, -1.5, -1.1500000000000001, -1.5, -1.3, -0.6, -1.15, -1.2500000000000002, -1.4000000000000001, -1.9000000000000001, -2.35, -1.8000000000000003, -1.05, -1.8, -0.8499999999999999, -0.95, -1.4, -1.55, -0.5, -1.4000000000000001, -1.6500000000000001, -1.25, -1.0999999999999999, -1.25, -1.0999999999999999, -1.35, -2.0, -1.35, -1.85, -1.5, -1.85, -0.19999999999999993, 0.0, 0.0, 0.0]
+Consumer trust level after fact checking [-1.2, -1.4500000000000002, -1.25, -1.5, -1.2499999999999998, -2.15, -1.7500000000000002, -1.45, -1.45, -1.2, -1.95, -1.3, -2.4, -2.3000000000000003, -1.1, -1.85, -1.8, -1.55, -0.55, -1.65, -1.3, -1.65, -1.3, -0.6, -1.2999999999999998, -1.4000000000000001, -1.55, -2.0500000000000003, -2.5, -1.9500000000000002, -1.2, -1.95, -0.9999999999999999, -1.0999999999999999, -1.5499999999999998, -1.7, -0.5, -1.55, -1.8, -1.4, -1.0999999999999999, -1.4, -1.0999999999999999, -1.5, -2.15, -1.5, -2.0, -1.65, -2.0, -0.3499999999999999, 0.0, 0.0, 0.0]
+
+reward: 8 penalty: 8
+consumer info after fact checker in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -1.20, Interactions: 2
+
+Node 1 - Trust Level: -1.45, Interactions: 2
+
+Node 2 - Trust Level: -1.25, Interactions: 2
+
+Node 3 - Trust Level: -1.50, Interactions: 2
+
+Node 4 - Trust Level: -1.25, Interactions: 2
+
+Node 5 - Trust Level: -2.15, Interactions: 2
+
+Node 6 - Trust Level: -1.75, Interactions: 2
+
+Node 7 - Trust Level: -1.45, Interactions: 2
+
+Node 8 - Trust Level: -1.45, Interactions: 2
+
+Node 9 - Trust Level: -1.20, Interactions: 2
+
+Node 10 - Trust Level: -1.95, Interactions: 2
+
+Node 11 - Trust Level: -1.30, Interactions: 1
+
+Node 12 - Trust Level: -2.40, Interactions: 2
+
+Node 13 - Trust Level: -2.30, Interactions: 2
+
+Node 14 - Trust Level: -1.10, Interactions: 2
+
+Node 15 - Trust Level: -1.85, Interactions: 2
+
+Node 16 - Trust Level: -1.80, Interactions: 2
+
+Node 17 - Trust Level: -1.55, Interactions: 2
+
+Node 18 - Trust Level: -0.55, Interactions: 1
+
+Node 19 - Trust Level: -1.65, Interactions: 2
+
+Node 20 - Trust Level: -1.30, Interactions: 2
+
+Node 21 - Trust Level: -1.65, Interactions: 2
+
+Node 22 - Trust Level: -1.30, Interactions: 1
+
+Node 23 - Trust Level: -0.60, Interactions: 1
+
+Node 24 - Trust Level: -1.30, Interactions: 2
+
+Node 25 - Trust Level: -1.40, Interactions: 2
+
+Node 26 - Trust Level: -1.55, Interactions: 2
+
+Node 27 - Trust Level: -2.05, Interactions: 2
+
+Node 28 - Trust Level: -2.50, Interactions: 2
+
+Node 29 - Trust Level: -1.95, Interactions: 2
+
+Node 30 - Trust Level: -1.20, Interactions: 2
+
+Node 31 - Trust Level: -1.95, Interactions: 2
+
+Node 32 - Trust Level: -1.00, Interactions: 2
+
+Node 33 - Trust Level: -1.10, Interactions: 2
+
+Node 34 - Trust Level: -1.55, Interactions: 2
+
+Node 35 - Trust Level: -1.70, Interactions: 2
+
+Node 36 - Trust Level: -0.50, Interactions: 1
+
+Node 37 - Trust Level: -1.55, Interactions: 2
+
+Node 38 - Trust Level: -1.80, Interactions: 2
+
+Node 39 - Trust Level: -1.40, Interactions: 2
+
+Node 40 - Trust Level: -1.10, Interactions: 1
+
+Node 41 - Trust Level: -1.40, Interactions: 2
+
+Node 42 - Trust Level: -1.10, Interactions: 1
+
+Node 43 - Trust Level: -1.50, Interactions: 2
+
+Node 44 - Trust Level: -2.15, Interactions: 2
+
+Node 45 - Trust Level: -1.50, Interactions: 2
+
+Node 46 - Trust Level: -2.00, Interactions: 2
+
+Node 47 - Trust Level: -1.65, Interactions: 2
+
+Node 48 - Trust Level: -2.00, Interactions: 2
+
+Node 49 - Trust Level: -0.35, Interactions: 2
+
+--------- epoch 8 ---------------------
+Trust Levels:
+
+Fake Agent: 
+reward: 71, penalty : 217, influenced : None, qval : -36.46987863
+
+Real Agent: 
+reward: 307, penalty : 69, influenced : {1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 35, 37, 38, 39, 40, 41, 42, 43, 44, 46, 47, 48}, qval : 112.34837073600002
+
+consumer info before fact checker is in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -1.30, Interactions: 2
+
+Node 1 - Trust Level: -1.65, Interactions: 2
+
+Node 2 - Trust Level: -1.35, Interactions: 2
+
+Node 3 - Trust Level: -1.50, Interactions: 2
+
+Node 4 - Trust Level: -1.35, Interactions: 2
+
+Node 5 - Trust Level: -2.35, Interactions: 2
+
+Node 6 - Trust Level: -1.95, Interactions: 2
+
+Node 7 - Trust Level: -1.65, Interactions: 2
+
+Node 8 - Trust Level: -1.65, Interactions: 2
+
+Node 9 - Trust Level: -1.30, Interactions: 2
+
+Node 10 - Trust Level: -2.15, Interactions: 2
+
+Node 11 - Trust Level: -1.40, Interactions: 1
+
+Node 12 - Trust Level: -2.50, Interactions: 2
+
+Node 13 - Trust Level: -2.50, Interactions: 2
+
+Node 14 - Trust Level: -1.20, Interactions: 2
+
+Node 15 - Trust Level: -2.05, Interactions: 2
+
+Node 16 - Trust Level: -1.90, Interactions: 2
+
+Node 17 - Trust Level: -1.65, Interactions: 2
+
+Node 18 - Trust Level: -0.55, Interactions: 1
+
+Node 19 - Trust Level: -1.85, Interactions: 2
+
+Node 20 - Trust Level: -1.40, Interactions: 2
+
+Node 21 - Trust Level: -1.75, Interactions: 2
+
+Node 22 - Trust Level: -1.40, Interactions: 1
+
+Node 23 - Trust Level: -0.80, Interactions: 1
+
+Node 24 - Trust Level: -1.40, Interactions: 2
+
+Node 25 - Trust Level: -1.50, Interactions: 2
+
+Node 26 - Trust Level: -1.75, Interactions: 2
+
+Node 27 - Trust Level: -2.15, Interactions: 2
+
+Node 28 - Trust Level: -2.70, Interactions: 2
+
+Node 29 - Trust Level: -2.05, Interactions: 2
+
+Node 30 - Trust Level: -1.40, Interactions: 2
+
+Node 31 - Trust Level: -2.15, Interactions: 2
+
+Node 32 - Trust Level: -1.20, Interactions: 2
+
+Node 33 - Trust Level: -1.20, Interactions: 2
+
+Node 34 - Trust Level: -1.45, Interactions: 2
+
+Node 35 - Trust Level: -1.90, Interactions: 2
+
+Node 36 - Trust Level: -0.40, Interactions: 1
+
+Node 37 - Trust Level: -1.65, Interactions: 2
+
+Node 38 - Trust Level: -2.00, Interactions: 2
+
+Node 39 - Trust Level: -1.60, Interactions: 2
+
+Node 40 - Trust Level: -1.20, Interactions: 1
+
+Node 41 - Trust Level: -1.60, Interactions: 2
+
+Node 42 - Trust Level: -1.20, Interactions: 1
+
+Node 43 - Trust Level: -1.60, Interactions: 2
+
+Node 44 - Trust Level: -2.35, Interactions: 2
+
+Node 45 - Trust Level: -1.50, Interactions: 2
+
+Node 46 - Trust Level: -2.20, Interactions: 2
+
+Node 47 - Trust Level: -1.75, Interactions: 2
+
+Node 48 - Trust Level: -2.10, Interactions: 2
+
+Node 49 - Trust Level: -0.25, Interactions: 2
+
+Fact Checker Agent: Agent type: fake-information penalty: 217 reward: 71 trust level: 0.88
+Agent type: real-information penalty: 69 reward: 307 trust level: 0.98
+Fact-checker penalized news agent {'agentType': 'fake-information', 'qVal': -47.422890767, 'trustLevel': 0.0, 'reward': 71, 'penalty': 217}.
+Fact-checker found no fake news in node Agent type: real-information penalty: 69 reward: 307 trust level: 0.98.
+
+set of fake information agents audited:  {Agent type: fake-information penalty: 218 reward: 71 trust level: 0.88}
+Consumer trust level before fact checking  [-1.3, -1.6500000000000004, -1.35, -1.5, -1.3499999999999999, -2.35, -1.9500000000000004, -1.6500000000000001, -1.6500000000000001, -1.3, -2.15, -1.4000000000000001, -2.5, -2.5000000000000004, -1.2000000000000002, -2.0500000000000003, -1.9000000000000001, -1.6500000000000001, -0.55, -1.85, -1.4000000000000001, -1.75, -1.4000000000000001, -0.7999999999999999, -1.4, -1.5000000000000002, -1.7500000000000002, -2.1500000000000004, -2.7, -2.0500000000000003, -1.4000000000000001, -2.15, -1.2, -1.2, -1.4499999999999997, -1.9000000000000001, -0.4, -1.6500000000000001, -2.0, -1.6, -1.2, -1.6, -1.2, -1.6, -2.35, -1.5, -2.2, -1.75, -2.1, -0.24999999999999992, 0.0, 0.0, 0.0]
+Consumer trust level after fact checking [-1.45, -1.8000000000000003, -1.5, -1.65, -1.4999999999999998, -2.5, -2.1000000000000005, -1.8, -1.8, -1.45, -2.3, -1.4000000000000001, -2.65, -2.6500000000000004, -1.35, -2.2, -2.0500000000000003, -1.8, -0.7000000000000001, -2.0, -1.55, -1.9, -1.4000000000000001, -0.7999999999999999, -1.5499999999999998, -1.6500000000000001, -1.9000000000000001, -2.3000000000000003, -2.85, -2.2, -1.55, -2.3, -1.3499999999999999, -1.3499999999999999, -1.5999999999999996, -2.0500000000000003, -0.4, -1.8, -2.15, -1.75, -1.2, -1.75, -1.2, -1.75, -2.5, -1.65, -2.35, -1.9, -2.25, -0.3999999999999999, 0.0, 0.0, 0.0]
+
+reward: 9 penalty: 9
+consumer info after fact checker in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -1.45, Interactions: 2
+
+Node 1 - Trust Level: -1.80, Interactions: 2
+
+Node 2 - Trust Level: -1.50, Interactions: 2
+
+Node 3 - Trust Level: -1.65, Interactions: 2
+
+Node 4 - Trust Level: -1.50, Interactions: 2
+
+Node 5 - Trust Level: -2.50, Interactions: 2
+
+Node 6 - Trust Level: -2.10, Interactions: 2
+
+Node 7 - Trust Level: -1.80, Interactions: 2
+
+Node 8 - Trust Level: -1.80, Interactions: 2
+
+Node 9 - Trust Level: -1.45, Interactions: 2
+
+Node 10 - Trust Level: -2.30, Interactions: 2
+
+Node 11 - Trust Level: -1.40, Interactions: 1
+
+Node 12 - Trust Level: -2.65, Interactions: 2
+
+Node 13 - Trust Level: -2.65, Interactions: 2
+
+Node 14 - Trust Level: -1.35, Interactions: 2
+
+Node 15 - Trust Level: -2.20, Interactions: 2
+
+Node 16 - Trust Level: -2.05, Interactions: 2
+
+Node 17 - Trust Level: -1.80, Interactions: 2
+
+Node 18 - Trust Level: -0.70, Interactions: 1
+
+Node 19 - Trust Level: -2.00, Interactions: 2
+
+Node 20 - Trust Level: -1.55, Interactions: 2
+
+Node 21 - Trust Level: -1.90, Interactions: 2
+
+Node 22 - Trust Level: -1.40, Interactions: 1
+
+Node 23 - Trust Level: -0.80, Interactions: 1
+
+Node 24 - Trust Level: -1.55, Interactions: 2
+
+Node 25 - Trust Level: -1.65, Interactions: 2
+
+Node 26 - Trust Level: -1.90, Interactions: 2
+
+Node 27 - Trust Level: -2.30, Interactions: 2
+
+Node 28 - Trust Level: -2.85, Interactions: 2
+
+Node 29 - Trust Level: -2.20, Interactions: 2
+
+Node 30 - Trust Level: -1.55, Interactions: 2
+
+Node 31 - Trust Level: -2.30, Interactions: 2
+
+Node 32 - Trust Level: -1.35, Interactions: 2
+
+Node 33 - Trust Level: -1.35, Interactions: 2
+
+Node 34 - Trust Level: -1.60, Interactions: 2
+
+Node 35 - Trust Level: -2.05, Interactions: 2
+
+Node 36 - Trust Level: -0.40, Interactions: 1
+
+Node 37 - Trust Level: -1.80, Interactions: 2
+
+Node 38 - Trust Level: -2.15, Interactions: 2
+
+Node 39 - Trust Level: -1.75, Interactions: 2
+
+Node 40 - Trust Level: -1.20, Interactions: 1
+
+Node 41 - Trust Level: -1.75, Interactions: 2
+
+Node 42 - Trust Level: -1.20, Interactions: 1
+
+Node 43 - Trust Level: -1.75, Interactions: 2
+
+Node 44 - Trust Level: -2.50, Interactions: 2
+
+Node 45 - Trust Level: -1.65, Interactions: 2
+
+Node 46 - Trust Level: -2.35, Interactions: 2
+
+Node 47 - Trust Level: -1.90, Interactions: 2
+
+Node 48 - Trust Level: -2.25, Interactions: 2
+
+Node 49 - Trust Level: -0.40, Interactions: 2
+
+--------- epoch 9 ---------------------
+Trust Levels:
+
+Fake Agent: 
+reward: 71, penalty : 247, influenced : None, qval : -47.422890767
+
+Real Agent: 
+reward: 353, penalty : 69, influenced : {1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49}, qval : 146.33353366240004
+
+consumer info before fact checker is in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -1.55, Interactions: 2
+
+Node 1 - Trust Level: -1.90, Interactions: 2
+
+Node 2 - Trust Level: -1.70, Interactions: 2
+
+Node 3 - Trust Level: -1.75, Interactions: 2
+
+Node 4 - Trust Level: -1.70, Interactions: 2
+
+Node 5 - Trust Level: -2.70, Interactions: 2
+
+Node 6 - Trust Level: -2.30, Interactions: 2
+
+Node 7 - Trust Level: -1.90, Interactions: 2
+
+Node 8 - Trust Level: -1.90, Interactions: 2
+
+Node 9 - Trust Level: -1.65, Interactions: 2
+
+Node 10 - Trust Level: -2.40, Interactions: 2
+
+Node 11 - Trust Level: -1.50, Interactions: 1
+
+Node 12 - Trust Level: -2.75, Interactions: 2
+
+Node 13 - Trust Level: -2.85, Interactions: 2
+
+Node 14 - Trust Level: -1.55, Interactions: 2
+
+Node 15 - Trust Level: -2.30, Interactions: 2
+
+Node 16 - Trust Level: -2.15, Interactions: 2
+
+Node 17 - Trust Level: -1.90, Interactions: 2
+
+Node 18 - Trust Level: -0.70, Interactions: 1
+
+Node 19 - Trust Level: -2.20, Interactions: 2
+
+Node 20 - Trust Level: -1.75, Interactions: 2
+
+Node 21 - Trust Level: -2.10, Interactions: 2
+
+Node 22 - Trust Level: -1.60, Interactions: 1
+
+Node 23 - Trust Level: -1.00, Interactions: 1
+
+Node 24 - Trust Level: -1.65, Interactions: 2
+
+Node 25 - Trust Level: -1.85, Interactions: 2
+
+Node 26 - Trust Level: -2.00, Interactions: 2
+
+Node 27 - Trust Level: -2.50, Interactions: 2
+
+Node 28 - Trust Level: -3.05, Interactions: 2
+
+Node 29 - Trust Level: -2.30, Interactions: 2
+
+Node 30 - Trust Level: -1.65, Interactions: 2
+
+Node 31 - Trust Level: -2.40, Interactions: 2
+
+Node 32 - Trust Level: -1.45, Interactions: 2
+
+Node 33 - Trust Level: -1.35, Interactions: 2
+
+Node 34 - Trust Level: -1.80, Interactions: 2
+
+Node 35 - Trust Level: -2.15, Interactions: 2
+
+Node 36 - Trust Level: -0.60, Interactions: 1
+
+Node 37 - Trust Level: -2.00, Interactions: 2
+
+Node 38 - Trust Level: -2.25, Interactions: 2
+
+Node 39 - Trust Level: -1.95, Interactions: 2
+
+Node 40 - Trust Level: -1.40, Interactions: 1
+
+Node 41 - Trust Level: -1.95, Interactions: 2
+
+Node 42 - Trust Level: -1.40, Interactions: 1
+
+Node 43 - Trust Level: -1.95, Interactions: 2
+
+Node 44 - Trust Level: -2.60, Interactions: 2
+
+Node 45 - Trust Level: -1.85, Interactions: 2
+
+Node 46 - Trust Level: -2.45, Interactions: 2
+
+Node 47 - Trust Level: -2.10, Interactions: 2
+
+Node 48 - Trust Level: -2.45, Interactions: 2
+
+Node 49 - Trust Level: -0.60, Interactions: 2
+
+Fact Checker Agent: Agent type: fake-information penalty: 247 reward: 71 trust level: 0.88
+Agent type: real-information penalty: 69 reward: 353 trust level: 0.98
+Fact-checker penalized news agent {'agentType': 'fake-information', 'qVal': -60.280601690299996, 'trustLevel': 0.0, 'reward': 71, 'penalty': 247}.
+Fact-checker found no fake news in node Agent type: real-information penalty: 69 reward: 353 trust level: 0.98.
+
+set of fake information agents audited:  {Agent type: fake-information penalty: 248 reward: 71 trust level: 0.88}
+Consumer trust level before fact checking  [-1.55, -1.9000000000000004, -1.7000000000000002, -1.75, -1.7, -2.7, -2.3000000000000007, -1.9000000000000001, -1.9000000000000001, -1.6500000000000001, -2.4, -1.5000000000000002, -2.75, -2.8500000000000005, -1.5500000000000003, -2.3000000000000003, -2.1500000000000004, -1.9000000000000001, -0.7000000000000001, -2.2, -1.7500000000000002, -2.1, -1.6000000000000003, -0.9999999999999999, -1.65, -1.8500000000000003, -2.0, -2.5000000000000004, -3.0500000000000003, -2.3000000000000003, -1.6500000000000001, -2.4, -1.45, -1.3499999999999999, -1.7999999999999998, -2.1500000000000004, -0.6, -2.0, -2.25, -1.9500000000000002, -1.4000000000000001, -1.9500000000000002, -1.4000000000000001, -1.9500000000000002, -2.6, -1.85, -2.45, -2.1, -2.45, -0.5999999999999999, 0.0, 0.0, 0.0]
+Consumer trust level after fact checking [-1.7, -2.0500000000000003, -1.85, -1.9, -1.8499999999999999, -2.85, -2.4500000000000006, -2.0500000000000003, -2.0500000000000003, -1.8, -2.55, -1.5000000000000002, -2.9, -3.0000000000000004, -1.7000000000000002, -2.45, -2.3000000000000003, -2.0500000000000003, -0.8500000000000001, -2.35, -1.9000000000000001, -2.25, -1.6000000000000003, -0.9999999999999999, -1.7999999999999998, -2.0000000000000004, -2.15, -2.6500000000000004, -3.2, -2.45, -1.8, -2.55, -1.5999999999999999, -1.4999999999999998, -1.9499999999999997, -2.3000000000000003, -0.6, -2.15, -2.4, -2.1, -1.4000000000000001, -2.1, -1.4000000000000001, -2.1, -2.75, -2.0, -2.6, -2.25, -2.6, -0.7499999999999999, 0.0, 0.0, 0.0]
+
+reward: 10 penalty: 10
+consumer info after fact checker in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -1.70, Interactions: 2
+
+Node 1 - Trust Level: -2.05, Interactions: 2
+
+Node 2 - Trust Level: -1.85, Interactions: 2
+
+Node 3 - Trust Level: -1.90, Interactions: 2
+
+Node 4 - Trust Level: -1.85, Interactions: 2
+
+Node 5 - Trust Level: -2.85, Interactions: 2
+
+Node 6 - Trust Level: -2.45, Interactions: 2
+
+Node 7 - Trust Level: -2.05, Interactions: 2
+
+Node 8 - Trust Level: -2.05, Interactions: 2
+
+Node 9 - Trust Level: -1.80, Interactions: 2
+
+Node 10 - Trust Level: -2.55, Interactions: 2
+
+Node 11 - Trust Level: -1.50, Interactions: 1
+
+Node 12 - Trust Level: -2.90, Interactions: 2
+
+Node 13 - Trust Level: -3.00, Interactions: 2
+
+Node 14 - Trust Level: -1.70, Interactions: 2
+
+Node 15 - Trust Level: -2.45, Interactions: 2
+
+Node 16 - Trust Level: -2.30, Interactions: 2
+
+Node 17 - Trust Level: -2.05, Interactions: 2
+
+Node 18 - Trust Level: -0.85, Interactions: 1
+
+Node 19 - Trust Level: -2.35, Interactions: 2
+
+Node 20 - Trust Level: -1.90, Interactions: 2
+
+Node 21 - Trust Level: -2.25, Interactions: 2
+
+Node 22 - Trust Level: -1.60, Interactions: 1
+
+Node 23 - Trust Level: -1.00, Interactions: 1
+
+Node 24 - Trust Level: -1.80, Interactions: 2
+
+Node 25 - Trust Level: -2.00, Interactions: 2
+
+Node 26 - Trust Level: -2.15, Interactions: 2
+
+Node 27 - Trust Level: -2.65, Interactions: 2
+
+Node 28 - Trust Level: -3.20, Interactions: 2
+
+Node 29 - Trust Level: -2.45, Interactions: 2
+
+Node 30 - Trust Level: -1.80, Interactions: 2
+
+Node 31 - Trust Level: -2.55, Interactions: 2
+
+Node 32 - Trust Level: -1.60, Interactions: 2
+
+Node 33 - Trust Level: -1.50, Interactions: 2
+
+Node 34 - Trust Level: -1.95, Interactions: 2
+
+Node 35 - Trust Level: -2.30, Interactions: 2
+
+Node 36 - Trust Level: -0.60, Interactions: 1
+
+Node 37 - Trust Level: -2.15, Interactions: 2
+
+Node 38 - Trust Level: -2.40, Interactions: 2
+
+Node 39 - Trust Level: -2.10, Interactions: 2
+
+Node 40 - Trust Level: -1.40, Interactions: 1
+
+Node 41 - Trust Level: -2.10, Interactions: 2
+
+Node 42 - Trust Level: -1.40, Interactions: 1
+
+Node 43 - Trust Level: -2.10, Interactions: 2
+
+Node 44 - Trust Level: -2.75, Interactions: 2
+
+Node 45 - Trust Level: -2.00, Interactions: 2
+
+Node 46 - Trust Level: -2.60, Interactions: 2
+
+Node 47 - Trust Level: -2.25, Interactions: 2
+
+Node 48 - Trust Level: -2.60, Interactions: 2
+
+Node 49 - Trust Level: -0.75, Interactions: 2
+
+--------- epoch 10 ---------------------
+Trust Levels:
+
+Fake Agent: 
+reward: 72, penalty : 271, influenced : {14}, qval : -60.280601690299996
+
+Real Agent: 
+reward: 399, penalty : 69, influenced : {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 31, 32, 33, 34, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49}, qval : 185.66018029616004
+
+consumer info before fact checker is in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -1.90, Interactions: 2
+
+Node 1 - Trust Level: -2.15, Interactions: 2
+
+Node 2 - Trust Level: -1.95, Interactions: 2
+
+Node 3 - Trust Level: -2.00, Interactions: 2
+
+Node 4 - Trust Level: -2.05, Interactions: 2
+
+Node 5 - Trust Level: -3.05, Interactions: 2
+
+Node 6 - Trust Level: -2.65, Interactions: 2
+
+Node 7 - Trust Level: -2.25, Interactions: 2
+
+Node 8 - Trust Level: -2.15, Interactions: 2
+
+Node 9 - Trust Level: -1.90, Interactions: 2
+
+Node 10 - Trust Level: -2.65, Interactions: 2
+
+Node 11 - Trust Level: -1.60, Interactions: 1
+
+Node 12 - Trust Level: -3.00, Interactions: 2
+
+Node 13 - Trust Level: -3.20, Interactions: 2
+
+Node 14 - Trust Level: -1.70, Interactions: 2
+
+Node 15 - Trust Level: -2.65, Interactions: 2
+
+Node 16 - Trust Level: -2.40, Interactions: 2
+
+Node 17 - Trust Level: -2.25, Interactions: 2
+
+Node 18 - Trust Level: -0.85, Interactions: 1
+
+Node 19 - Trust Level: -2.55, Interactions: 2
+
+Node 20 - Trust Level: -2.10, Interactions: 2
+
+Node 21 - Trust Level: -2.35, Interactions: 2
+
+Node 22 - Trust Level: -1.80, Interactions: 1
+
+Node 23 - Trust Level: -1.10, Interactions: 1
+
+Node 24 - Trust Level: -1.90, Interactions: 2
+
+Node 25 - Trust Level: -2.10, Interactions: 2
+
+Node 26 - Trust Level: -2.35, Interactions: 2
+
+Node 27 - Trust Level: -2.85, Interactions: 2
+
+Node 28 - Trust Level: -3.40, Interactions: 2
+
+Node 29 - Trust Level: -2.65, Interactions: 2
+
+Node 30 - Trust Level: -1.90, Interactions: 2
+
+Node 31 - Trust Level: -2.65, Interactions: 2
+
+Node 32 - Trust Level: -1.70, Interactions: 2
+
+Node 33 - Trust Level: -1.70, Interactions: 2
+
+Node 34 - Trust Level: -2.05, Interactions: 2
+
+Node 35 - Trust Level: -2.30, Interactions: 2
+
+Node 36 - Trust Level: -0.60, Interactions: 1
+
+Node 37 - Trust Level: -2.25, Interactions: 2
+
+Node 38 - Trust Level: -2.50, Interactions: 2
+
+Node 39 - Trust Level: -2.20, Interactions: 2
+
+Node 40 - Trust Level: -1.60, Interactions: 1
+
+Node 41 - Trust Level: -2.30, Interactions: 2
+
+Node 42 - Trust Level: -1.60, Interactions: 1
+
+Node 43 - Trust Level: -2.30, Interactions: 2
+
+Node 44 - Trust Level: -2.85, Interactions: 2
+
+Node 45 - Trust Level: -2.20, Interactions: 2
+
+Node 46 - Trust Level: -2.70, Interactions: 2
+
+Node 47 - Trust Level: -2.35, Interactions: 2
+
+Node 48 - Trust Level: -2.70, Interactions: 2
+
+Node 49 - Trust Level: -0.95, Interactions: 2
+
+Fact Checker Agent: Agent type: fake-information penalty: 271 reward: 72 trust level: 0.88
+Agent type: real-information penalty: 69 reward: 399 trust level: 0.98
+Fact-checker penalized news agent {'agentType': 'fake-information', 'qVal': -74.15254152127, 'trustLevel': 0.0, 'reward': 72, 'penalty': 271}.
+Fact-checker found no fake news in node Agent type: real-information penalty: 69 reward: 399 trust level: 0.98.
+
+set of fake information agents audited:  {Agent type: fake-information penalty: 272 reward: 72 trust level: 0.88}
+Consumer trust level before fact checking  [-1.9000000000000001, -2.1500000000000004, -1.9500000000000002, -2.0, -2.05, -3.0500000000000003, -2.650000000000001, -2.2500000000000004, -2.1500000000000004, -1.9000000000000001, -2.65, -1.6000000000000003, -3.0, -3.2000000000000006, -1.7000000000000002, -2.6500000000000004, -2.4000000000000004, -2.2500000000000004, -0.8500000000000001, -2.5500000000000003, -2.1, -2.35, -1.8000000000000005, -1.0999999999999999, -1.9, -2.1000000000000005, -2.35, -2.8500000000000005, -3.4000000000000004, -2.6500000000000004, -1.9000000000000001, -2.65, -1.7, -1.7, -2.05, -2.3000000000000003, -0.6, -2.25, -2.5, -2.2, -1.6000000000000003, -2.3000000000000003, -1.6000000000000003, -2.3000000000000003, -2.85, -2.2, -2.7, -2.35, -2.7, -0.9499999999999998, 0.0, 0.0, 0.0]
+Consumer trust level after fact checking [-2.0500000000000003, -2.3000000000000003, -2.1, -2.15, -2.1999999999999997, -3.2, -2.8000000000000007, -2.4000000000000004, -2.3000000000000003, -2.0500000000000003, -2.8, -1.6000000000000003, -3.15, -3.3500000000000005, -1.85, -2.8000000000000003, -2.5500000000000003, -2.4000000000000004, -1.0, -2.7, -2.25, -2.5, -1.8000000000000005, -1.0999999999999999, -2.05, -2.2500000000000004, -2.5, -3.0000000000000004, -3.5500000000000003, -2.8000000000000003, -2.0500000000000003, -2.8, -1.8499999999999999, -1.8499999999999999, -2.1999999999999997, -2.45, -0.6, -2.4, -2.65, -2.35, -1.6000000000000003, -2.45, -1.6000000000000003, -2.45, -3.0, -2.35, -2.85, -2.5, -2.85, -1.0999999999999999, 0.0, 0.0, 0.0]
+
+reward: 11 penalty: 11
+consumer info after fact checker in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -2.05, Interactions: 2
+
+Node 1 - Trust Level: -2.30, Interactions: 2
+
+Node 2 - Trust Level: -2.10, Interactions: 2
+
+Node 3 - Trust Level: -2.15, Interactions: 2
+
+Node 4 - Trust Level: -2.20, Interactions: 2
+
+Node 5 - Trust Level: -3.20, Interactions: 2
+
+Node 6 - Trust Level: -2.80, Interactions: 2
+
+Node 7 - Trust Level: -2.40, Interactions: 2
+
+Node 8 - Trust Level: -2.30, Interactions: 2
+
+Node 9 - Trust Level: -2.05, Interactions: 2
+
+Node 10 - Trust Level: -2.80, Interactions: 2
+
+Node 11 - Trust Level: -1.60, Interactions: 1
+
+Node 12 - Trust Level: -3.15, Interactions: 2
+
+Node 13 - Trust Level: -3.35, Interactions: 2
+
+Node 14 - Trust Level: -1.85, Interactions: 2
+
+Node 15 - Trust Level: -2.80, Interactions: 2
+
+Node 16 - Trust Level: -2.55, Interactions: 2
+
+Node 17 - Trust Level: -2.40, Interactions: 2
+
+Node 18 - Trust Level: -1.00, Interactions: 1
+
+Node 19 - Trust Level: -2.70, Interactions: 2
+
+Node 20 - Trust Level: -2.25, Interactions: 2
+
+Node 21 - Trust Level: -2.50, Interactions: 2
+
+Node 22 - Trust Level: -1.80, Interactions: 1
+
+Node 23 - Trust Level: -1.10, Interactions: 1
+
+Node 24 - Trust Level: -2.05, Interactions: 2
+
+Node 25 - Trust Level: -2.25, Interactions: 2
+
+Node 26 - Trust Level: -2.50, Interactions: 2
+
+Node 27 - Trust Level: -3.00, Interactions: 2
+
+Node 28 - Trust Level: -3.55, Interactions: 2
+
+Node 29 - Trust Level: -2.80, Interactions: 2
+
+Node 30 - Trust Level: -2.05, Interactions: 2
+
+Node 31 - Trust Level: -2.80, Interactions: 2
+
+Node 32 - Trust Level: -1.85, Interactions: 2
+
+Node 33 - Trust Level: -1.85, Interactions: 2
+
+Node 34 - Trust Level: -2.20, Interactions: 2
+
+Node 35 - Trust Level: -2.45, Interactions: 2
+
+Node 36 - Trust Level: -0.60, Interactions: 1
+
+Node 37 - Trust Level: -2.40, Interactions: 2
+
+Node 38 - Trust Level: -2.65, Interactions: 2
+
+Node 39 - Trust Level: -2.35, Interactions: 2
+
+Node 40 - Trust Level: -1.60, Interactions: 1
+
+Node 41 - Trust Level: -2.45, Interactions: 2
+
+Node 42 - Trust Level: -1.60, Interactions: 1
+
+Node 43 - Trust Level: -2.45, Interactions: 2
+
+Node 44 - Trust Level: -3.00, Interactions: 2
+
+Node 45 - Trust Level: -2.35, Interactions: 2
+
+Node 46 - Trust Level: -2.85, Interactions: 2
+
+Node 47 - Trust Level: -2.50, Interactions: 2
+
+Node 48 - Trust Level: -2.85, Interactions: 2
+
+Node 49 - Trust Level: -1.10, Interactions: 2
+
+--------- epoch 11 ---------------------
+Node 20 - Trust Level: -2.35, Interactions: 2
+
+Node 21 - Trust Level: -2.60, Interactions: 2
+
+Node 22 - Trust Level: -2.00, Interactions: 1
+
+Node 23 - Trust Level: -1.30, Interactions: 1
+
+Node 24 - Trust Level: -2.25, Interactions: 2
+
+Node 25 - Trust Level: -2.35, Interactions: 2
+
+Node 26 - Trust Level: -2.70, Interactions: 2
+
+Node 27 - Trust Level: -3.10, Interactions: 2
+
+Node 28 - Trust Level: -3.75, Interactions: 2
+
+Node 29 - Trust Level: -2.90, Interactions: 2
+
+Node 30 - Trust Level: -2.15, Interactions: 2
+
+Node 31 - Trust Level: -2.90, Interactions: 2
+
+Node 32 - Trust Level: -1.95, Interactions: 2
+
+Node 33 - Trust Level: -1.85, Interactions: 2
+
+Node 34 - Trust Level: -2.30, Interactions: 2
+
+Node 35 - Trust Level: -2.65, Interactions: 2
+
+Node 36 - Trust Level: -0.60, Interactions: 1
+
+Node 37 - Trust Level: -2.50, Interactions: 2
+
+Node 38 - Trust Level: -2.75, Interactions: 2
+
+Node 39 - Trust Level: -2.45, Interactions: 2
+
+Node 40 - Trust Level: -1.70, Interactions: 1
+
+Node 41 - Trust Level: -2.65, Interactions: 2
+
+Node 42 - Trust Level: -1.70, Interactions: 1
+
+Node 43 - Trust Level: -2.65, Interactions: 2
+
+Node 44 - Trust Level: -3.10, Interactions: 2
+
+Node 45 - Trust Level: -2.55, Interactions: 2
+
+Node 46 - Trust Level: -2.95, Interactions: 2
+
+Node 47 - Trust Level: -2.70, Interactions: 2
+
+Node 48 - Trust Level: -3.05, Interactions: 2
+
+Node 49 - Trust Level: -1.30, Interactions: 2
+
+Fact Checker Agent: Agent type: fake-information penalty: 293 reward: 73 trust level: 0.88
+Agent type: real-information penalty: 70 reward: 446 trust level: 0.98
+Fact-checker penalized news agent {'agentType': 'fake-information', 'qVal': -88.73728736914299, 'trustLevel': 0.0, 'reward': 73, 'penalty': 293}.
+Fact-checker found no fake news in node Agent type: real-information penalty: 70 reward: 446 trust level: 0.98.
+
+set of fake information agents audited:  {Agent type: fake-information penalty: 294 reward: 73 trust level: 0.88}
+Consumer trust level before fact checking  [-2.1500000000000004, -2.5000000000000004, -2.3000000000000003, -2.25, -2.4, -3.3000000000000003, -2.900000000000001, -2.6000000000000005, -2.4000000000000004, -2.2500000000000004, -2.8, -1.7000000000000004, -3.35, -3.4500000000000006, -2.0500000000000003, -3.0000000000000004, -2.6500000000000004, -2.5000000000000004, -1.0, -2.8000000000000003, -2.35, -2.6, -2.0000000000000004, -1.3, -2.25, -2.3500000000000005, -2.7, -3.1000000000000005, -3.7500000000000004, -2.9000000000000004, -2.1500000000000004, -2.9, -1.95, -1.8499999999999999, -2.3, -2.6500000000000004, -0.6, -2.5, -2.75, -2.45, -1.7000000000000004, -2.6500000000000004, -1.7000000000000004, -2.6500000000000004, -3.1, -2.5500000000000003, -2.95, -2.7, -3.0500000000000003, -1.3, 0.0, 0.0, 0.0]
+Consumer trust level after fact checking [-2.3000000000000003, -2.6500000000000004, -2.45, -2.4, -2.55, -3.45, -3.0500000000000007, -2.7500000000000004, -2.5500000000000003, -2.4000000000000004, -2.9499999999999997, -1.7000000000000004, -3.5, -3.6000000000000005, -2.2, -3.1500000000000004, -2.8000000000000003, -2.6500000000000004, -1.15, -2.95, -2.5, -2.75, -2.0000000000000004, -1.3, -2.4, -2.5000000000000004, -2.85, -3.2500000000000004, -3.9000000000000004, -3.0500000000000003, -2.3000000000000003, -3.05, -2.1, -1.9999999999999998, -2.4499999999999997, -2.8000000000000003, -0.6, -2.65, -2.9, -2.6, -1.7000000000000004, -2.8000000000000003, -1.7000000000000004, -2.8000000000000003, -3.25, -2.7, -3.1, -2.85, -3.2, -1.45, 0.0, 0.0, 0.0]
+
+reward: 12 penalty: 12
+consumer info after fact checker in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -2.30, Interactions: 2
+
+Node 1 - Trust Level: -2.65, Interactions: 2
+
+Node 2 - Trust Level: -2.45, Interactions: 2
+
+Node 3 - Trust Level: -2.40, Interactions: 2
+
+Node 4 - Trust Level: -2.55, Interactions: 2
+
+Node 5 - Trust Level: -3.45, Interactions: 2
+
+Node 6 - Trust Level: -3.05, Interactions: 2
+
+Node 7 - Trust Level: -2.75, Interactions: 2
+
+Node 8 - Trust Level: -2.55, Interactions: 2
+
+Node 9 - Trust Level: -2.40, Interactions: 2
+
+Node 10 - Trust Level: -2.95, Interactions: 2
+
+Node 11 - Trust Level: -1.70, Interactions: 1
+
+Node 12 - Trust Level: -3.50, Interactions: 2
+
+Node 13 - Trust Level: -3.60, Interactions: 2
+
+Node 14 - Trust Level: -2.20, Interactions: 2
+
+Node 15 - Trust Level: -3.15, Interactions: 2
+
+Node 16 - Trust Level: -2.80, Interactions: 2
+
+Node 17 - Trust Level: -2.65, Interactions: 2
+
+Node 18 - Trust Level: -1.15, Interactions: 1
+
+Node 19 - Trust Level: -2.95, Interactions: 2
+
+Node 20 - Trust Level: -2.50, Interactions: 2
+
+Node 21 - Trust Level: -2.75, Interactions: 2
+
+Node 22 - Trust Level: -2.00, Interactions: 1
+
+Node 23 - Trust Level: -1.30, Interactions: 1
+
+Node 24 - Trust Level: -2.40, Interactions: 2
+
+Node 25 - Trust Level: -2.50, Interactions: 2
+
+Node 26 - Trust Level: -2.85, Interactions: 2
+
+Node 27 - Trust Level: -3.25, Interactions: 2
+
+Node 28 - Trust Level: -3.90, Interactions: 2
+
+Node 29 - Trust Level: -3.05, Interactions: 2
+
+Node 30 - Trust Level: -2.30, Interactions: 2
+
+Node 31 - Trust Level: -3.05, Interactions: 2
+
+Node 32 - Trust Level: -2.10, Interactions: 2
+
+Node 33 - Trust Level: -2.00, Interactions: 2
+
+Node 34 - Trust Level: -2.45, Interactions: 2
+
+Node 35 - Trust Level: -2.80, Interactions: 2
+
+Node 36 - Trust Level: -0.60, Interactions: 1
+
+Node 37 - Trust Level: -2.65, Interactions: 2
+
+Node 38 - Trust Level: -2.90, Interactions: 2
+
+Node 39 - Trust Level: -2.60, Interactions: 2
+
+Node 40 - Trust Level: -1.70, Interactions: 1
+
+Node 41 - Trust Level: -2.80, Interactions: 2
+
+Node 42 - Trust Level: -1.70, Interactions: 1
+
+Node 43 - Trust Level: -2.80, Interactions: 2
+
+Node 44 - Trust Level: -3.25, Interactions: 2
+
+Node 45 - Trust Level: -2.70, Interactions: 2
+
+Node 46 - Trust Level: -3.10, Interactions: 2
+
+Node 47 - Trust Level: -2.85, Interactions: 2
+
+Node 48 - Trust Level: -3.20, Interactions: 2
+
+Node 49 - Trust Level: -1.45, Interactions: 2
+
+--------- epoch 12 ---------------------
+Trust Levels:
+
+Fake Agent: 
+reward: 73, penalty : 317, influenced : None, qval : -88.73728736914299
+
+Real Agent: 
+reward: 489, penalty : 70, influenced : {1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 25, 26, 27, 28, 29, 30, 31, 32, 34, 35, 37, 38, 39, 40, 42, 43, 45, 46, 47, 48, 49}, qval : 278.25474603988965
+
+consumer info before fact checker is in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -2.30, Interactions: 2
+
+Node 1 - Trust Level: -2.75, Interactions: 2
+
+Node 2 - Trust Level: -2.65, Interactions: 2
+
+Node 3 - Trust Level: -2.40, Interactions: 2
+
+Node 4 - Trust Level: -2.75, Interactions: 2
+
+Node 5 - Trust Level: -3.65, Interactions: 2
+
+Node 6 - Trust Level: -3.25, Interactions: 2
+
+Node 7 - Trust Level: -2.85, Interactions: 2
+
+Node 8 - Trust Level: -2.75, Interactions: 2
+
+Node 9 - Trust Level: -2.60, Interactions: 2
+
+Node 10 - Trust Level: -3.05, Interactions: 2
+
+Node 11 - Trust Level: -1.80, Interactions: 1
+
+Node 12 - Trust Level: -3.60, Interactions: 2
+
+Node 13 - Trust Level: -3.70, Interactions: 2
+
+Node 14 - Trust Level: -2.40, Interactions: 2
+
+Node 15 - Trust Level: -3.35, Interactions: 2
+
+Node 16 - Trust Level: -3.00, Interactions: 2
+
+Node 17 - Trust Level: -2.75, Interactions: 2
+
+Node 18 - Trust Level: -1.35, Interactions: 2
+
+Node 19 - Trust Level: -3.05, Interactions: 2
+
+Node 20 - Trust Level: -2.70, Interactions: 2
+
+Node 21 - Trust Level: -2.85, Interactions: 2
+
+Node 22 - Trust Level: -2.10, Interactions: 1
+
+Node 23 - Trust Level: -1.40, Interactions: 1
+
+Node 24 - Trust Level: -2.40, Interactions: 2
+
+Node 25 - Trust Level: -2.60, Interactions: 2
+
+Node 26 - Trust Level: -2.95, Interactions: 2
+
+Node 27 - Trust Level: -3.45, Interactions: 2
+
+Node 28 - Trust Level: -4.10, Interactions: 2
+
+Node 29 - Trust Level: -3.15, Interactions: 2
+
+Node 30 - Trust Level: -2.50, Interactions: 2
+
+Node 31 - Trust Level: -3.15, Interactions: 2
+
+Node 32 - Trust Level: -2.20, Interactions: 2
+
+Node 33 - Trust Level: -2.10, Interactions: 2
+
+Node 34 - Trust Level: -2.65, Interactions: 2
+
+Node 35 - Trust Level: -2.90, Interactions: 2
+
+Node 36 - Trust Level: -0.60, Interactions: 1
+
+Node 37 - Trust Level: -2.75, Interactions: 2
+
+Node 38 - Trust Level: -3.10, Interactions: 2
+
+Node 39 - Trust Level: -2.80, Interactions: 2
+
+Node 40 - Trust Level: -1.80, Interactions: 1
+
+Node 41 - Trust Level: -2.80, Interactions: 2
+
+Node 42 - Trust Level: -1.90, Interactions: 1
+
+Node 43 - Trust Level: -3.00, Interactions: 2
+
+Node 44 - Trust Level: -3.25, Interactions: 2
+
+Node 45 - Trust Level: -2.90, Interactions: 2
+
+Node 46 - Trust Level: -3.30, Interactions: 2
+
+Node 47 - Trust Level: -3.05, Interactions: 2
+
+Node 48 - Trust Level: -3.30, Interactions: 2
+
+Node 49 - Trust Level: -1.55, Interactions: 2
+
+Fact Checker Agent: Agent type: fake-information penalty: 317 reward: 73 trust level: 0.88
+Agent type: real-information penalty: 70 reward: 489 trust level: 1.0
+Fact-checker penalized news agent {'agentType': 'fake-information', 'qVal': -104.2635586322287, 'trustLevel': 0.0, 'reward': 73, 'penalty': 317}.
+Fact-checker found no fake news in node Agent type: real-information penalty: 70 reward: 489 trust level: 1.0.
+
+set of fake information agents audited:  {Agent type: fake-information penalty: 318 reward: 73 trust level: 0.88}
+Consumer trust level before fact checking  [-2.3000000000000003, -2.7500000000000004, -2.6500000000000004, -2.4, -2.75, -3.6500000000000004, -3.250000000000001, -2.8500000000000005, -2.7500000000000004, -2.6000000000000005, -3.05, -1.8000000000000005, -3.6, -3.7000000000000006, -2.4000000000000004, -3.3500000000000005, -3.0000000000000004, -2.7500000000000004, -1.35, -3.0500000000000003, -2.7, -2.85, -2.1000000000000005, -1.4000000000000001, -2.4, -2.6000000000000005, -2.95, -3.4500000000000006, -4.1, -3.1500000000000004, -2.5000000000000004, -3.15, -2.2, -2.0999999999999996, -2.65, -2.9000000000000004, -0.6, -2.75, -3.1, -2.8000000000000003, -1.8000000000000005, -2.8000000000000003, -1.9000000000000006, -3.0000000000000004, -3.25, -2.9000000000000004, -3.3000000000000003, -3.0500000000000003, -3.3000000000000003, -1.55, 0.0, 0.0, 0.0]
+Consumer trust level after fact checking [-2.45, -2.9000000000000004, -2.8000000000000003, -2.55, -2.9, -3.8000000000000003, -3.400000000000001, -3.0000000000000004, -2.9000000000000004, -2.7500000000000004, -3.1999999999999997, -1.8000000000000005, -3.75, -3.8500000000000005, -2.5500000000000003, -3.5000000000000004, -3.1500000000000004, -2.9000000000000004, -1.5, -3.2, -2.85, -3.0, -2.1000000000000005, -1.4000000000000001, -2.55, -2.7500000000000004, -3.1, -3.6000000000000005, -4.25, -3.3000000000000003, -2.6500000000000004, -3.3, -2.35, -2.2499999999999996, -2.8, -3.0500000000000003, -0.6, -2.9, -3.25, -2.95, -1.8000000000000005, -2.95, -1.9000000000000006, -3.1500000000000004, -3.4, -3.0500000000000003, -3.45, -3.2, -3.45, -1.7, 0.0, 0.0, 0.0]
+
+reward: 13 penalty: 13
+consumer info after fact checker in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -2.45, Interactions: 2
+
+Node 1 - Trust Level: -2.90, Interactions: 2
+
+Node 2 - Trust Level: -2.80, Interactions: 2
+
+Node 3 - Trust Level: -2.55, Interactions: 2
+
+Node 4 - Trust Level: -2.90, Interactions: 2
+
+Node 5 - Trust Level: -3.80, Interactions: 2
+
+Node 6 - Trust Level: -3.40, Interactions: 2
+
+Node 7 - Trust Level: -3.00, Interactions: 2
+
+Node 8 - Trust Level: -2.90, Interactions: 2
+
+Node 9 - Trust Level: -2.75, Interactions: 2
+
+Node 10 - Trust Level: -3.20, Interactions: 2
+
+Node 11 - Trust Level: -1.80, Interactions: 1
+
+Node 12 - Trust Level: -3.75, Interactions: 2
+
+Node 13 - Trust Level: -3.85, Interactions: 2
+
+Node 14 - Trust Level: -2.55, Interactions: 2
+
+Node 15 - Trust Level: -3.50, Interactions: 2
+
+Node 16 - Trust Level: -3.15, Interactions: 2
+
+Node 17 - Trust Level: -2.90, Interactions: 2
+
+Node 18 - Trust Level: -1.50, Interactions: 2
+
+Node 19 - Trust Level: -3.20, Interactions: 2
+
+Node 20 - Trust Level: -2.85, Interactions: 2
+
+Node 21 - Trust Level: -3.00, Interactions: 2
+
+Node 22 - Trust Level: -2.10, Interactions: 1
+
+Node 23 - Trust Level: -1.40, Interactions: 1
+
+Node 24 - Trust Level: -2.55, Interactions: 2
+
+Node 25 - Trust Level: -2.75, Interactions: 2
+
+Node 26 - Trust Level: -3.10, Interactions: 2
+
+Node 27 - Trust Level: -3.60, Interactions: 2
+
+Node 28 - Trust Level: -4.25, Interactions: 2
+
+Node 29 - Trust Level: -3.30, Interactions: 2
+
+Node 30 - Trust Level: -2.65, Interactions: 2
+
+Node 31 - Trust Level: -3.30, Interactions: 2
+
+Node 32 - Trust Level: -2.35, Interactions: 2
+
+Node 33 - Trust Level: -2.25, Interactions: 2
+
+Node 34 - Trust Level: -2.80, Interactions: 2
+
+Node 35 - Trust Level: -3.05, Interactions: 2
+
+Node 36 - Trust Level: -0.60, Interactions: 1
+
+Node 37 - Trust Level: -2.90, Interactions: 2
+
+Node 38 - Trust Level: -3.25, Interactions: 2
+
+Node 39 - Trust Level: -2.95, Interactions: 2
+
+Node 40 - Trust Level: -1.80, Interactions: 1
+
+Node 41 - Trust Level: -2.95, Interactions: 2
+
+Node 42 - Trust Level: -1.90, Interactions: 1
+
+Node 43 - Trust Level: -3.15, Interactions: 2
+
+Node 44 - Trust Level: -3.40, Interactions: 2
+
+Node 45 - Trust Level: -3.05, Interactions: 2
+
+Node 46 - Trust Level: -3.45, Interactions: 2
+
+Node 47 - Trust Level: -3.20, Interactions: 2
+
+Node 48 - Trust Level: -3.45, Interactions: 2
+
+Node 49 - Trust Level: -1.70, Interactions: 2
+
+--------- epoch 13 ---------------------
+Trust Levels:
+
+Fake Agent: 
+reward: 73, penalty : 341, influenced : None, qval : -104.2635586322287
+
+Real Agent: 
+reward: 535, penalty : 70, influenced : {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 34, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49}, qval : 330.0392714359007
+
+consumer info before fact checker is in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -2.55, Interactions: 2
+
+Node 1 - Trust Level: -3.10, Interactions: 2
+
+Node 2 - Trust Level: -2.90, Interactions: 2
+
+Node 3 - Trust Level: -2.75, Interactions: 2
+
+Node 4 - Trust Level: -3.10, Interactions: 2
+
+Node 5 - Trust Level: -3.90, Interactions: 2
+
+Node 6 - Trust Level: -3.50, Interactions: 2
+
+Node 7 - Trust Level: -3.10, Interactions: 2
+
+Node 8 - Trust Level: -3.00, Interactions: 2
+
+Node 9 - Trust Level: -2.85, Interactions: 2
+
+Node 10 - Trust Level: -3.40, Interactions: 2
+
+Node 11 - Trust Level: -1.90, Interactions: 1
+
+Node 12 - Trust Level: -3.85, Interactions: 2
+
+Node 13 - Trust Level: -3.95, Interactions: 2
+
+Node 14 - Trust Level: -2.65, Interactions: 2
+
+Node 15 - Trust Level: -3.70, Interactions: 2
+
+Node 16 - Trust Level: -3.35, Interactions: 2
+
+Node 17 - Trust Level: -3.10, Interactions: 2
+
+Node 18 - Trust Level: -1.50, Interactions: 2
+
+Node 19 - Trust Level: -3.30, Interactions: 2
+
+Node 20 - Trust Level: -2.95, Interactions: 2
+
+Node 21 - Trust Level: -3.20, Interactions: 2
+
+Node 22 - Trust Level: -2.30, Interactions: 1
+
+Node 23 - Trust Level: -1.60, Interactions: 1
+
+Node 24 - Trust Level: -2.75, Interactions: 2
+
+Node 25 - Trust Level: -2.85, Interactions: 2
+
+Node 26 - Trust Level: -3.30, Interactions: 2
+
+Node 27 - Trust Level: -3.80, Interactions: 2
+
+Node 28 - Trust Level: -4.35, Interactions: 2
+
+Node 29 - Trust Level: -3.40, Interactions: 2
+
+Node 30 - Trust Level: -2.75, Interactions: 2
+
+Node 31 - Trust Level: -3.50, Interactions: 2
+
+Node 32 - Trust Level: -2.55, Interactions: 2
+
+Node 33 - Trust Level: -2.35, Interactions: 2
+
+Node 34 - Trust Level: -3.00, Interactions: 2
+
+Node 35 - Trust Level: -3.15, Interactions: 2
+
+Node 36 - Trust Level: -0.60, Interactions: 1
+
+Node 37 - Trust Level: -3.10, Interactions: 2
+
+Node 38 - Trust Level: -3.35, Interactions: 2
+
+Node 39 - Trust Level: -3.05, Interactions: 2
+
+Node 40 - Trust Level: -1.90, Interactions: 1
+
+Node 41 - Trust Level: -3.15, Interactions: 2
+
+Node 42 - Trust Level: -2.10, Interactions: 1
+
+Node 43 - Trust Level: -3.35, Interactions: 2
+
+Node 44 - Trust Level: -3.50, Interactions: 2
+
+Node 45 - Trust Level: -3.15, Interactions: 2
+
+Node 46 - Trust Level: -3.55, Interactions: 2
+
+Node 47 - Trust Level: -3.30, Interactions: 2
+
+Node 48 - Trust Level: -3.65, Interactions: 2
+
+Node 49 - Trust Level: -1.80, Interactions: 2
+
+Fact Checker Agent: Agent type: fake-information penalty: 341 reward: 73 trust level: 0.88
+Agent type: real-information penalty: 70 reward: 535 trust level: 1.0
+Fact-checker penalized news agent {'agentType': 'fake-information', 'qVal': -120.63720276900582, 'trustLevel': 0.0, 'reward': 73, 'penalty': 341}.
+Fact-checker found no fake news in node Agent type: real-information penalty: 70 reward: 535 trust level: 1.0.
+
+set of fake information agents audited:  {Agent type: fake-information penalty: 342 reward: 73 trust level: 0.88}
+Consumer trust level before fact checking  [-2.5500000000000003, -3.1000000000000005, -2.9000000000000004, -2.75, -3.1, -3.9000000000000004, -3.500000000000001, -3.1000000000000005, -3.0000000000000004, -2.8500000000000005, -3.4, -1.9000000000000006, -3.85, -3.9500000000000006, -2.6500000000000004, -3.7000000000000006, -3.3500000000000005, -3.1000000000000005, -1.5, -3.3000000000000003, -2.95, -3.2, -2.3000000000000007, -1.6000000000000003, -2.75, -2.8500000000000005, -3.3000000000000003, -3.8000000000000007, -4.35, -3.4000000000000004, -2.7500000000000004, -3.5, -2.5500000000000003, -2.3499999999999996, -3.0, -3.1500000000000004, -0.6, -3.1, -3.35, -3.0500000000000003, -1.9000000000000006, -3.1500000000000004, -2.1000000000000005, -3.3500000000000005, -3.5, -3.1500000000000004, -3.5500000000000003, -3.3000000000000003, -3.6500000000000004, -1.8, 0.0, 0.0, 0.0]
+Consumer trust level after fact checking [-2.7, -3.2500000000000004, -3.0500000000000003, -2.9, -3.25, -4.050000000000001, -3.650000000000001, -3.2500000000000004, -3.1500000000000004, -3.0000000000000004, -3.55, -1.9000000000000006, -4.0, -4.1000000000000005, -2.8000000000000003, -3.8500000000000005, -3.5000000000000004, -3.2500000000000004, -1.65, -3.45, -3.1, -3.35, -2.3000000000000007, -1.6000000000000003, -2.9, -3.0000000000000004, -3.45, -3.9500000000000006, -4.5, -3.5500000000000003, -2.9000000000000004, -3.65, -2.7, -2.4999999999999996, -3.15, -3.3000000000000003, -0.6, -3.25, -3.5, -3.2, -1.9000000000000006, -3.3000000000000003, -2.1000000000000005, -3.5000000000000004, -3.65, -3.3000000000000003, -3.7, -3.45, -3.8000000000000003, -1.95, 0.0, 0.0, 0.0]
+
+reward: 14 penalty: 14
+consumer info after fact checker in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -2.70, Interactions: 2
+
+Node 1 - Trust Level: -3.25, Interactions: 2
+
+Node 2 - Trust Level: -3.05, Interactions: 2
+
+Node 3 - Trust Level: -2.90, Interactions: 2
+
+Node 4 - Trust Level: -3.25, Interactions: 2
+
+Node 5 - Trust Level: -4.05, Interactions: 2
+
+Node 6 - Trust Level: -3.65, Interactions: 2
+
+Node 7 - Trust Level: -3.25, Interactions: 2
+
+Node 8 - Trust Level: -3.15, Interactions: 2
+
+Node 9 - Trust Level: -3.00, Interactions: 2
+
+Node 10 - Trust Level: -3.55, Interactions: 2
+
+Node 11 - Trust Level: -1.90, Interactions: 1
+
+Node 12 - Trust Level: -4.00, Interactions: 2
+
+Node 13 - Trust Level: -4.10, Interactions: 2
+
+Node 14 - Trust Level: -2.80, Interactions: 2
+
+Node 15 - Trust Level: -3.85, Interactions: 2
+
+Node 16 - Trust Level: -3.50, Interactions: 2
+
+Node 17 - Trust Level: -3.25, Interactions: 2
+
+Node 18 - Trust Level: -1.65, Interactions: 2
+
+Node 19 - Trust Level: -3.45, Interactions: 2
+
+Node 20 - Trust Level: -3.10, Interactions: 2
+
+Node 21 - Trust Level: -3.35, Interactions: 2
+
+Node 22 - Trust Level: -2.30, Interactions: 1
+
+Node 23 - Trust Level: -1.60, Interactions: 1
+
+Node 24 - Trust Level: -2.90, Interactions: 2
+
+Node 25 - Trust Level: -3.00, Interactions: 2
+
+Node 26 - Trust Level: -3.45, Interactions: 2
+
+Node 27 - Trust Level: -3.95, Interactions: 2
+
+Node 28 - Trust Level: -4.50, Interactions: 2
+
+Node 29 - Trust Level: -3.55, Interactions: 2
+
+Node 30 - Trust Level: -2.90, Interactions: 2
+
+Node 31 - Trust Level: -3.65, Interactions: 2
+
+Node 32 - Trust Level: -2.70, Interactions: 2
+
+Node 33 - Trust Level: -2.50, Interactions: 2
+
+Node 34 - Trust Level: -3.15, Interactions: 2
+
+Node 35 - Trust Level: -3.30, Interactions: 2
+
+Node 36 - Trust Level: -0.60, Interactions: 1
+
+Node 37 - Trust Level: -3.25, Interactions: 2
+
+Node 38 - Trust Level: -3.50, Interactions: 2
+
+Node 39 - Trust Level: -3.20, Interactions: 2
+
+Node 40 - Trust Level: -1.90, Interactions: 1
+
+Node 41 - Trust Level: -3.30, Interactions: 2
+
+Node 42 - Trust Level: -2.10, Interactions: 1
+
+Node 43 - Trust Level: -3.50, Interactions: 2
+
+Node 44 - Trust Level: -3.65, Interactions: 2
+
+Node 45 - Trust Level: -3.30, Interactions: 2
+
+Node 46 - Trust Level: -3.70, Interactions: 2
+
+Node 47 - Trust Level: -3.45, Interactions: 2
+
+Node 48 - Trust Level: -3.80, Interactions: 2
+
+Node 49 - Trust Level: -1.95, Interactions: 2
+
+--------- epoch 14 ---------------------
+Trust Levels:
+
+Fake Agent: 
+reward: 73, penalty : 363, influenced : None, qval : -120.63720276900582
+
+Real Agent: 
+reward: 578, penalty : 70, influenced : {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 20, 21, 22, 23, 25, 26, 27, 28, 31, 32, 33, 36, 37, 38, 39, 40, 41, 42, 43, 45, 46, 47, 48, 49}, qval : 385.3853442923106
+
+consumer info before fact checker is in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -2.90, Interactions: 2
+
+Node 1 - Trust Level: -3.35, Interactions: 2
+
+Node 2 - Trust Level: -3.15, Interactions: 2
+
+Node 3 - Trust Level: -3.00, Interactions: 2
+
+Node 4 - Trust Level: -3.35, Interactions: 2
+
+Node 5 - Trust Level: -4.15, Interactions: 2
+
+Node 6 - Trust Level: -3.85, Interactions: 2
+
+Node 7 - Trust Level: -3.35, Interactions: 2
+
+Node 8 - Trust Level: -3.25, Interactions: 2
+
+Node 9 - Trust Level: -3.10, Interactions: 2
+
+Node 10 - Trust Level: -3.65, Interactions: 2
+
+Node 11 - Trust Level: -2.10, Interactions: 1
+
+Node 12 - Trust Level: -4.10, Interactions: 2
+
+Node 13 - Trust Level: -4.30, Interactions: 2
+
+Node 14 - Trust Level: -3.00, Interactions: 2
+
+Node 15 - Trust Level: -3.95, Interactions: 2
+
+Node 16 - Trust Level: -3.70, Interactions: 2
+
+Node 17 - Trust Level: -3.45, Interactions: 2
+
+Node 18 - Trust Level: -1.65, Interactions: 2
+
+Node 19 - Trust Level: -3.55, Interactions: 2
+
+Node 20 - Trust Level: -3.20, Interactions: 2
+
+Node 21 - Trust Level: -3.45, Interactions: 2
+
+Node 22 - Trust Level: -2.40, Interactions: 1
+
+Node 23 - Trust Level: -1.80, Interactions: 1
+
+Node 24 - Trust Level: -2.90, Interactions: 2
+
+Node 25 - Trust Level: -3.10, Interactions: 2
+
+Node 26 - Trust Level: -3.55, Interactions: 2
+
+Node 27 - Trust Level: -4.15, Interactions: 2
+
+Node 28 - Trust Level: -4.70, Interactions: 2
+
+Node 29 - Trust Level: -3.55, Interactions: 2
+
+Node 30 - Trust Level: -2.90, Interactions: 2
+
+Node 31 - Trust Level: -3.75, Interactions: 2
+
+Node 32 - Trust Level: -2.90, Interactions: 2
+
+Node 33 - Trust Level: -2.60, Interactions: 2
+
+Node 34 - Trust Level: -3.25, Interactions: 2
+
+Node 35 - Trust Level: -3.40, Interactions: 2
+
+Node 36 - Trust Level: -0.80, Interactions: 1
+
+Node 37 - Trust Level: -3.35, Interactions: 2
+
+Node 38 - Trust Level: -3.70, Interactions: 2
+
+Node 39 - Trust Level: -3.40, Interactions: 2
+
+Node 40 - Trust Level: -2.00, Interactions: 1
+
+Node 41 - Trust Level: -3.50, Interactions: 2
+
+Node 42 - Trust Level: -2.20, Interactions: 1
+
+Node 43 - Trust Level: -3.70, Interactions: 2
+
+Node 44 - Trust Level: -3.75, Interactions: 2
+
+Node 45 - Trust Level: -3.50, Interactions: 2
+
+Node 46 - Trust Level: -3.80, Interactions: 2
+
+Node 47 - Trust Level: -3.55, Interactions: 2
+
+Node 48 - Trust Level: -4.00, Interactions: 2
+
+Node 49 - Trust Level: -2.05, Interactions: 2
+
+Fact Checker Agent: Agent type: fake-information penalty: 363 reward: 73 trust level: 0.88
+Agent type: real-information penalty: 70 reward: 578 trust level: 1.0
+Fact-checker penalized news agent {'agentType': 'fake-information', 'qVal': -137.57348249210526, 'trustLevel': 0.0, 'reward': 73, 'penalty': 363}.
+Fact-checker found no fake news in node Agent type: real-information penalty: 70 reward: 578 trust level: 1.0.
+
+set of fake information agents audited:  {Agent type: fake-information penalty: 364 reward: 73 trust level: 0.88}
+Consumer trust level before fact checking  [-2.9000000000000004, -3.3500000000000005, -3.1500000000000004, -3.0, -3.35, -4.15, -3.850000000000001, -3.3500000000000005, -3.2500000000000004, -3.1000000000000005, -3.65, -2.1000000000000005, -4.1, -4.3, -3.0000000000000004, -3.9500000000000006, -3.7000000000000006, -3.4500000000000006, -1.65, -3.5500000000000003, -3.2, -3.45, -2.400000000000001, -1.8000000000000005, -2.9, -3.1000000000000005, -3.5500000000000003, -4.15, -4.699999999999999, -3.5500000000000003, -2.9000000000000004, -3.75, -2.9000000000000004, -2.5999999999999996, -3.25, -3.4000000000000004, -0.7999999999999999, -3.35, -3.7, -3.4000000000000004, -2.0000000000000004, -3.5000000000000004, -2.2000000000000006, -3.7000000000000006, -3.75, -3.5000000000000004, -3.8000000000000003, -3.5500000000000003, -4.0, -2.05, 0.0, 0.0, 0.0]
+Consumer trust level after fact checking [-3.0500000000000003, -3.5000000000000004, -3.3000000000000003, -3.15, -3.5, -4.300000000000001, -4.000000000000001, -3.5000000000000004, -3.4000000000000004, -3.2500000000000004, -3.8, -2.1000000000000005, -4.25, -4.45, -3.1500000000000004, -4.1000000000000005, -3.8500000000000005, -3.6000000000000005, -1.7999999999999998, -3.7, -3.35, -3.6, -2.400000000000001, -1.8000000000000005, -3.05, -3.2500000000000004, -3.7, -4.300000000000001, -4.85, -3.7, -3.0500000000000003, -3.9, -3.0500000000000003, -2.7499999999999996, -3.4, -3.5500000000000003, -0.7999999999999999, -3.5, -3.85, -3.5500000000000003, -2.0000000000000004, -3.6500000000000004, -2.2000000000000006, -3.8500000000000005, -3.9, -3.6500000000000004, -3.95, -3.7, -4.15, -2.1999999999999997, 0.0, 0.0, 0.0]
+
+reward: 15 penalty: 15
+consumer info after fact checker in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -3.05, Interactions: 2
+
+Node 1 - Trust Level: -3.50, Interactions: 2
+
+Node 2 - Trust Level: -3.30, Interactions: 2
+
+Node 3 - Trust Level: -3.15, Interactions: 2
+
+Node 4 - Trust Level: -3.50, Interactions: 2
+
+Node 5 - Trust Level: -4.30, Interactions: 2
+
+Node 6 - Trust Level: -4.00, Interactions: 2
+
+Node 7 - Trust Level: -3.50, Interactions: 2
+
+Node 8 - Trust Level: -3.40, Interactions: 2
+
+Node 9 - Trust Level: -3.25, Interactions: 2
+
+Node 10 - Trust Level: -3.80, Interactions: 2
+
+Node 11 - Trust Level: -2.10, Interactions: 1
+
+Node 12 - Trust Level: -4.25, Interactions: 2
+
+Node 13 - Trust Level: -4.45, Interactions: 2
+
+Node 14 - Trust Level: -3.15, Interactions: 2
+
+Node 15 - Trust Level: -4.10, Interactions: 2
+
+Node 16 - Trust Level: -3.85, Interactions: 2
+
+Node 17 - Trust Level: -3.60, Interactions: 2
+
+Node 18 - Trust Level: -1.80, Interactions: 2
+
+Node 19 - Trust Level: -3.70, Interactions: 2
+
+Node 20 - Trust Level: -3.35, Interactions: 2
+
+Node 21 - Trust Level: -3.60, Interactions: 2
+
+Node 22 - Trust Level: -2.40, Interactions: 1
+
+Node 23 - Trust Level: -1.80, Interactions: 1
+
+Node 24 - Trust Level: -3.05, Interactions: 2
+
+Node 25 - Trust Level: -3.25, Interactions: 2
+
+Node 26 - Trust Level: -3.70, Interactions: 2
+
+Node 27 - Trust Level: -4.30, Interactions: 2
+
+Node 28 - Trust Level: -4.85, Interactions: 2
+
+Node 29 - Trust Level: -3.70, Interactions: 2
+
+Node 30 - Trust Level: -3.05, Interactions: 2
+
+Node 31 - Trust Level: -3.90, Interactions: 2
+
+Node 32 - Trust Level: -3.05, Interactions: 2
+
+Node 33 - Trust Level: -2.75, Interactions: 2
+
+Node 34 - Trust Level: -3.40, Interactions: 2
+
+Node 35 - Trust Level: -3.55, Interactions: 2
+
+Node 36 - Trust Level: -0.80, Interactions: 1
+
+Node 37 - Trust Level: -3.50, Interactions: 2
+
+Node 38 - Trust Level: -3.85, Interactions: 2
+
+Node 39 - Trust Level: -3.55, Interactions: 2
+
+Node 40 - Trust Level: -2.00, Interactions: 1
+
+Node 41 - Trust Level: -3.65, Interactions: 2
+
+Node 42 - Trust Level: -2.20, Interactions: 1
+
+Node 43 - Trust Level: -3.85, Interactions: 2
+
+Node 44 - Trust Level: -3.90, Interactions: 2
+
+Node 45 - Trust Level: -3.65, Interactions: 2
+
+Node 46 - Trust Level: -3.95, Interactions: 2
+
+Node 47 - Trust Level: -3.70, Interactions: 2
+
+Node 48 - Trust Level: -4.15, Interactions: 2
+
+Node 49 - Trust Level: -2.20, Interactions: 2
+
+--------- epoch 15 ---------------------
+Trust Levels:
+
+Fake Agent: 
+reward: 73, penalty : 388, influenced : None, qval : -137.57348249210526
+
+Real Agent: 
+reward: 623, penalty : 70, influenced : {1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49}, qval : 443.36680986307954
+
+consumer info before fact checker is in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -3.05, Interactions: 2
+
+Node 1 - Trust Level: -3.60, Interactions: 2
+
+Node 2 - Trust Level: -3.50, Interactions: 2
+
+Node 3 - Trust Level: -3.25, Interactions: 2
+
+Node 4 - Trust Level: -3.60, Interactions: 2
+
+Node 5 - Trust Level: -4.50, Interactions: 2
+
+Node 6 - Trust Level: -4.20, Interactions: 2
+
+Node 7 - Trust Level: -3.70, Interactions: 2
+
+Node 8 - Trust Level: -3.60, Interactions: 2
+
+Node 9 - Trust Level: -3.35, Interactions: 2
+
+Node 10 - Trust Level: -4.00, Interactions: 2
+
+Node 11 - Trust Level: -2.20, Interactions: 1
+
+Node 12 - Trust Level: -4.45, Interactions: 2
+
+Node 13 - Trust Level: -4.55, Interactions: 2
+
+Node 14 - Trust Level: -3.35, Interactions: 2
+
+Node 15 - Trust Level: -4.20, Interactions: 2
+
+Node 16 - Trust Level: -3.95, Interactions: 2
+
+Node 17 - Trust Level: -3.80, Interactions: 2
+
+Node 18 - Trust Level: -1.80, Interactions: 2
+
+Node 19 - Trust Level: -3.90, Interactions: 2
+
+Node 20 - Trust Level: -3.45, Interactions: 2
+
+Node 21 - Trust Level: -3.80, Interactions: 2
+
+Node 22 - Trust Level: -2.60, Interactions: 1
+
+Node 23 - Trust Level: -2.00, Interactions: 1
+
+Node 24 - Trust Level: -3.15, Interactions: 2
+
+Node 25 - Trust Level: -3.35, Interactions: 2
+
+Node 26 - Trust Level: -3.80, Interactions: 2
+
+Node 27 - Trust Level: -4.40, Interactions: 2
+
+Node 28 - Trust Level: -4.95, Interactions: 2
+
+Node 29 - Trust Level: -3.90, Interactions: 2
+
+Node 30 - Trust Level: -3.05, Interactions: 2
+
+Node 31 - Trust Level: -4.00, Interactions: 2
+
+Node 32 - Trust Level: -3.15, Interactions: 2
+
+Node 33 - Trust Level: -2.85, Interactions: 2
+
+Node 34 - Trust Level: -3.60, Interactions: 2
+
+Node 35 - Trust Level: -3.75, Interactions: 2
+
+Node 36 - Trust Level: -0.90, Interactions: 1
+
+Node 37 - Trust Level: -3.60, Interactions: 2
+
+Node 38 - Trust Level: -3.95, Interactions: 2
+
+Node 39 - Trust Level: -3.75, Interactions: 2
+
+Node 40 - Trust Level: -2.20, Interactions: 1
+
+Node 41 - Trust Level: -3.85, Interactions: 2
+
+Node 42 - Trust Level: -2.30, Interactions: 1
+
+Node 43 - Trust Level: -3.95, Interactions: 2
+
+Node 44 - Trust Level: -4.10, Interactions: 2
+
+Node 45 - Trust Level: -3.85, Interactions: 2
+
+Node 46 - Trust Level: -4.05, Interactions: 2
+
+Node 47 - Trust Level: -3.80, Interactions: 2
+
+Node 48 - Trust Level: -4.35, Interactions: 2
+
+Node 49 - Trust Level: -2.30, Interactions: 2
+
+Fact Checker Agent: Agent type: fake-information penalty: 388 reward: 73 trust level: 0.88
+Agent type: real-information penalty: 70 reward: 623 trust level: 1.0
+Fact-checker penalized news agent {'agentType': 'fake-information', 'qVal': -155.31613424289472, 'trustLevel': 0.0, 'reward': 73, 'penalty': 388}.
+Fact-checker found no fake news in node Agent type: real-information penalty: 70 reward: 623 trust level: 1.0.
+
+set of fake information agents audited:  {Agent type: fake-information penalty: 389 reward: 73 trust level: 0.88}
+Consumer trust level before fact checking  [-3.0500000000000003, -3.6000000000000005, -3.5000000000000004, -3.25, -3.6, -4.5, -4.2, -3.7000000000000006, -3.6000000000000005, -3.3500000000000005, -4.0, -2.2000000000000006, -4.449999999999999, -4.55, -3.3500000000000005, -4.2, -3.9500000000000006, -3.8000000000000007, -1.7999999999999998, -3.9000000000000004, -3.45, -3.8000000000000003, -2.600000000000001, -2.0000000000000004, -3.15, -3.3500000000000005, -3.8000000000000003, -4.4, -4.949999999999999, -3.9000000000000004, -3.0500000000000003, -4.0, -3.1500000000000004, -2.8499999999999996, -3.6, -3.7500000000000004, -0.8999999999999999, -3.6, -3.95, -3.7500000000000004, -2.2000000000000006, -3.8500000000000005, -2.3000000000000007, -3.9500000000000006, -4.1, -3.8500000000000005, -4.05, -3.8000000000000003, -4.35, -2.3, 0.0, 0.0, 0.0]
+Consumer trust level after fact checking [-3.2, -3.7500000000000004, -3.6500000000000004, -3.4, -3.75, -4.65, -4.3500000000000005, -3.8500000000000005, -3.7500000000000004, -3.5000000000000004, -4.15, -2.2000000000000006, -4.6, -4.7, -3.5000000000000004, -4.3500000000000005, -4.1000000000000005, -3.9500000000000006, -1.9499999999999997, -4.050000000000001, -3.6, -3.95, -2.600000000000001, -2.0000000000000004, -3.3, -3.5000000000000004, -3.95, -4.550000000000001, -5.1, -4.050000000000001, -3.2, -4.15, -3.3000000000000003, -2.9999999999999996, -3.75, -3.9000000000000004, -0.8999999999999999, -3.75, -4.1000000000000005, -3.9000000000000004, -2.2000000000000006, -4.000000000000001, -2.3000000000000007, -4.1000000000000005, -4.25, -4.000000000000001, -4.2, -3.95, -4.5, -2.4499999999999997, 0.0, 0.0, 0.0]
+
+reward: 16 penalty: 16
+consumer info after fact checker in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -3.20, Interactions: 2
+
+Node 1 - Trust Level: -3.75, Interactions: 2
+
+Node 2 - Trust Level: -3.65, Interactions: 2
+
+Node 3 - Trust Level: -3.40, Interactions: 2
+
+Node 4 - Trust Level: -3.75, Interactions: 2
+
+Node 5 - Trust Level: -4.65, Interactions: 2
+
+Node 6 - Trust Level: -4.35, Interactions: 2
+
+Node 7 - Trust Level: -3.85, Interactions: 2
+
+Node 8 - Trust Level: -3.75, Interactions: 2
+
+Node 9 - Trust Level: -3.50, Interactions: 2
+
+Node 10 - Trust Level: -4.15, Interactions: 2
+
+Node 11 - Trust Level: -2.20, Interactions: 1
+
+Node 12 - Trust Level: -4.60, Interactions: 2
+
+Node 13 - Trust Level: -4.70, Interactions: 2
+
+Node 14 - Trust Level: -3.50, Interactions: 2
+
+Node 15 - Trust Level: -4.35, Interactions: 2
+
+Node 16 - Trust Level: -4.10, Interactions: 2
+
+Node 17 - Trust Level: -3.95, Interactions: 2
+
+Node 18 - Trust Level: -1.95, Interactions: 2
+
+Node 19 - Trust Level: -4.05, Interactions: 2
+
+Node 20 - Trust Level: -3.60, Interactions: 2
+
+Node 21 - Trust Level: -3.95, Interactions: 2
+
+Node 22 - Trust Level: -2.60, Interactions: 1
+
+Node 23 - Trust Level: -2.00, Interactions: 1
+
+Node 24 - Trust Level: -3.30, Interactions: 2
+
+Node 25 - Trust Level: -3.50, Interactions: 2
+
+Node 26 - Trust Level: -3.95, Interactions: 2
+
+Node 27 - Trust Level: -4.55, Interactions: 2
+
+Node 28 - Trust Level: -5.10, Interactions: 2
+
+Node 29 - Trust Level: -4.05, Interactions: 2
+
+Node 30 - Trust Level: -3.20, Interactions: 2
+
+Node 31 - Trust Level: -4.15, Interactions: 2
+
+Node 32 - Trust Level: -3.30, Interactions: 2
+
+Node 33 - Trust Level: -3.00, Interactions: 2
+
+Node 34 - Trust Level: -3.75, Interactions: 2
+
+Node 35 - Trust Level: -3.90, Interactions: 2
+
+Node 36 - Trust Level: -0.90, Interactions: 1
+
+Node 37 - Trust Level: -3.75, Interactions: 2
+
+Node 38 - Trust Level: -4.10, Interactions: 2
+
+Node 39 - Trust Level: -3.90, Interactions: 2
+
+Node 40 - Trust Level: -2.20, Interactions: 1
+
+Node 41 - Trust Level: -4.00, Interactions: 2
+
+Node 42 - Trust Level: -2.30, Interactions: 1
+
+Node 43 - Trust Level: -4.10, Interactions: 2
+
+Node 44 - Trust Level: -4.25, Interactions: 2
+
+Node 45 - Trust Level: -4.00, Interactions: 2
+
+Node 46 - Trust Level: -4.20, Interactions: 2
+
+Node 47 - Trust Level: -3.95, Interactions: 2
+
+Node 48 - Trust Level: -4.50, Interactions: 2
+
+Node 49 - Trust Level: -2.45, Interactions: 2
+
+......
+......
+......
+......
+--------- epoch 52 ---------------------
+Trust Levels:
+
+Fake Agent: 
+reward: 73, penalty : 1370, influenced : None, qval : -1023.2665697788143
+
+Real Agent: 
+reward: 2278, penalty : 71, influenced : {1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 31, 32, 33, 34, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49}, qval : 3350.21951493097
+
+consumer info before fact checker is in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -12.50, Interactions: 2
+
+Node 1 - Trust Level: -14.75, Interactions: 2
+
+Node 2 - Trust Level: -14.45, Interactions: 2
+
+Node 3 - Trust Level: -11.80, Interactions: 2
+
+Node 4 - Trust Level: -14.15, Interactions: 2
+
+Node 5 - Trust Level: -15.45, Interactions: 2
+
+Node 6 - Trust Level: -15.35, Interactions: 2
+
+Node 7 - Trust Level: -15.05, Interactions: 2
+
+Node 8 - Trust Level: -14.85, Interactions: 2
+
+Node 9 - Trust Level: -14.60, Interactions: 2
+
+Node 10 - Trust Level: -15.25, Interactions: 2
+
+Node 11 - Trust Level: -8.00, Interactions: 1
+
+Node 12 - Trust Level: -15.70, Interactions: 2
+
+Node 13 - Trust Level: -15.70, Interactions: 2
+
+Node 14 - Trust Level: -14.20, Interactions: 2
+
+Node 15 - Trust Level: -15.55, Interactions: 2
+
+Node 16 - Trust Level: -15.00, Interactions: 2
+
+Node 17 - Trust Level: -14.85, Interactions: 2
+
+Node 18 - Trust Level: -10.75, Interactions: 2
+
+Node 19 - Trust Level: -15.25, Interactions: 2
+
+Node 20 - Trust Level: -14.40, Interactions: 2
+
+Node 21 - Trust Level: -14.55, Interactions: 2
+
+Node 22 - Trust Level: -7.70, Interactions: 1
+
+Node 23 - Trust Level: -7.40, Interactions: 1
+
+Node 24 - Trust Level: -12.60, Interactions: 2
+
+Node 25 - Trust Level: -14.70, Interactions: 2
+
+Node 26 - Trust Level: -15.15, Interactions: 2
+
+Node 27 - Trust Level: -15.15, Interactions: 2
+
+Node 28 - Trust Level: -16.30, Interactions: 2
+
+Node 29 - Trust Level: -13.55, Interactions: 2
+
+Node 30 - Trust Level: -12.60, Interactions: 2
+
+Node 31 - Trust Level: -15.15, Interactions: 2
+
+Node 32 - Trust Level: -14.40, Interactions: 2
+
+Node 33 - Trust Level: -12.10, Interactions: 2
+
+Node 34 - Trust Level: -13.75, Interactions: 2
+
+Node 35 - Trust Level: -13.00, Interactions: 2
+
+Node 36 - Trust Level: -4.90, Interactions: 1
+
+Node 37 - Trust Level: -14.55, Interactions: 2
+
+Node 38 - Trust Level: -14.90, Interactions: 2
+
+Node 39 - Trust Level: -14.70, Interactions: 2
+
+Node 40 - Trust Level: -7.80, Interactions: 1
+
+Node 41 - Trust Level: -14.20, Interactions: 2
+
+Node 42 - Trust Level: -7.90, Interactions: 1
+
+Node 43 - Trust Level: -15.80, Interactions: 2
+
+Node 44 - Trust Level: -14.95, Interactions: 2
+
+Node 45 - Trust Level: -14.90, Interactions: 2
+
+Node 46 - Trust Level: -15.40, Interactions: 2
+
+Node 47 - Trust Level: -15.35, Interactions: 2
+
+Node 48 - Trust Level: -15.40, Interactions: 2
+
+Node 49 - Trust Level: -12.95, Interactions: 2
+
+Fact Checker Agent: Agent type: fake-information penalty: 1370 reward: 73 trust level: 0.88
+Agent type: real-information penalty: 71 reward: 2278 trust level: 1.0
+Fact-checker penalized news agent {'agentType': 'fake-information', 'qVal': -1050.639912800933, 'trustLevel': 0.0, 'reward': 73, 'penalty': 1370}.
+Fact-checker found no fake news in node Agent type: real-information penalty: 71 reward: 2278 trust level: 1.0.
+
+set of fake information agents audited:  {Agent type: fake-information penalty: 1371 reward: 73 trust level: 0.88}
+Consumer trust level before fact checking  [-12.5, -14.749999999999993, -14.449999999999994, -11.8, -14.149999999999995, -15.449999999999994, -15.349999999999993, -15.049999999999994, -14.849999999999993, -14.599999999999993, -15.249999999999993, -7.999999999999988, -15.699999999999992, -15.699999999999994, -14.199999999999994, -15.549999999999994, -14.999999999999993, -14.849999999999994, -10.749999999999998, -15.249999999999993, -14.399999999999995, -14.549999999999995, -7.699999999999989, -7.39999999999999, -12.6, -14.699999999999994, -15.149999999999991, -15.149999999999995, -16.299999999999994, -13.549999999999999, -12.6, -15.149999999999993, -14.399999999999995, -12.1, -13.749999999999998, -13.0, -4.899999999999999, -14.549999999999994, -14.899999999999993, -14.699999999999994, -7.799999999999988, -14.199999999999996, -7.899999999999988, -15.79999999999999, -14.949999999999994, -14.899999999999995, -15.399999999999993, -15.349999999999993, -15.399999999999993, -12.949999999999994, 0.0, 0.0, 0.0]
+Consumer trust level after fact checking [-12.65, -14.899999999999993, -14.599999999999994, -11.950000000000001, -14.299999999999995, -15.599999999999994, -15.499999999999993, -15.199999999999994, -14.999999999999993, -14.749999999999993, -15.399999999999993, -7.999999999999988, -15.849999999999993, -15.849999999999994, -14.349999999999994, -15.699999999999994, -15.149999999999993, -14.999999999999995, -10.899999999999999, -15.399999999999993, -14.549999999999995, -14.699999999999996, -7.699999999999989, -7.39999999999999, -12.75, -14.849999999999994, -15.299999999999992, -15.299999999999995, -16.449999999999992, -13.7, -12.75, -15.299999999999994, -14.549999999999995, -12.25, -13.899999999999999, -13.15, -4.899999999999999, -14.699999999999994, -15.049999999999994, -14.849999999999994, -7.799999999999988, -14.349999999999996, -7.899999999999988, -15.94999999999999, -15.099999999999994, -15.049999999999995, -15.549999999999994, -15.499999999999993, -15.549999999999994, -13.099999999999994, 0.0, 0.0, 0.0]
+
+reward: 53 penalty: 53
+consumer info after fact checker in network
+Consumer Node Info:
+
+Node 0 - Trust Level: -12.65, Interactions: 2
+
+Node 1 - Trust Level: -14.90, Interactions: 2
+
+Node 2 - Trust Level: -14.60, Interactions: 2
+
+Node 3 - Trust Level: -11.95, Interactions: 2
+
+Node 4 - Trust Level: -14.30, Interactions: 2
+
+Node 5 - Trust Level: -15.60, Interactions: 2
+
+Node 6 - Trust Level: -15.50, Interactions: 2
+
+Node 7 - Trust Level: -15.20, Interactions: 2
+
+Node 8 - Trust Level: -15.00, Interactions: 2
+
+Node 9 - Trust Level: -14.75, Interactions: 2
+
+Node 10 - Trust Level: -15.40, Interactions: 2
+
+Node 11 - Trust Level: -8.00, Interactions: 1
+
+Node 12 - Trust Level: -15.85, Interactions: 2
+
+Node 13 - Trust Level: -15.85, Interactions: 2
+
+Node 14 - Trust Level: -14.35, Interactions: 2
+
+Node 15 - Trust Level: -15.70, Interactions: 2
+
+Node 16 - Trust Level: -15.15, Interactions: 2
+
+Node 17 - Trust Level: -15.00, Interactions: 2
+
+Node 18 - Trust Level: -10.90, Interactions: 2
+
+Node 19 - Trust Level: -15.40, Interactions: 2
+
+Node 20 - Trust Level: -14.55, Interactions: 2
+
+Node 21 - Trust Level: -14.70, Interactions: 2
+
+Node 22 - Trust Level: -7.70, Interactions: 1
+
+Node 23 - Trust Level: -7.40, Interactions: 1
+
+Node 24 - Trust Level: -12.75, Interactions: 2
+
+Node 25 - Trust Level: -14.85, Interactions: 2
+
+Node 26 - Trust Level: -15.30, Interactions: 2
+
+Node 27 - Trust Level: -15.30, Interactions: 2
+
+Node 28 - Trust Level: -16.45, Interactions: 2
+
+Node 29 - Trust Level: -13.70, Interactions: 2
+
+Node 30 - Trust Level: -12.75, Interactions: 2
+
+Node 31 - Trust Level: -15.30, Interactions: 2
+
+Node 32 - Trust Level: -14.55, Interactions: 2
+
+Node 33 - Trust Level: -12.25, Interactions: 2
+
+Node 34 - Trust Level: -13.90, Interactions: 2
+
+Node 35 - Trust Level: -13.15, Interactions: 2
+
+Node 36 - Trust Level: -4.90, Interactions: 1
+
+Node 37 - Trust Level: -14.70, Interactions: 2
+
+Node 38 - Trust Level: -15.05, Interactions: 2
+
+Node 39 - Trust Level: -14.85, Interactions: 2
+
+Node 40 - Trust Level: -7.80, Interactions: 1
+
+Node 41 - Trust Level: -14.35, Interactions: 2
+
+Node 42 - Trust Level: -7.90, Interactions: 1
+
+Node 43 - Trust Level: -15.95, Interactions: 2
+
+Node 44 - Trust Level: -15.10, Interactions: 2
+
+Node 45 - Trust Level: -15.05, Interactions: 2
+
+Node 46 - Trust Level: -15.55, Interactions: 2
+
+Node 47 - Trust Level: -15.50, Interactions: 2
+
+Node 48 - Trust Level: -15.55, Interactions: 2
+
+Node 49 - Trust Level: -13.10, Interactions: 2
