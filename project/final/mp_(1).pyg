@@ -1,0 +1,44 @@
+     # Case 1: Consumer rejects fake information
+     if np.random.normal(0.5, 0.15) > 1 / (1 + math.exp(-currentNode["trustLevel"])):
+         currentNode["trustLevel"] -= 0.1
+         agent.penalty += 1
+         self.graph.nodes[agent_node]["penalty"] = agent.penalty
+
+     # Case 2: Consumer accepts fake information
+     else:
+         currentNode["trustLevel"] += 0.1
+         agent.reward += 1
+         self.graph.nodes[agent_node]["reward"] = agent.reward
+         influenced.add(currentValue)
+
+         if currentValue in self.node_edge_colors:
+             self.node_edge_colors[currentValue] = "orange"
+         else:
+             self.node_edge_colors[currentValue] = "red"
+
+     # Handling real-information agent
+     if actionNode["agentType"] == "real-information":
+
+         # Set edge colors
+         if (source, currentValue) in self.edge_colors:
+             self.edge_colors[(source, currentValue)] = "orange"
+         else:
+             self.edge_colors[(source, currentValue)] = "blue"
+
+         # Case 3: Consumer rejects real information
+         if np.random.normal(0.5, 0.15) < 1 / (1 + math.exp(-currentNode["trustLevel"])):
+             currentNode["trustLevel"] += 0.1
+             agent.penalty += 1
+             self.graph.nodes[agent_node]["penalty"] = agent.penalty
+
+         # Case 4: Consumer accepts real information
+         else:
+             currentNode["trustLevel"] -= 0.1
+             agent.reward += 1
+             self.graph.nodes[agent_node]["reward"] = agent.reward
+             influenced.add(currentValue)
+
+             if currentValue in self.node_edge_colors:
+                 self.node_edge_colors[currentValue] = "orange"
+             else:
+                 self.node_edge_colors[currentValue] = "blue"
