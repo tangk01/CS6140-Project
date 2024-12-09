@@ -175,10 +175,7 @@ class SocialNetworkEnv(gym.Env):
         visited = set()
         influenced = set()
         queue = []
-        print('orig', queue)
-        
-        # nx.draw(self.graph, with_labels=True)
-        # plt.show()
+        # print('orig', queue)
 
         # nodes_to_visit = []
 
@@ -276,7 +273,7 @@ class SocialNetworkEnv(gym.Env):
             agent.reward - agent.penalty + 0.9 * max_qVal - qVal
         )
 
-        return agent.reward, agent.penalty, influenced, qVal
+        return agent.reward, agent.penalty, influenced if influenced else None, qVal
 
 
     def step_fact_checker(self, fact_checker_agent, threshold=0.7):
@@ -373,3 +370,39 @@ class SocialNetworkEnv(gym.Env):
     
     def get_node_from_agent(self, agent):
         return self.graph.nodes[self.get_value_from_agent(agent)]
+    
+
+    def print_consumer_info(self):
+        """
+        Prints trust levels and other information for each consumer node.
+        """
+        print("\nConsumer Node Info:")
+        for node, data in self.graph.nodes(data=True):
+            if data["agentType"] == "consumer":
+                trust_level = data["trustLevel"]
+                interactions = len(data["interactions"])
+                print(f"\nNode {node} - Trust Level: {trust_level:.2f}, Interactions: {interactions}")
+
+
+    def visualize_rewards_penalties(self, agent, rewards, penalties):
+        """
+        Visualizes the rewards vs. penalties for a specific agent over time.
+        
+        Parameters:
+        - agent: The agent being tracked (NewsAgent or FactCheckerAgent).
+        - rewards: List of rewards accumulated over epochs.
+        - penalties: List of penalties accumulated over epochs.
+        """
+        epochs = range(1, len(rewards) + 1)
+        
+        plt.figure(figsize=(10, 6))
+        plt.plot(epochs, rewards, label="Rewards", marker='o')
+        plt.plot(epochs, penalties, label="Penalties", marker='o')
+        
+        plt.title(f"Reward vs Penalty for Agent: {agent.get_type()}", fontsize=16)
+        plt.xlabel("Epochs", fontsize=14)
+        plt.ylabel("Value", fontsize=14)
+        plt.legend(fontsize=12)
+        plt.grid(alpha=0.4)
+        plt.tight_layout()
+        plt.show()
