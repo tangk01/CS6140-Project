@@ -290,6 +290,7 @@ The first two scenarios we analyzed included keeping the number of agents consta
 1. 5 consumers, 1 real agent, 1 fake agent, 1 fact checking agent\\
 2. 50 consumers, 1 real agent, 1 fake agent, 1 fact checking agent\\
 3. 5 consumers, 3 real agents, 1 fake agent, 1 fact checking agent\\
+4. 50 consumers, 1 real agent, 1 fake agent, 0 fact checkers\\
 
 \textbf{Scenario 1: 5 consumer network at first epoch}
 
@@ -570,6 +571,29 @@ By the final epoch, we can see a few important results. First, each of the real 
      \label{fig: 5 consumer, 5 agentss}
  \end{figure}
 
+ \pagebreak
+\subsubsection{Scenario 4: 50 consumer network with 1 real agent, 1 fake agent, 0 fact checker:}
+
+The final scenario we wanted to visualize was the effect on the overall network when the fact-checking agent was removed. For this, we ran a setup of 50 consumers, 1 real and 1 fake agent across 20 epochs.
+
+\begin{figure}[htbp]
+     \centering
+     \begin{minipage}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{../results/no_fact_checker/real.png}
+         \caption{No Fact-Check, Real Info Agent Reward vs Penalty}
+         \label{fig: real agent, no fact}
+     \end{minipage}
+     \hfill
+     \begin{minipage}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{../results/no_fact_checker/fake.png}
+         \caption{No Fact-Check, Fake Info Agent Reward vs Penalty}
+         \label{fig: fake agent, no fact}
+     \end{minipage}
+ \end{figure}
+
+In both of these figures, we can see how the reward/penalty across the number of epochs steadily grows instead of leveling out at a certain point like in Figures 7 and 8. This lack of convergence indicates that without an active agent to review the information the two networks will battle across each iteration in an attempt to gain the most reward. However, since both agents have the same action space the likelihood for one to gain an advantage over the other is largely based on chance. As a result, the involvement of a fact-checking agent is crucial to prevent the spread of misinformation. This easily correlates to the real world where two news sources with equal access to consumers will have essentially equal footing unless a third party mediates.
 
 \pagebreak
 \section{Conclusions}
@@ -581,13 +605,23 @@ Overall, we say that consumer trust was very low when we had a fact checker pres
 
 We found when there was no fact checker involved, or when we increased the number of agents spreading real information, that the networks trust levels were split between trusting real information, and trusting fake information. This result was expected, as we assumed that in a real world scenario it is hard to understand what information is truly real, or truly fake, and so there is a fine line on what information sources to trust.
 
-We saw that over iterations, all the agents were in fact learning, and this was shown by their q-values. Each agents q-values steadily increased, meaning that they were always choosing the action that gave them the highest reward vs penalty tradeoff based on the epsilon-greedy strategy. 
+We saw that over iterations, all the agents were in fact learning, and this was shown by their q-values. Each agents q-values steadily increased, meaning that they were always choosing the action that gave them the highest reward vs penalty tradeoff based on the epsilon-greedy strategy.
+
+For future work on this project, we can evaluate different starting trust levels, different threshold values for the fact checker, as well as develop different networks with more isolated communities to see the spread of information. We can also mess around with the number of agents, their learning rate, and their overall q-learning functions. Finally, there is also potential to investigate other reinforcement learning models like deep-q learning, or the genetic algorithm over the regular q-learning algorithm.
 
 \section{Individual Tasks}
 
 \section{References}
 [1] M. Goindani and J. Neville, "Social Reinforcement Learning to Combat Fake News Spread," *Proceedings of Machine Learning Research*, vol. 115, pp. 1–15, 2020.
 
+\sloppy
+[2] M. Abdar, F. Pourpanah, S. Hussain, D. Rezazadegan, L. Liu, M. Ghavamzadeh, P. Fieguth, X. Cao, A. Khosravi, U. R. Acharya, V. Makarenkov, and S. Nahavandi, "A review of uncertainty quantification in deep learning: Techniques, applications and challenges," Information Sciences, vol. 546, pp. 555-588, 2021. Available: https://doi.org/10.1016/j.ins.2019.12.005
+
+\sloppy
+[3] A. Dosovitskiy, L. Beyer, A. Kolesnikov, X. Zhai, T. Unterthiner, M. Dehghani, M. Minderer, G. Heigold, S. Gelly, J. Uszkoreit, and N. Houlsby, "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale," arXiv preprint arXiv:2010.03050, 2020. [Online]. Available: https://arxiv.org/abs/2010.03050
+
+\sloppy
+[4] Q. Zhang, W. Zhou, S. Wang, Q. Shen, F. Xu, and J. Sun, "Reinforcement-Learning-Based Dynamic Opinion Maximization in Social Networks," IEEE Transactions on Information Forensics and Security, vol. 17, pp. 290-303, 2022. [Online]. Available: https://ieeexplore.ieee.org/document/9676712
 
 
 %\input{policies.tex}
