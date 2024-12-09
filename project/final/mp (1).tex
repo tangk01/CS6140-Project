@@ -285,11 +285,11 @@ The way we will evaluate our environment is based on three criteria. Each agents
 
 \section{Results}
 \subsubsection{Network setup: }
-The first three scenarios we analyzed were keeping the number of agents constant and changing the number of consumers in the network. Since all consumers begin with an equal trust level defaulting each consumer to have 50\% trust in fake and 50\% trust in real agents, we are able to see how a larger network may affect the spread of information. The setup is:
+The first two scenarios we analyzed included keeping the number of agents constant and changing the number of consumers in the network. Since all consumers begin with an equal trust level defaulting each consumer to have 50\% trust in fake and 50\% trust in real agents, we are able to see how a larger network may affect the spread of information. The threshold set for the fact checker to kick in is 70\%, meaning the amount of influence an agent has across the network is 70\% or more. The setup is:
 
 1. 5 consumers, 1 real agent, 1 fake agent, 1 fact checking agent\\
 2. 50 consumers, 1 real agent, 1 fake agent, 1 fact checking agent\\
-3. 100 consumers, 1 real agent, 1 fake agent, 1 fact checking agent\\
+3. 5 consumers, 3 real agents, 1 fake agent, 1 fact checking agent\\
 
 \textbf{Scenario 1: 5 consumer network at first epoch}
 
@@ -398,7 +398,190 @@ Lastly, consumers trust significantly decreased. While the spread of real inform
 
 \textbf{note:} For the full set of outputs, please refer to the output.txt file inside the results folder for the specific number of consumer network you want to analyze. This is shortened for the report to reduce the number of images and output text necessary.
 
+\subsubsection{Scenario 2: 50 consumer network at first epoch}
+\begin{figure}[htbp]
+     \centering
+     \includegraphics[width=0.5\textwidth]{../results/50consumer/50_initial.png}
+     \caption{50 consumers with 3 agents after first epoch}
+     \label{fig: 50 consumer, 3 agents}
+ \end{figure}
+
+
+ \begin{figure}[htbp]
+     \centering
+     \begin{minipage}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{../results/50consumer/real_rp.png}
+         \caption{Real info Agent reward vs penalty}
+         \label{fig:image3}
+     \end{minipage}
+     \hfill
+     \begin{minipage}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{../results/50consumer/fake_rp.png}
+         \caption{Fake info Agent reward vs penalty}
+         \label{fig:image4}
+     \end{minipage}
+ \end{figure}
+
+
+\pagebreak
+\textbf{Consumer trust after final epoch: }
+
+\begin{figure}[htbp]
+     \centering
+     \includegraphics[width=1.0\textwidth]{../results/50consumer/finaltrust.png}
+     \caption{50 consumers with 3 agents after final epoch}
+     \label{fig: 50 consumer, 3 agentss}
+ \end{figure}
+
+
+
+ We can see that our results are similar to that of a smaller network. Both the real information agent continues to maximize its reward while having a signficantly lower penalty, and the fake information agent tends to maximize its penalty and does not decieve the network well. Because of this, consumer trust level is significantly lower, and each consumer steadily reduces their trust. This appears to be a result of how well the fact checker investigated various consumers who interacted and accepted the fake information and corrected it.
+
+ \textbf{note: } The output from this simulation is quite large, and to save space all output can be found in the output.txt related to this simulation inside the 50consumer folder.
+
+ \pagebreak
+ \subsubsection{Scenario 3: 5 consumer network with 3 real agents, 1 fake agent, 1 fact checker:}
+ 
+ \begin{figure}[htbp]
+     \centering
+     \includegraphics[width=0.5\textwidth]{../results/multi_real_agent/initial.png}
+     \caption{5 consumer with 5 agents}
+     \label{fig: 5 consumer, 5 agents}
+ \end{figure}
+
+In Scenario 3, we introduce two more real information agents to the network to simulate how an increase in spread of real information may impact consumer consensus on spreading information across the network.
+
+\textbf{Output after the first epoch: }
+
+\begin{verbatim}
+--------- epoch 0 ---------------------
+
+Fake Agent: 
+reward: 4, penalty : 0, influenced : {0, 2, 3, 4}, qval : 0.0
+
+Real Agent: 
+reward: 0, penalty : 2, influenced : None, qval : 0.0
+
+Real Agent 2: 
+reward: 3, penalty : 1, influenced : {0, 1, 4}, qval : 0.0
+
+Real Agent 3: 
+reward: 0, penalty : 1, influenced : None, qval : 0.0
+
+
+Fact Checker Agent fact-checks: 
+Agent type: fake-information penalty: 0 reward: 4 trust level: 0.8
+Agent type: real-information penalty: 1 reward: 3 trust level: 0.6
+
+Fact-checker penalized news agent: 
+{'agentType': 'fake-information', 'qVal': 0.76, 'trustLevel': 0.0, 'reward': 4, 'penalty': 0}.
+
+set of fake information agents audited:  
+{Agent type: fake-information penalty: 1 reward: 4 trust level: 0.8}
+
+Consumer trust level before fact checking:
+[0.1, -0.1, 0.1, 0.2, 0.2, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+Consumer trust level after fact checking: 
+[-0.04999999999999999, -0.1, -0.04999999999999999, 
+0.05000000000000002, 0.05000000000000002, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+\end{verbatim}
+
+After the first epoch, we can see that the fake agent has accrued some reward, meaning it was able to be deceptive so far. One of the three real information agents has accrued more reward than penalty, and the other two have accrued penalties. The fact checking agent has already penalized one agent in the network.
+
+
+\textbf{Output after the final epoch: }
+
+\begin{verbatim}
+--------- epoch 9 ---------------------
+
+Fake Agent: 
+reward: 12, penalty : 28, influenced : {3}, qval : -1.7047081174000005
+
+Real Agent: 
+reward: 21, penalty : 10, influenced : None, qval : 7.159591478
+
+Real Agent 2: 
+reward: 18, penalty : 10, influenced : None, qval : 4.0796028638
+
+Real Agent 3: 
+reward: 23, penalty : 9, influenced : None, qval : 9.395870369
+
+
+Fact Checker Agent fact-checks: 
+Agent type: fake-information penalty: 28 reward: 12 trust level: 1.0
+Agent type: real-information penalty: 10 reward: 18 trust level: 0.8
+Agent type: real-information penalty: 10 reward: 21 trust level: 1.0
+Agent type: real-information penalty: 9 reward: 23 trust level: 1.0
+
+Fact-checker penalized news agent: 
+{'agentType': 'fake-information', 'qVal': -3.1342373056600006, 
+'trustLevel': 0.0, 'reward': 12, 'penalty': 28}.
+
+Fact-checker found no fake news in node Agent type: 
+real-information penalty: 10 reward: 18 trust level: 0.8.
+
+Fact-checker found no fake news in node Agent type: 
+real-information penalty: 10 reward: 21 trust level: 1.0.
+
+Fact-checker found no fake news in node Agent type: 
+real-information penalty: 9 reward: 23 trust level: 1.0.
+
+set of fake information agents audited:  
+{Agent type: fake-information penalty: 29 reward: 12 trust level: 1.0}
+
+Consumer trust level before fact checking:  
+[-3.850000000000001, -1.55, -2.4500000000000006, 
+0.7499999999999996, -3.0500000000000007, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+Consumer trust level after fact checking: 
+[-4.000000000000001, -1.7, -2.6000000000000005, 
+0.5999999999999995, -3.2000000000000006, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+reward: 10 penalty: 20
+\end{verbatim}
+
+By the final epoch, we can see a few important results. First, each of the real agents have grown their reward significantly, and each have a higher reward than penalty ratio. The fake information agent has a very low reward and a high penalty, meaning it did not do a good job deceiving the ntework. All of the agents q-values grew, meaning the agents learned the best action to take at the right time. Only the fake agents q-value went negative, meaning it did not learn this network efficiently. The fact checker did a good job, as it penalized the fake news agent, and restored trust in the network.
+
+\begin{figure}[htbp]
+     \centering
+     \begin{minipage}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{../results/multi_real_agent/real_rp.png}
+         \caption{Real info Agent reward vs penalty}
+         \label{fig:image4}
+     \end{minipage}
+     \hfill
+     \begin{minipage}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{../results/multi_real_agent/fake_rp.png}
+         \caption{Fake info Agent reward vs penalty}
+         \label{fig:image5}
+     \end{minipage}
+ \end{figure}
+
+\begin{figure}[htbp]
+     \centering
+     \includegraphics[width=0.7\textwidth]{../results/multi_real_agent/consumertrust.png}
+     \caption{5 consumer with 5 agents}
+     \label{fig: 5 consumer, 5 agentss}
+ \end{figure}
+
+
+\pagebreak
 \section{Conclusions}
+In conclusion, simulating information being spread amongst a group of users can be quite difficult and there are a lot of external factors that contribute to why or why not some peice of data, news or information is being spread. In our network, we found that when the fact checking agent wasn't present, the consumers trust levels remained high. Whenever we introduced a fact-checker, and it successfully identified fake information, the networks trust level overall decreased and majority of the network was less willing to trust any news source, including real information.
+
+Some of the key findings that we found were that as we increased the number of epochs, the reward vs penalty for real information and fake information agents steadily increased. We found for real information agents, they were always increasing their reward and looking to decrease their penalty. Whereas, we noticed for fake information agents, they had a difficult time being deceptive. Fake information agents gradually grew their penalty, and had fewer rewards, meaning they were less effective at manipulating the network. 
+
+Overall, we say that consumer trust was very low when we had a fact checker present. The reason behind this we believe is because the way our network is setup is that if an agents action space says to send a piece of information, and then the consumer accepts it, it is possible for all consumers to accept this peice of information, which increases the agents overall influence on the network. When the fact checker audits the network and looks into this agent and finds the entire network was decieved, it then updates their trust level and applies a multiplier to counter their trust, which we believe over iterations significantly lowered their trust levels.
+
+We found when there was no fact checker involved, or when we increased the number of agents spreading real information, that the networks trust levels were split between trusting real information, and trusting fake information. This result was expected, as we assumed that in a real world scenario it is hard to understand what information is truly real, or truly fake, and so there is a fine line on what information sources to trust.
+
+We saw that over iterations, all the agents were in fact learning, and this was shown by their q-values. Each agents q-values steadily increased, meaning that they were always choosing the action that gave them the highest reward vs penalty tradeoff based on the epsilon-greedy strategy. 
 
 \section{Individual Tasks}
 
