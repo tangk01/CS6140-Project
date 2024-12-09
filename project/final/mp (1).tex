@@ -59,11 +59,11 @@
 
 
 \section{Objectives and Significance}
-The objective of this project is to train a multi-agent environment in which consumers belong to a social network and real-information agents, fake-information agents and fact checker agents directly or indirectly influence the consumers. These three agents are all working towards different goals. The fake and real information agents are responsible for spreading their news types to the consumers and are working towards influencing the largest number of consumers in the network. The fact checking agent is responsible for finding misinformation being spread and penalizing the responsible agent. Each agent is rewarded and penalizes based on their own reward system.
+The objective of this project is to train a multi-agent environment in which consumers belong to a social network and real-information agents, fake-information agents, and fact-checker agents directly or indirectly influence the consumers. These three agents are all working towards different goals. The fake and real information agents are responsible for spreading their news types to the consumers and are working towards influencing the largest number of consumers in the network. The fact-checking agent is responsible for finding misinformation being spread and penalizing the responsible agent. Each agent is rewarded and penalized based on their own reward system.
 
-This topic is very important as it mimicks a real world scenario where everyday people are influenced by information spread from their peers, news sources, social media or other outlets. Due to how much information is out there it can be very difficult to understand if the information you are consuming is truthful or not. Creating this environment allowed us to simulate the influence these outlets have on individuals and how their trust levels change over time as they get exposed to more information, or find out if the information they are absorbing is truthful or not. 
+This topic is very important as it mimics a real-world scenario where everyday people are influenced by information spread from their peers, news sources, social media, or other outlets. Due to how much information is out there, it can be very difficult to understand if the information you are consuming is truthful or not. Creating this environment allowed us to simulate the influence these outlets have on individuals and how their trust levels change over time as they get exposed to more information or find out if the information they are absorbing is truthful or not.
 
-Reinforcement Learning is very interesting to us, and so we chose to explore it. Reinforcement learning can serve as a framework to solve problems which require complex decision making where at each step the agent is rewarded or penalized. Some of the initial findings we found were that as the epochs increased, we noticed that the real information agents were rewarded more frequently than they were penalized. Whereas, fake information agents were penalzied more frequently than they were rewarded. Because of this, we saw a pretty back and forth output where consumers trustlevels fluctuated between trusting real or fake information appropriately. We also found that the fact checking agents were crucial to helping us correct the fake information that was spreading across the network. A deeper analysis of our results will be discussed below.
+Reinforcement learning is very interesting to us, and so we chose to explore it. Reinforcement learning can serve as a framework to solve problems that require complex decision-making where, at each step, the agent is rewarded or penalized. Some of the initial findings we found were that as the epochs increased, we noticed that the real information agents were rewarded more frequently than they were penalized. Whereas fake information agents were penalized more frequently than they were rewarded. Because of this, we saw a pretty back-and-forth output where consumers trust levels fluctuated between trusting real or fake information appropriately. We also found that the fact-checking agents were crucial to helping us correct the fake information that was spreading across the network. A deeper analysis of our results will be discussed below.
 
 \section{Background}
 Opinion dynamics in social networks explores how opinions form, evolve, and spread within interconnected groups. In the digital age, social media acts as a platform for this exchange, where information can be categorized as either truths or falsehoods, including misinformation and disinformation that mislead and complicate decision-making. Using reinforcement learning, we simulate this exchange with agents representing the public, malicious falsehood spreaders, fact-checkers, and truth spreaders. These agents interact and adapt, enabling realistic simulations of opinion spreading while uncovering concepts like confirmation bias and echo chambers.
@@ -71,12 +71,12 @@ Opinion dynamics in social networks explores how opinions form, evolve, and spre
 
 There has been a lot of research done on this topic, and in particular one research study looked into the impact of false-information spread during election season.
 
-In Goindani and Neville's paper "Social Reinforcement Learning to Combat Fake News Spread" [1], they modeled an environment in which they used Twitter information from tweets being shared across a network of users. By looking into a user's following, they constructed a graph network to isolate their experiment. The way information was shared was by retweeting posts. If a user retweets a post, they tracked how many times each user observes both fake and real news being spread through tweets. Each tweet was tagged as either Real or Fake based on their tagging criteria outlined in their paper. Their goal was to combat false information being spread by increasing the prevalence of real-information tweets, aiming to boost trust in real-information tweets and to raise skepticism in false information. They then measured the number of users exposed to a tweet versus the total number of users in the graph in terms of network influence. They also aimed to reward users who shared real-information tweets. This research was conducted around election season and only accounts for tweets related to politics to label consumers' political affiliation based on the type of information they spread. They found that the spread of true news increased when using a reinforcement learning policy that assigned rewards, giving users more incentive to participate. Additionally, they achieved a higher percentage of true news dissemination while reducing the spread of fake news.
+In Goindani and Neville's paper "Social Reinforcement Learning to Combat Fake News Spread" [1], they modeled an environment in which they used Twitter information from tweets being shared across a network of users. By looking into a user's following, they constructed a graph network to isolate their experiment. The way information was shared was by retweeting posts. If a user retweets a post, they tracked how many times each user observes both fake and real news being spread through tweets. Each tweet was tagged as either real or fake based on their tagging criteria outlined in their paper. Their goal was to combat false information being spread by increasing the prevalence of real-information tweets, aiming to boost trust in real-information tweets and to raise skepticism in false information. They then measured the number of users exposed to a tweet versus the total number of users in the graph in terms of network influence. They also aimed to reward users who shared real-information tweets. This research was conducted around election season and only accounts for tweets related to politics to label consumers' political affiliation based on the type of information they spread. They found that the spread of true news increased when using a reinforcement learning policy that assigned rewards, giving users more incentive to participate. Additionally, they achieved a higher percentage of true news dissemination while reducing the spread of fake news.
 
-Our work is particularly interesting because it is very generalized. We saw how applying this to a political environment allows you to model important events like a US Presidential election and how the spread of fake information can change users political opinions. Our scenario is a bit more uinique in the sense that on top of observing how false and real information is spread throughout a network, we add an additional agent who is responsible for fact checking information. With this addition, we can simulate a scenario where users are spreading information, and then the fact checker can choose to audit an agent and if it finds fake information, it will update all consumers trust levels who were exposed to that agent information, and give that agent a penalty. This adds a level of skepticism for the consumers as their trust levels should reflect not trusting false information spreaders as time goes on.
+Our work is particularly interesting because it is very generalized. We saw how applying this to a political environment allows you to model important events like a US presidential election and how the spread of fake information can change users political opinions. Our scenario is a bit more unique in the sense that on top of observing how false and real information is spread throughout a network, we add an additional agent who is responsible for fact-checking information. With this addition, we can simulate a scenario where users are spreading information, and then the fact checker can choose to audit an agent, and if it finds fake information, it will update all consumers trust levels who were exposed to that agent's information and give that agent a penalty. This adds a level of skepticism for the consumers, as their trust levels should reflect not trusting false information spreaders as time goes on.
 
 \section{Methods: }
-Our data will be generated as we simulate the environment. The way we plan to generate data is to setup a graph network which represents a social network of people that form inner relationships. Not every node in the network will connect to every node, meaning we want to represent real life social circles. The data that we need for our simulation is consumer trust levels, rewards and penalties for each agent, q-values for each agent, and to be able to store all of the information that is being spread. We initialize the environment such that all consumers have an equal ratio of believing in fake or real information, and as they accept/deny information their trust levels will increase or decrease with it. This allows for each epoch to change how likely a consumer will want to accept information and spread it to its neighbors. At the start of a new epoch, each consumer will have its updated trust level and be able to make different decisions each cycle.
+Our data will be generated as we simulate the environment. The way we plan to generate data is to set up a graph network that represents a social network of people that form inner relationships. Not every node in the network will connect to every node, meaning we want to represent real-life social circles. The data that we need for our simulation is consumer trust levels, rewards and penalties for each agent, and q-values for each agent, and we need to be able to store all of the information that is being spread. We initialize the environment such that all consumers have an equal ratio of believing in fake or real information, and as they accept/deny information, their trust levels will increase or decrease with it. This allows for each epoch to change how likely a consumer will want to accept information and spread it to its neighbors. At the start of a new epoch, each consumer will have its updated trust level and be able to make different decisions each cycle.
 
 \subsubsection{Agent Types:}
 There are three types of agents in our network:
@@ -85,13 +85,13 @@ There are three types of agents in our network:
 2. false-information agent: in charge of spreading false information.\\
 3. fact-checker agent: in charge of auditing messages being spread across the network.\\
 
-In our network an agent represents an entity which learns through interacting with the environment to achieve some goal. Both the false and real information agents goals are to spread the most amount of information across the network to achieve the highest influence. These agents will be rewarded for the amount of influence they generate over the network which will be a ratio:
+In our network an agent represents an entity that learns through interacting with the environment to achieve some goal. Both the false and real information agents goals are to spread the most amount of information across the network to achieve the highest influence. These agents will be rewarded for the amount of influence they generate over the network, which will be a ratio:
 
 \[
 \text{Influence} = \frac{\text{Number of consumers influenced in an epoch}}{\text{Total number of consumers in the network}}
 \]
 
-This ratio goes a bit further in the sense that each agent has its own binary action space which either allows them to send or not send information to one of their neighbors in the network. Lastly, each consumer has their own trust level which is initially set to 0 to simulate an even trust in false and real information which will be updated throughout the simulation. When information is spread to a consumer, they have the ability to accept or deny the information. Whether they choose to accept, or deny the information will then trigger a reward, penalty and trust level update. The way they accept or deny will be based on their trust level and the sigmoid function:
+This ratio goes a bit further in the sense that each agent has its own binary action space, which either allows them to send or not send information to one of their neighbors in the network. Lastly, each consumer has their own trust level, which is initially set to 0 to simulate an even trust in false and real information, which will be updated throughout the simulation. When information is spread to a consumer, they have the ability to accept or deny the information. Whether they choose to accept or deny the information will then trigger a reward, penalty, and trust level update. The way they accept or deny will be based on their trust level and the sigmoid function:
 
 let $P$ be a random value sampled from a $\mathcal{N}(0.5, 0.15)$ normal distribution.
 
@@ -111,7 +111,7 @@ where $\Delta_{t}$ represents each consumers trustLevel, and $\sigma(x)$ represe
 \frac{1}{1 + e^{-\text{trustLevel}}}
 \]
 
-If the consumer denies or accepts the information being spread to them then the agent responsible for sending it will be rewarded or penalized. Information does not have to directly come from an agent. For example, an agent can spread information to a consumer and this consumer can then spread this information down the chain in which the original source agent who sent it will be rewarded or penalized. rewards and penalties can be equated:
+If the consumer denies or accepts the information being spread to them, then the agent responsible for sending it will be rewarded or penalized. Information does not have to directly come from an agent. For example, an agent can spread information to a consumer, and this consumer can then spread this information down the chain in which the original source agent who sent it will be rewarded or penalized. rewards and penalties can be equated:
 
 \[
 \text{Reward}_{\text{new}} = \text{Reward}_{\text{old}} + 1 \quad \text{if AgentType = "fake-information" and } P \leq \sigma(\text{trustLevel}_{\text{old}})
@@ -214,7 +214,7 @@ If the consumer denies or accepts the information being spread to them then the 
           return agent.reward, agent.penalty, influenced, qVal
 \end{verbatim}
 
-Each agent is looking to maximize their q-values. The Q-values are known as the action-value functions which represent the expected cumulative reward an agent can achieve by taking a specific action $a$ in a  given state $s$. Q-values are used to balance exploration (trying a new action) and exploitation (choosing the best known action) using the epsilon-greedy strategy. This formula can be denoted as:
+Each agent is looking to maximize their q-values. The Q-values are known as the action-value functions, which represent the expected cumulative reward an agent can achieve by taking a specific action $a$ in a given state $s$. Q-values are used to balance exploration (trying a new action) and exploitation (choosing the best-known action) using the epsilon-greedy strategy. This formula can be denoted as:
 \[
 \text{Q(s, a)} = \mathbb{E}\left[\sum_{t=0}^{\infty}\gamma_{t}R_{t + 1} | s_{t} = s, a = a\right]
 \]
@@ -248,7 +248,7 @@ $\alpha$: learning rate\\
 $s`$: next state after taking action $a$
 
 
-The fact-checker agent is responsible for auditing a random consumer in the network that meets the criteria. The fact-checker will have their own binary action space which decides if they audit or not, and then based on this if they choose to audit, then it is based on if the source agents influence across the network is greater then some threshold, i.e 70\% of the network has accepted information from them. The fact-checkers job is to then audit a consumer node, and from here check if the source agent is a "fake" or "real" information agent. If the information came from a fake agent, then we will award the fact-checker agent with a reward to finding this, and we will penalize the source agent for being caught. Lastly, we update all the consumer nodes trustLevels who recieved information from this agent. This allows us to simulate and model an environment which showcases what the networks trust levels would had been if a fact checker didn't exist and to also see how the trust level changes when false information is found. This creates a unique dynamic where false information agents want to act discretely and avoid being caught.
+The fact-checker agent is responsible for auditing a random consumer in the network that meets the criteria. The fact-checker will have their own binary action space, which decides if they audit or not, and then based on this, if they choose to audit, then it is based on if the source agent's influence across the network is greater than some threshold, i.e., 70% of the network has accepted information from them. The fact-checker's job is to then audit a consumer node, and from here check if the source agent is a "fake" or "real" information agent. If the information came from a fake agent, then we will award the fact-checker agent with a reward for finding this, and we will penalize the source agent for being caught. Lastly, we update all the consumer nodes trust levels who received information from this agent. This allows us to simulate and model an environment that showcases what the networks trust levels would have been if a fact checker didn't exist and to also see how the trust level changes when false information is found. This creates a unique dynamic where false information agents want to act discreetly and avoid being caught.
 
 \textbf{Fact-checker step function}:
 
@@ -280,12 +280,11 @@ The fact-checker agent is responsible for auditing a random consumer in the netw
           fact_checker_node["qVal"] = updated_qVal
 \end{verbatim}
 
-The way we will evaluate our environment is based on three criteria. Each agents q-values at the end of an epoch. If the q-values are steadily increasing between epoch then we can assume that the agents are choosing the most optimal action that will grant them the highest reward/penalty return. We will also be measuring the success of each agent based on their rewards and penalties. For the real information agent, we are hoping to see that these agents maximize they rewards and get little penalty. For the fake information agents, we expect these to display higher penalties and less rewards.
-
+The way we will evaluate our environment is based on three criteria. Each agent's Q-values at the end of an epoch. If the q-values are steadily increasing between epochs, then we can assume that the agents are choosing the most optimal action that will grant them the highest reward/penalty return. We will also be measuring the success of each agent based on their rewards and penalties. For the real information agent, we are hoping to see that these agents maximize their rewards and get little penalty. For the fake information agents, we expect these to display higher penalties and fewer rewards.
 
 \section{Results}
 \subsubsection{Network setup: }
-The first two scenarios we analyzed included keeping the number of agents constant and changing the number of consumers in the network. Since all consumers begin with an equal trust level defaulting each consumer to have 50\% trust in fake and 50\% trust in real agents, we are able to see how a larger network may affect the spread of information. The threshold set for the fact checker to kick in is 70\%, meaning the amount of influence an agent has across the network is 70\% or more. The setup is:
+The first two scenarios we analyzed included keeping the number of agents constant and changing the number of consumers in the network. Since all consumers begin with an equal trust level, defaulting each consumer to have 50\% trust in fake and 50\% trust in real agents, we are able to see how a larger network may affect the spread of information. The threshold set for the fact checker to kick in is 70\%, meaning the amount of influence an agent has across the network is 70\% or more. The setup is:
 
 1. 5 consumers, 1 real agent, 1 fake agent, 1 fact checking agent\\
 2. 50 consumers, 1 real agent, 1 fake agent, 1 fact checking agent\\
@@ -302,7 +301,7 @@ The first two scenarios we analyzed included keeping the number of agents consta
  \end{figure}
  
 
- The initial trust levels for all consumers will be 0 and the agents will have a random action space indicating if they decide to send information to their neighbors. 
+The initial trust levels for all consumers will be 0, and the agents will have a random action space indicating if they decide to send information to their neighbors.
 
 \pagebreak
 \textbf{Output after the first epoch:}
@@ -325,7 +324,7 @@ Consumer trust level after fact checking [0.0, -0.1, -0.1, 0.1, -0.2, 0.0, 0.0, 
 
 \end{verbatim}
 
-We can see that after our first epoch, the fake-information agent has already accrued a penalty of 3 and the real agent has accrued a reward of 1 and a penalty of 1. These reward/penalties are a direct result from whether or not a consumer is accepting or denying their information. As a result, each consumers trustLevel is increasing or decreasing. At the end of the epoch, our fact checking agent kicks into gear and finds no fake information being spread across the network, and so the trust levels stand for this scenario. Because no false information was found, the consumer trust levels before and after the fact checker was introduced stay the same.
+We can see that after our first epoch, the fake-information agent has already accrued a penalty of 3, and the real agent has accrued a reward of 1 and a penalty of 1. These rewards/penalties are a direct result of whether or not a consumer is accepting or denying their information. As a result, each consumer's trust level is increasing or decreasing. At the end of the epoch, our fact-checking agent kicks into gear and finds no fake information being spread across the network, and so the trust levels stand for this scenario. Because no false information was found, the consumer trust levels before and after the fact checker was introduced stay the same.
 
 \textbf{Scenario 1: 5 consumer network at final epoch}
 
@@ -336,7 +335,7 @@ We can see that after our first epoch, the fake-information agent has already ac
      \label{fig: 5 consumer, 3 agents}
  \end{figure}
  
-The network now shows at epoch 7 the information traveling from consumer to consumer, indicated by the edge color to depict whether it is false, or real information being sent.
+The network now shows at epoch 7 the information traveling from consumer to consumer, indicated by the edge color to depict whether it is false or real information being sent.
 
 \textbf{Output after the final epoch:}
 \begin{verbatim}
@@ -367,7 +366,7 @@ Consumer trust level after fact checking:
 [-1.25, -1.8499999999999999, -1.65, -1.0, -2.3000000000000003, 0.0, 0.0, 0.0]
 \end{verbatim}
 
-A few results are obvious when we analyze the outcome of this scenario from the first to the final epoch. The real-information agent ended the session with a reward of 26 and a penalty of 6. Meaning, it was able to gain more rewards opposed to penalty, successfully influencing the network. We can see that the real information agents q-value rose to 10.44. The fake information agent is opposite where it has a reward of 7, and a penalty of 27, meaning that it was not quite successful in influencing the network. The fake information agent ends the scenario with a negative q-value at -4.09 and was unable to influence the network. The penalty and negative q-value reflect the fact that the fact-checker was able to do a good job punishing this agent for not being deceptive enough. 
+A few results are obvious when we analyze the outcome of this scenario from the first to the final epoch. The real-information agent ended the session with a reward of 26 and a penalty of 6. Meaning, it was able to gain more rewards opposed to penalties, successfully influencing the network. We can see that the real information agent's q-value rose to 10.44. The fake information agent is opposite where it has a reward of 7 and a penalty of 27, meaning that it was not quite successful in influencing the network. The fake information agent ends the scenario with a negative q-value of -4.09 and was unable to influence the network. The penalty and negative q-value reflect the fact that the fact-checker was able to do a good job punishing this agent for not being deceptive enough.
 
 \begin{figure}[htbp]
      \centering
@@ -388,7 +387,7 @@ A few results are obvious when we analyze the outcome of this scenario from the 
  
 
 
-Lastly, consumers trust significantly decreased. While the spread of real information was apparent, the fact that the fake information spreader has such a high penalty indicates it was caught various times throughout our simulation and therefore consumer trust ended negative, infact here are some visuals to see it:
+ Lastly, consumers trust significantly decreased. While the spread of real information was apparent, the fact that the fake information spreader has such a high penalty indicates it was caught various times throughout our simulation, and therefore consumer trust ended negatively. In fact,  here are some visuals to see it:
 
 \begin{figure}[htbp]
      \centering
@@ -397,7 +396,7 @@ Lastly, consumers trust significantly decreased. While the spread of real inform
      \label{fig: 52 consumer, 3 agents}
  \end{figure}
 
-\textbf{note:} For the full set of outputs, please refer to the output.txt file inside the results folder for the specific number of consumer network you want to analyze. This is shortened for the report to reduce the number of images and output text necessary.
+\textbf{note:} For the full set of outputs, please refer to the output.txt file inside the results folder for the specific number of consumer networks you want to analyze. This is shortened for the report to reduce the number of images and output text necessary.
 
 \subsubsection{Scenario 2: 50 consumer network at first epoch}
 \begin{figure}[htbp]
@@ -438,7 +437,7 @@ Lastly, consumers trust significantly decreased. While the spread of real inform
 
 
 
- We can see that our results are similar to that of a smaller network. Both the real information agent continues to maximize its reward while having a signficantly lower penalty, and the fake information agent tends to maximize its penalty and does not decieve the network well. Because of this, consumer trust level is significantly lower, and each consumer steadily reduces their trust. This appears to be a result of how well the fact checker investigated various consumers who interacted and accepted the fake information and corrected it.
+ We can see that our results are similar to that of a smaller network. Both the real information agent continues to maximize its reward while having a significantly lower penalty, and the fake information agent tends to maximize its penalty and does not deceive the network well. Because of this, consumer trust level is significantly lower, and each consumer steadily reduces their trust. This appears to be a result of how well the fact checker investigated various consumers who interacted with and accepted the fake information and corrected it.
 
  \textbf{note: } The output from this simulation is quite large, and to save space all output can be found in the output.txt related to this simulation inside the 50consumer folder.
 
@@ -491,8 +490,7 @@ Consumer trust level after fact checking:
 
 \end{verbatim}
 
-After the first epoch, we can see that the fake agent has accrued some reward, meaning it was able to be deceptive so far. One of the three real information agents has accrued more reward than penalty, and the other two have accrued penalties. The fact checking agent has already penalized one agent in the network.
-
+After the first epoch, we can see that the fake agent has accrued some reward, meaning it was able to be deceptive so far. One of the three real information agents has accrued more reward than penalty, and the other two have accrued penalties. The fact-checking agent has already penalized one agent in the network.
 
 \textbf{Output after the final epoch: }
 
@@ -545,7 +543,7 @@ Consumer trust level after fact checking:
 reward: 10 penalty: 20
 \end{verbatim}
 
-By the final epoch, we can see a few important results. First, each of the real agents have grown their reward significantly, and each have a higher reward than penalty ratio. The fake information agent has a very low reward and a high penalty, meaning it did not do a good job deceiving the ntework. All of the agents q-values grew, meaning the agents learned the best action to take at the right time. Only the fake agents q-value went negative, meaning it did not learn this network efficiently. The fact checker did a good job, as it penalized the fake news agent, and restored trust in the network.
+By the final epoch, we can see a few important results. First, each of the real agents has grown their reward significantly, and each has a higher reward than penalty ratio. The fake information agent has a very low reward and a high penalty, meaning it did not do a good job deceiving the network. All of the agents Q-values grew, meaning the agents learned the best action to take at the right time. Only the fake agent's q-value went negative, meaning it did not learn this network efficiently. The fact checker did a good job, as it penalized the fake news agent and restored trust in the network.
 
 \begin{figure}[htbp]
      \centering
@@ -574,7 +572,7 @@ By the final epoch, we can see a few important results. First, each of the real 
  \pagebreak
 \subsubsection{Scenario 4: 50 consumer network with 1 real agent, 1 fake agent, 0 fact checker:}
 
-The final scenario we wanted to visualize was the effect on the overall network when the fact-checking agent was removed. For this, we ran a setup of 50 consumers, 1 real and 1 fake agent across 20 epochs.
+The final scenario we wanted to visualize was the effect on the overall network when the fact-checking agent was removed. For this, we ran a setup of 50 consumers, 1 real and 1 fake agent, across 20 epochs.
 
 \begin{figure}[htbp]
      \centering
@@ -593,21 +591,21 @@ The final scenario we wanted to visualize was the effect on the overall network 
      \end{minipage}
  \end{figure}
 
-In both of these figures, we can see how the reward/penalty across the number of epochs steadily grows instead of leveling out at a certain point like in Figures 7 and 8. This lack of convergence indicates that without an active agent to review the information the two networks will battle across each iteration in an attempt to gain the most reward. However, since both agents have the same action space the likelihood for one to gain an advantage over the other is largely based on chance. As a result, the involvement of a fact-checking agent is crucial to prevent the spread of misinformation. This easily correlates to the real world where two news sources with equal access to consumers will have essentially equal footing unless a third party mediates.
+ In both of these figures, we can see how the reward/penalty across the number of epochs steadily grows instead of leveling out at a certain point like in Figures 7 and 8. This lack of convergence indicates that without an active agent to review the information, the two networks will battle across each iteration in an attempt to gain the most reward. However, since both agents have the same action space, the likelihood for one to gain an advantage over the other is largely based on chance. As a result, the involvement of a fact-checking agent is crucial to prevent the spread of misinformation. This easily correlates to the real world, where two news sources with equal access to consumers will have essentially equal footing unless a third party mediates.
 
-\pagebreak
+ \pagebreak
 \section{Conclusions}
-In conclusion, simulating information being spread amongst a group of users can be quite difficult and there are a lot of external factors that contribute to why or why not some peice of data, news or information is being spread. In our network, we found that when the fact checking agent wasn't present, the consumers trust levels remained high. Whenever we introduced a fact-checker, and it successfully identified fake information, the networks trust level overall decreased and majority of the network was less willing to trust any news source, including real information.
+In conclusion, simulating information being spread amongst a group of users can be quite difficult, and there are a lot of external factors that contribute to why or why not some piece of data, news, or information is being spread. In our network, we found that when the fact-checking agent wasn't present, the consumers trust levels remained high. Whenever we introduced a fact-checker, and it successfully identified fake information, the networks trust level overall decreased, and the majority of the network was less willing to trust any news source, including real information.
 
-Some of the key findings that we found were that as we increased the number of epochs, the reward vs penalty for real information and fake information agents steadily increased. We found for real information agents, they were always increasing their reward and looking to decrease their penalty. Whereas, we noticed for fake information agents, they had a difficult time being deceptive. Fake information agents gradually grew their penalty, and had fewer rewards, meaning they were less effective at manipulating the network. 
+Some of the key findings that we found were that as we increased the number of epochs, the reward vs. penalty for real information and fake information agents steadily increased. We found for real information agents, they were always increasing their reward and looking to decrease their penalty. Whereas we noticed that for fake information agents, they had a difficult time being deceptive. Fake information agents gradually grew their penalty and had fewer rewards, meaning they were less effective at manipulating the network. 
 
-Overall, we say that consumer trust was very low when we had a fact checker present. The reason behind this we believe is because the way our network is setup is that if an agents action space says to send a piece of information, and then the consumer accepts it, it is possible for all consumers to accept this peice of information, which increases the agents overall influence on the network. When the fact checker audits the network and looks into this agent and finds the entire network was decieved, it then updates their trust level and applies a multiplier to counter their trust, which we believe over iterations significantly lowered their trust levels.
+Overall, we say that consumer trust was very low when we had a fact checker present. The reason behind this, we believe, is because the way our network is set up is that if an agent's action space says to send a piece of information, and then the consumer accepts it, it is possible for all consumers to accept this piece of information, which increases the agent's overall influence on the network. When the fact checker audits the network and looks into this agent and finds the entire network was deceived, it then updates their trust level and applies a multiplier to counter their trust, which we believe over iterations significantly lowered their trust levels.
 
-We found when there was no fact checker involved, or when we increased the number of agents spreading real information, that the networks trust levels were split between trusting real information, and trusting fake information. This result was expected, as we assumed that in a real world scenario it is hard to understand what information is truly real, or truly fake, and so there is a fine line on what information sources to trust.
+We found that when there was no fact checker involved, or when we increased the number of agents spreading real information, the networks trust levels were split between trusting real information and trusting fake information. This result was expected, as we assumed that in a real-world scenario it is hard to understand what information is truly real or truly fake, and so there is a fine line on what information sources to trust.
 
-We saw that over iterations, all the agents were in fact learning, and this was shown by their q-values. Each agents q-values steadily increased, meaning that they were always choosing the action that gave them the highest reward vs penalty tradeoff based on the epsilon-greedy strategy.
+We saw that over iterations, all the agents were in fact learning, and this was shown by their q-values. Each agent's Q-values steadily increased, meaning that they were always choosing the action that gave them the highest reward vs. penalty tradeoff based on the epsilon-greedy strategy.
 
-For future work on this project, we can evaluate different starting trust levels, different threshold values for the fact checker, as well as develop different networks with more isolated communities to see the spread of information. We can also mess around with the number of agents, their learning rate, and their overall q-learning functions. Finally, there is also potential to investigate other reinforcement learning models like deep-q learning, or the genetic algorithm over the regular q-learning algorithm.
+For future work on this project, we can evaluate different starting trust levels and different threshold values for the fact checker, as well as develop different networks with more isolated communities to see the spread of information. We can also mess around with the number of agents, their learning rate, and their overall Q-learning functions. Finally, there is also potential to investigate other reinforcement learning models like deep-Q learning or the genetic algorithm over the regular Q-learning algorithm.
 
 \section{Individual Tasks}
 
