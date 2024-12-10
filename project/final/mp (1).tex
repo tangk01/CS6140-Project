@@ -93,7 +93,7 @@ In our network an agent represents an entity that learns through interacting wit
 
 This ratio goes a bit further in the sense that each agent has its own binary action space, which either allows them to send or not send information to one of their neighbors in the network. Lastly, each consumer has their own trust level, which is initially set to 0 to simulate an even trust in false and real information, which will be updated throughout the simulation. When information is spread to a consumer, they have the ability to accept or deny the information. Whether they choose to accept or deny the information will then trigger a reward, penalty, and trust level update. The way they accept or deny will be based on their trust level and the sigmoid function:
 
-let $P$ be a random value sampled from a $\mathcal{N}(0.5, 0.15)$ normal distribution.
+Let $P$ be a random value sampled from a $\mathcal{N}(0.5, 0.15)$ normal distribution.
 
 To update each consumer trust levels let:
 \[
@@ -105,7 +105,7 @@ To update each consumer trust levels let:
 \end{cases}
 \]
 
-where $\Delta_{t}$ represents each consumers trustLevel, and $\sigma(x)$ represents the sigmoid function:
+Where $\Delta_{t}$ represents each consumers trustLevel, and $\sigma(x)$ represents the sigmoid function:
 
 \[
 \frac{1}{1 + e^{-\text{trustLevel}}}
@@ -126,7 +126,7 @@ If the consumer denies or accepts the information being spread to them, then the
 \text{Penalty}_{\text{new}} = \text{Penalty}_{\text{old}} + 1 \quad \text{if  AgentType = "real-information" and } P < \sigma(\text{trustLevel}_{\text{old}})
 \]
 
-\textbf{Step function: used to train agents and allow consumer decision making (accept/deny incoming information):}
+\textbf{Step function: Used to Train Agents and Allow Consumer Decision Making (Accept/Deny Incoming Information):}
 \begin{verbatim}
      def step(self, action, agent : NewsAgent | FactCheckerAgent):
           agent_node = self.agent_to_node_map[agent]
@@ -218,7 +218,7 @@ Each agent is looking to maximize their q-values. The Q-values are known as the 
 \[
 \text{Q(s, a)} = \mathbb{E}\left[\sum_{t=0}^{\infty}\gamma_{t}R_{t + 1} | s_{t} = s, a = a\right]
 \]
-where:
+Where:
 
 \[
 \begin{aligned}
@@ -242,15 +242,15 @@ And is iteratively updated by:
 Q(s, a) \leftarrow Q(s, a) + \alpha \left[R_{t+1} + \gamma\text{max}Q(s`,a`) - Q(s, a)\right]
 \]
 
-where:
+Where:
 
 $\alpha$: learning rate\\
 $s`$: next state after taking action $a$
 
 
-The fact-checker agent is responsible for auditing a random consumer in the network that meets the criteria. The fact-checker will have their own binary action space, which decides if they audit or not, and then based on this, if they choose to audit, then it is based on if the source agent's influence across the network is greater than some threshold, i.e., 70% of the network has accepted information from them. The fact-checker's job is to then audit a consumer node, and from here check if the source agent is a "fake" or "real" information agent. If the information came from a fake agent, then we will award the fact-checker agent with a reward for finding this, and we will penalize the source agent for being caught. Lastly, we update all the consumer nodes trust levels who received information from this agent. This allows us to simulate and model an environment that showcases what the networks trust levels would have been if a fact checker didn't exist and to also see how the trust level changes when false information is found. This creates a unique dynamic where false information agents want to act discreetly and avoid being caught.
+The fact-checker agent is responsible for auditing a random consumer in the network that meets the criteria. The fact-checker will have their own binary action space, which decides if they audit or not, and then based on this, if they choose to audit, it is based on if the source agent's influence across the network is greater than some threshold, i.e., 70\% of the network has accepted information from them. The fact-checker's job is to then audit a consumer node, and from here check if the source agent is a "fake" or "real" information agent. If the information came from a fake agent, then we will award the fact-checker agent with a reward for finding this, and we will penalize the source agent for being caught. Lastly, we update all the consumer nodes trust levels who received information from this agent. This allows us to simulate and model an environment that showcases what the networks trust levels would have been if a fact checker didn't exist and to also see how the trust level changes when false information is found. This creates a unique dynamic where false information agents want to act discreetly and avoid being caught.
 
-\textbf{Fact-checker step function}:
+\textbf{Fact-checker Step Function}:
 
 \begin{verbatim}
      def step_fact_checker(self, fact_checker_agent, threshold=0.7):
@@ -291,7 +291,7 @@ The first two scenarios we analyzed included keeping the number of agents consta
 3. 5 consumers, 3 real agents, 1 fake agent, 1 fact checking agent\\
 4. 50 consumers, 1 real agent, 1 fake agent, 0 fact checkers\\
 
-\textbf{Scenario 1: 5 consumer network at first epoch}
+\textbf{Scenario 1: 5 Consumer Network at First Epoch}
 
 \begin{figure}[htbp]
      \centering
@@ -304,7 +304,7 @@ The first two scenarios we analyzed included keeping the number of agents consta
 The initial trust levels for all consumers will be 0, and the agents will have a random action space indicating if they decide to send information to their neighbors.
 
 \pagebreak
-\textbf{Output after the first epoch:}
+\textbf{Output after the First Epoch:}
 
 \begin{verbatim}
 Fake Agent: 
@@ -326,7 +326,7 @@ Consumer trust level after fact checking [0.0, -0.1, -0.1, 0.1, -0.2, 0.0, 0.0, 
 
 We can see that after our first epoch, the fake-information agent has already accrued a penalty of 3, and the real agent has accrued a reward of 1 and a penalty of 1. These rewards/penalties are a direct result of whether or not a consumer is accepting or denying their information. As a result, each consumer's trust level is increasing or decreasing. At the end of the epoch, our fact-checking agent kicks into gear and finds no fake information being spread across the network, and so the trust levels stand for this scenario. Because no false information was found, the consumer trust levels before and after the fact checker was introduced stay the same.
 
-\textbf{Scenario 1: 5 consumer network at final epoch}
+\textbf{Scenario 1: 5 Consumer Network at Final Epoch}
 
 \begin{figure}[htbp]
      \centering
@@ -337,7 +337,7 @@ We can see that after our first epoch, the fake-information agent has already ac
  
 The network now shows at epoch 7 the information traveling from consumer to consumer, indicated by the edge color to depict whether it is false or real information being sent.
 
-\textbf{Output after the final epoch:}
+\textbf{Output after the Final Epoch:}
 \begin{verbatim}
 --------- epoch 7 ---------------------
 
@@ -396,7 +396,7 @@ A few results are obvious when we analyze the outcome of this scenario from the 
      \label{fig: 52 consumer, 3 agents}
  \end{figure}
 
-\textbf{note:} For the full set of outputs, please refer to the output.txt file inside the results folder for the specific number of consumer networks you want to analyze. This is shortened for the report to reduce the number of images and output text necessary.
+\textbf{Note:} For the full set of outputs, please refer to the output.txt file inside the results folder for the specific number of consumer networks you want to analyze. This is shortened for the report to reduce the number of images and output text necessary.
 
 \subsubsection{Scenario 2: 50 consumer network at first epoch}
 \begin{figure}[htbp]
@@ -426,7 +426,7 @@ A few results are obvious when we analyze the outcome of this scenario from the 
 
 
 \pagebreak
-\textbf{Consumer trust after final epoch: }
+\textbf{Consumer Trust after Final Epoch: }
 
 \begin{figure}[htbp]
      \centering
@@ -439,7 +439,7 @@ A few results are obvious when we analyze the outcome of this scenario from the 
 
  We can see that our results are similar to that of a smaller network. Both the real information agent continues to maximize its reward while having a significantly lower penalty, and the fake information agent tends to maximize its penalty and does not deceive the network well. Because of this, consumer trust level is significantly lower, and each consumer steadily reduces their trust. This appears to be a result of how well the fact checker investigated various consumers who interacted with and accepted the fake information and corrected it.
 
- \textbf{note: } The output from this simulation is quite large, and to save space all output can be found in the output.txt related to this simulation inside the 50consumer folder.
+ \textbf{Note: } The output from this simulation is quite large, and to save space all output can be found in the output.txt related to this simulation inside the 50consumer folder.
 
  \pagebreak
  \subsubsection{Scenario 3: 5 consumer network with 3 real agents, 1 fake agent, 1 fact checker:}
@@ -453,7 +453,7 @@ A few results are obvious when we analyze the outcome of this scenario from the 
 
 In Scenario 3, we introduce two more real information agents to the network to simulate how an increase in spread of real information may impact consumer consensus on spreading information across the network.
 
-\textbf{Output after the first epoch: }
+\textbf{Output after the First Epoch: }
 
 \begin{verbatim}
 --------- epoch 0 ---------------------
@@ -492,7 +492,7 @@ Consumer trust level after fact checking:
 
 After the first epoch, we can see that the fake agent has accrued some reward, meaning it was able to be deceptive so far. One of the three real information agents has accrued more reward than penalty, and the other two have accrued penalties. The fact-checking agent has already penalized one agent in the network.
 
-\textbf{Output after the final epoch: }
+\textbf{Output after the Final Epoch: }
 
 \begin{verbatim}
 --------- epoch 9 ---------------------
